@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bendahara extends Model
 {
-    //
+    protected $fillable = [
+        'kode',
+        'nama',
+    ];
 }
