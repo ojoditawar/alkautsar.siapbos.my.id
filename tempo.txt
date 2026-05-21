@@ -1,0 +1,62 @@
+export function convertToTerbilang(angka) {
+  const bilangan = [
+    '', 'satu', 'dua', 'tiga', 'empat', 'lima', 'enam', 'tujuh', 'delapan', 'sembilan'
+  ];
+
+  const tingkat = ['', 'ribu', 'juta', 'milyar', 'triliun'];
+
+  const convertBelasanDanRatusan = (num) => {
+    let result = '';
+
+    const ratusan = Math.floor(num / 100);
+    if (ratusan > 0) {
+      result += bilangan[ratusan] + ' ratus ';
+    }
+
+    const sisanya = num % 100;
+    if (sisanya >= 10 && sisanya <= 19) {
+      const belasan = ['sepuluh', 'sebelas', 'dua belas', 'tiga belas', 'empat belas', 'lima belas', 'enam belas', 'tujuh belas', 'delapan belas', 'sembilan belas'];
+      result += belasan[sisanya - 10] + ' ';
+    } else {
+      const puluhan = Math.floor(sisanya / 10);
+      if (puluhan > 1) {
+        result += (puluhan * 10 === 20 ? 'dua puluh' : bilangan[puluhan] + ' puluh') + ' ';
+      }
+
+      const satuan = sisanya % 10;
+      if (satuan > 0) {
+        result += bilangan[satuan] + ' ';
+      }
+    }
+
+    return result;
+  };
+
+  // Handle 0
+  if (angka === 0) return 'nol';
+
+  // Tambahkan validasi
+  if (angka < 0) return 'minus ' + convertToTerbilang(-angka);
+
+  let result = '';
+  let tingkatIndex = 0;
+
+  while (angka > 0) {
+    const bagian = angka % 1000;
+
+    if (bagian !== 0) {
+      if (tingkatIndex === 0) {
+        result = convertBelasanDanRatusan(bagian) + result;
+      } else if (tingkatIndex === 1 && bagian === 1) {
+        result = 'seribu ' + result;
+      } else {
+        result = convertBelasanDanRatusan(bagian) + tingkat[tingkatIndex] + ' ' + result;
+      }
+    }
+
+    angka = Math.floor(angka / 1000);
+    tingkatIndex++;
+  }
+
+  return result.trim().charAt(0).toUpperCase() + result.trim().slice(1);
+}
