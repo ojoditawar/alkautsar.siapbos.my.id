@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('trensaksis', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->string('tahun');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->uuid('masjid_id');
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('rekening', 7);
             $table->boolean('valid', 1)->default(false)->nullable();
             $table->timestamps();
-            $table->unique(['id']);
+
         });
     }
 
