@@ -215,7 +215,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Http/Controllers/KhotbahController.php:70
  * @route '/khotib-jumat/{khotbah}/edit'
  */
-export const edit = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -230,7 +230,7 @@ edit.definition = {
  * @see app/Http/Controllers/KhotbahController.php:70
  * @route '/khotib-jumat/{khotbah}/edit'
  */
-edit.url = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+edit.url = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { khotbah: args }
     }
@@ -263,7 +263,7 @@ edit.url = (args: { khotbah: string | number | { id: string | number } } | [khot
  * @see app/Http/Controllers/KhotbahController.php:70
  * @route '/khotib-jumat/{khotbah}/edit'
  */
-edit.get = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -272,7 +272,7 @@ edit.get = (args: { khotbah: string | number | { id: string | number } } | [khot
  * @see app/Http/Controllers/KhotbahController.php:70
  * @route '/khotib-jumat/{khotbah}/edit'
  */
-edit.head = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -282,7 +282,7 @@ edit.head = (args: { khotbah: string | number | { id: string | number } } | [kho
  * @see app/Http/Controllers/KhotbahController.php:70
  * @route '/khotib-jumat/{khotbah}/edit'
  */
-    const editForm = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const editForm = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: edit.url(args, options),
         method: 'get',
     })
@@ -292,7 +292,7 @@ edit.head = (args: { khotbah: string | number | { id: string | number } } | [kho
  * @see app/Http/Controllers/KhotbahController.php:70
  * @route '/khotib-jumat/{khotbah}/edit'
  */
-        editForm.get = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.get = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, options),
             method: 'get',
         })
@@ -301,7 +301,7 @@ edit.head = (args: { khotbah: string | number | { id: string | number } } | [kho
  * @see app/Http/Controllers/KhotbahController.php:70
  * @route '/khotib-jumat/{khotbah}/edit'
  */
-        editForm.head = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.head = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -317,7 +317,7 @@ edit.head = (args: { khotbah: string | number | { id: string | number } } | [kho
  * @see app/Http/Controllers/KhotbahController.php:76
  * @route '/khotib-jumat/{khotbah}'
  */
-export const update = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -332,7 +332,7 @@ update.definition = {
  * @see app/Http/Controllers/KhotbahController.php:76
  * @route '/khotib-jumat/{khotbah}'
  */
-update.url = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { khotbah: args }
     }
@@ -365,7 +365,7 @@ update.url = (args: { khotbah: string | number | { id: string | number } } | [kh
  * @see app/Http/Controllers/KhotbahController.php:76
  * @route '/khotib-jumat/{khotbah}'
  */
-update.put = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -374,7 +374,7 @@ update.put = (args: { khotbah: string | number | { id: string | number } } | [kh
  * @see app/Http/Controllers/KhotbahController.php:76
  * @route '/khotib-jumat/{khotbah}'
  */
-update.patch = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -384,7 +384,7 @@ update.patch = (args: { khotbah: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/KhotbahController.php:76
  * @route '/khotib-jumat/{khotbah}'
  */
-    const updateForm = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -399,7 +399,7 @@ update.patch = (args: { khotbah: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/KhotbahController.php:76
  * @route '/khotib-jumat/{khotbah}'
  */
-        updateForm.put = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -413,7 +413,7 @@ update.patch = (args: { khotbah: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/KhotbahController.php:76
  * @route '/khotib-jumat/{khotbah}'
  */
-        updateForm.patch = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -429,7 +429,7 @@ update.patch = (args: { khotbah: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/KhotbahController.php:97
  * @route '/khotib-jumat/{khotbah}'
  */
-export const destroy = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -444,7 +444,7 @@ destroy.definition = {
  * @see app/Http/Controllers/KhotbahController.php:97
  * @route '/khotib-jumat/{khotbah}'
  */
-destroy.url = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { khotbah: args }
     }
@@ -477,7 +477,7 @@ destroy.url = (args: { khotbah: string | number | { id: string | number } } | [k
  * @see app/Http/Controllers/KhotbahController.php:97
  * @route '/khotib-jumat/{khotbah}'
  */
-destroy.delete = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -487,7 +487,7 @@ destroy.delete = (args: { khotbah: string | number | { id: string | number } } |
  * @see app/Http/Controllers/KhotbahController.php:97
  * @route '/khotib-jumat/{khotbah}'
  */
-    const destroyForm = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -502,7 +502,7 @@ destroy.delete = (args: { khotbah: string | number | { id: string | number } } |
  * @see app/Http/Controllers/KhotbahController.php:97
  * @route '/khotib-jumat/{khotbah}'
  */
-        destroyForm.delete = (args: { khotbah: string | number | { id: string | number } } | [khotbah: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',

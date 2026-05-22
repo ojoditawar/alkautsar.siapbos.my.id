@@ -294,7 +294,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Http/Controllers/RekController.php:43
  * @route '/reks/{rek}/edit'
  */
-export const edit = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -309,7 +309,7 @@ edit.definition = {
  * @see app/Http/Controllers/RekController.php:43
  * @route '/reks/{rek}/edit'
  */
-edit.url = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions) => {
+edit.url = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { rek: args }
     }
@@ -342,7 +342,7 @@ edit.url = (args: { rek: string | number | { kode: string | number } } | [rek: s
  * @see app/Http/Controllers/RekController.php:43
  * @route '/reks/{rek}/edit'
  */
-edit.get = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -351,7 +351,7 @@ edit.get = (args: { rek: string | number | { kode: string | number } } | [rek: s
  * @see app/Http/Controllers/RekController.php:43
  * @route '/reks/{rek}/edit'
  */
-edit.head = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -361,7 +361,7 @@ edit.head = (args: { rek: string | number | { kode: string | number } } | [rek: 
  * @see app/Http/Controllers/RekController.php:43
  * @route '/reks/{rek}/edit'
  */
-    const editForm = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const editForm = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: edit.url(args, options),
         method: 'get',
     })
@@ -371,7 +371,7 @@ edit.head = (args: { rek: string | number | { kode: string | number } } | [rek: 
  * @see app/Http/Controllers/RekController.php:43
  * @route '/reks/{rek}/edit'
  */
-        editForm.get = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.get = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, options),
             method: 'get',
         })
@@ -380,7 +380,7 @@ edit.head = (args: { rek: string | number | { kode: string | number } } | [rek: 
  * @see app/Http/Controllers/RekController.php:43
  * @route '/reks/{rek}/edit'
  */
-        editForm.head = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.head = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -396,7 +396,7 @@ edit.head = (args: { rek: string | number | { kode: string | number } } | [rek: 
  * @see app/Http/Controllers/RekController.php:50
  * @route '/reks/{rek}'
  */
-export const update = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -411,7 +411,7 @@ update.definition = {
  * @see app/Http/Controllers/RekController.php:50
  * @route '/reks/{rek}'
  */
-update.url = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { rek: args }
     }
@@ -444,7 +444,7 @@ update.url = (args: { rek: string | number | { kode: string | number } } | [rek:
  * @see app/Http/Controllers/RekController.php:50
  * @route '/reks/{rek}'
  */
-update.put = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -453,7 +453,7 @@ update.put = (args: { rek: string | number | { kode: string | number } } | [rek:
  * @see app/Http/Controllers/RekController.php:50
  * @route '/reks/{rek}'
  */
-update.patch = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -463,7 +463,7 @@ update.patch = (args: { rek: string | number | { kode: string | number } } | [re
  * @see app/Http/Controllers/RekController.php:50
  * @route '/reks/{rek}'
  */
-    const updateForm = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -478,7 +478,7 @@ update.patch = (args: { rek: string | number | { kode: string | number } } | [re
  * @see app/Http/Controllers/RekController.php:50
  * @route '/reks/{rek}'
  */
-        updateForm.put = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -492,7 +492,7 @@ update.patch = (args: { rek: string | number | { kode: string | number } } | [re
  * @see app/Http/Controllers/RekController.php:50
  * @route '/reks/{rek}'
  */
-        updateForm.patch = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -508,7 +508,7 @@ update.patch = (args: { rek: string | number | { kode: string | number } } | [re
  * @see app/Http/Controllers/RekController.php:81
  * @route '/reks/{rek}'
  */
-export const destroy = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -523,7 +523,7 @@ destroy.definition = {
  * @see app/Http/Controllers/RekController.php:81
  * @route '/reks/{rek}'
  */
-destroy.url = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { rek: args }
     }
@@ -556,7 +556,7 @@ destroy.url = (args: { rek: string | number | { kode: string | number } } | [rek
  * @see app/Http/Controllers/RekController.php:81
  * @route '/reks/{rek}'
  */
-destroy.delete = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -566,7 +566,7 @@ destroy.delete = (args: { rek: string | number | { kode: string | number } } | [
  * @see app/Http/Controllers/RekController.php:81
  * @route '/reks/{rek}'
  */
-    const destroyForm = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -581,7 +581,7 @@ destroy.delete = (args: { rek: string | number | { kode: string | number } } | [
  * @see app/Http/Controllers/RekController.php:81
  * @route '/reks/{rek}'
  */
-        destroyForm.delete = (args: { rek: string | number | { kode: string | number } } | [rek: string | number | { kode: string | number } ] | string | number | { kode: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',

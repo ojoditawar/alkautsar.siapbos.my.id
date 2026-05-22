@@ -215,7 +215,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Http/Controllers/RunningTextController.php:46
  * @route '/running-texts/{runningText}/edit'
  */
-export const edit = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -230,7 +230,7 @@ edit.definition = {
  * @see app/Http/Controllers/RunningTextController.php:46
  * @route '/running-texts/{runningText}/edit'
  */
-edit.url = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+edit.url = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { runningText: args }
     }
@@ -263,7 +263,7 @@ edit.url = (args: { runningText: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/RunningTextController.php:46
  * @route '/running-texts/{runningText}/edit'
  */
-edit.get = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -272,7 +272,7 @@ edit.get = (args: { runningText: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/RunningTextController.php:46
  * @route '/running-texts/{runningText}/edit'
  */
-edit.head = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -282,7 +282,7 @@ edit.head = (args: { runningText: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/RunningTextController.php:46
  * @route '/running-texts/{runningText}/edit'
  */
-    const editForm = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const editForm = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: edit.url(args, options),
         method: 'get',
     })
@@ -292,7 +292,7 @@ edit.head = (args: { runningText: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/RunningTextController.php:46
  * @route '/running-texts/{runningText}/edit'
  */
-        editForm.get = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.get = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, options),
             method: 'get',
         })
@@ -301,7 +301,7 @@ edit.head = (args: { runningText: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/RunningTextController.php:46
  * @route '/running-texts/{runningText}/edit'
  */
-        editForm.head = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.head = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -317,7 +317,7 @@ edit.head = (args: { runningText: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/RunningTextController.php:53
  * @route '/running-texts/{runningText}'
  */
-export const update = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -332,7 +332,7 @@ update.definition = {
  * @see app/Http/Controllers/RunningTextController.php:53
  * @route '/running-texts/{runningText}'
  */
-update.url = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { runningText: args }
     }
@@ -365,7 +365,7 @@ update.url = (args: { runningText: string | number | { id: string | number } } |
  * @see app/Http/Controllers/RunningTextController.php:53
  * @route '/running-texts/{runningText}'
  */
-update.put = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -374,7 +374,7 @@ update.put = (args: { runningText: string | number | { id: string | number } } |
  * @see app/Http/Controllers/RunningTextController.php:53
  * @route '/running-texts/{runningText}'
  */
-update.patch = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -384,7 +384,7 @@ update.patch = (args: { runningText: string | number | { id: string | number } }
  * @see app/Http/Controllers/RunningTextController.php:53
  * @route '/running-texts/{runningText}'
  */
-    const updateForm = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -399,7 +399,7 @@ update.patch = (args: { runningText: string | number | { id: string | number } }
  * @see app/Http/Controllers/RunningTextController.php:53
  * @route '/running-texts/{runningText}'
  */
-        updateForm.put = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -413,7 +413,7 @@ update.patch = (args: { runningText: string | number | { id: string | number } }
  * @see app/Http/Controllers/RunningTextController.php:53
  * @route '/running-texts/{runningText}'
  */
-        updateForm.patch = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -429,7 +429,7 @@ update.patch = (args: { runningText: string | number | { id: string | number } }
  * @see app/Http/Controllers/RunningTextController.php:72
  * @route '/running-texts/{runningText}'
  */
-export const destroy = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -444,7 +444,7 @@ destroy.definition = {
  * @see app/Http/Controllers/RunningTextController.php:72
  * @route '/running-texts/{runningText}'
  */
-destroy.url = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { runningText: args }
     }
@@ -477,7 +477,7 @@ destroy.url = (args: { runningText: string | number | { id: string | number } } 
  * @see app/Http/Controllers/RunningTextController.php:72
  * @route '/running-texts/{runningText}'
  */
-destroy.delete = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -487,7 +487,7 @@ destroy.delete = (args: { runningText: string | number | { id: string | number }
  * @see app/Http/Controllers/RunningTextController.php:72
  * @route '/running-texts/{runningText}'
  */
-    const destroyForm = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -502,7 +502,7 @@ destroy.delete = (args: { runningText: string | number | { id: string | number }
  * @see app/Http/Controllers/RunningTextController.php:72
  * @route '/running-texts/{runningText}'
  */
-        destroyForm.delete = (args: { runningText: string | number | { id: string | number } } | [runningText: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',

@@ -4,7 +4,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
  * @see app/Http/Controllers/KegiatanController.php:12
  * @route '/programs/{program}/kegiatans'
  */
-export const index = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const index = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(args, options),
     method: 'get',
 })
@@ -19,7 +19,7 @@ index.definition = {
  * @see app/Http/Controllers/KegiatanController.php:12
  * @route '/programs/{program}/kegiatans'
  */
-index.url = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+index.url = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { program: args }
     }
@@ -52,7 +52,7 @@ index.url = (args: { program: string | number | { id: string | number } } | [pro
  * @see app/Http/Controllers/KegiatanController.php:12
  * @route '/programs/{program}/kegiatans'
  */
-index.get = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+index.get = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(args, options),
     method: 'get',
 })
@@ -61,7 +61,7 @@ index.get = (args: { program: string | number | { id: string | number } } | [pro
  * @see app/Http/Controllers/KegiatanController.php:12
  * @route '/programs/{program}/kegiatans'
  */
-index.head = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+index.head = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: index.url(args, options),
     method: 'head',
 })
@@ -71,7 +71,7 @@ index.head = (args: { program: string | number | { id: string | number } } | [pr
  * @see app/Http/Controllers/KegiatanController.php:12
  * @route '/programs/{program}/kegiatans'
  */
-    const indexForm = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const indexForm = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: index.url(args, options),
         method: 'get',
     })
@@ -81,7 +81,7 @@ index.head = (args: { program: string | number | { id: string | number } } | [pr
  * @see app/Http/Controllers/KegiatanController.php:12
  * @route '/programs/{program}/kegiatans'
  */
-        indexForm.get = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        indexForm.get = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: index.url(args, options),
             method: 'get',
         })
@@ -90,7 +90,7 @@ index.head = (args: { program: string | number | { id: string | number } } | [pr
  * @see app/Http/Controllers/KegiatanController.php:12
  * @route '/programs/{program}/kegiatans'
  */
-        indexForm.head = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        indexForm.head = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: index.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -106,7 +106,7 @@ index.head = (args: { program: string | number | { id: string | number } } | [pr
  * @see app/Http/Controllers/KegiatanController.php:22
  * @route '/programs/{program}/kegiatans/create'
  */
-export const create = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const create = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: create.url(args, options),
     method: 'get',
 })
@@ -121,7 +121,7 @@ create.definition = {
  * @see app/Http/Controllers/KegiatanController.php:22
  * @route '/programs/{program}/kegiatans/create'
  */
-create.url = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+create.url = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { program: args }
     }
@@ -154,7 +154,7 @@ create.url = (args: { program: string | number | { id: string | number } } | [pr
  * @see app/Http/Controllers/KegiatanController.php:22
  * @route '/programs/{program}/kegiatans/create'
  */
-create.get = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+create.get = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: create.url(args, options),
     method: 'get',
 })
@@ -163,7 +163,7 @@ create.get = (args: { program: string | number | { id: string | number } } | [pr
  * @see app/Http/Controllers/KegiatanController.php:22
  * @route '/programs/{program}/kegiatans/create'
  */
-create.head = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+create.head = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: create.url(args, options),
     method: 'head',
 })
@@ -173,7 +173,7 @@ create.head = (args: { program: string | number | { id: string | number } } | [p
  * @see app/Http/Controllers/KegiatanController.php:22
  * @route '/programs/{program}/kegiatans/create'
  */
-    const createForm = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const createForm = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: create.url(args, options),
         method: 'get',
     })
@@ -183,7 +183,7 @@ create.head = (args: { program: string | number | { id: string | number } } | [p
  * @see app/Http/Controllers/KegiatanController.php:22
  * @route '/programs/{program}/kegiatans/create'
  */
-        createForm.get = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        createForm.get = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: create.url(args, options),
             method: 'get',
         })
@@ -192,7 +192,7 @@ create.head = (args: { program: string | number | { id: string | number } } | [p
  * @see app/Http/Controllers/KegiatanController.php:22
  * @route '/programs/{program}/kegiatans/create'
  */
-        createForm.head = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        createForm.head = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: create.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -208,7 +208,7 @@ create.head = (args: { program: string | number | { id: string | number } } | [p
  * @see app/Http/Controllers/KegiatanController.php:29
  * @route '/programs/{program}/kegiatans'
  */
-export const store = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const store = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: store.url(args, options),
     method: 'post',
 })
@@ -223,7 +223,7 @@ store.definition = {
  * @see app/Http/Controllers/KegiatanController.php:29
  * @route '/programs/{program}/kegiatans'
  */
-store.url = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+store.url = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { program: args }
     }
@@ -256,7 +256,7 @@ store.url = (args: { program: string | number | { id: string | number } } | [pro
  * @see app/Http/Controllers/KegiatanController.php:29
  * @route '/programs/{program}/kegiatans'
  */
-store.post = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+store.post = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: store.url(args, options),
     method: 'post',
 })
@@ -266,7 +266,7 @@ store.post = (args: { program: string | number | { id: string | number } } | [pr
  * @see app/Http/Controllers/KegiatanController.php:29
  * @route '/programs/{program}/kegiatans'
  */
-    const storeForm = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const storeForm = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: store.url(args, options),
         method: 'post',
     })
@@ -276,7 +276,7 @@ store.post = (args: { program: string | number | { id: string | number } } | [pr
  * @see app/Http/Controllers/KegiatanController.php:29
  * @route '/programs/{program}/kegiatans'
  */
-        storeForm.post = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        storeForm.post = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: store.url(args, options),
             method: 'post',
         })
@@ -287,7 +287,7 @@ store.post = (args: { program: string | number | { id: string | number } } | [pr
  * @see app/Http/Controllers/KegiatanController.php:41
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
-export const edit = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -302,7 +302,7 @@ edit.definition = {
  * @see app/Http/Controllers/KegiatanController.php:41
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
-edit.url = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+edit.url = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
                     program: args[0],
@@ -332,7 +332,7 @@ edit.url = (args: { program: string | number | { id: string | number }, kegiatan
  * @see app/Http/Controllers/KegiatanController.php:41
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
-edit.get = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -341,7 +341,7 @@ edit.get = (args: { program: string | number | { id: string | number }, kegiatan
  * @see app/Http/Controllers/KegiatanController.php:41
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
-edit.head = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -351,7 +351,7 @@ edit.head = (args: { program: string | number | { id: string | number }, kegiata
  * @see app/Http/Controllers/KegiatanController.php:41
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
-    const editForm = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const editForm = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: edit.url(args, options),
         method: 'get',
     })
@@ -361,7 +361,7 @@ edit.head = (args: { program: string | number | { id: string | number }, kegiata
  * @see app/Http/Controllers/KegiatanController.php:41
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
-        editForm.get = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.get = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, options),
             method: 'get',
         })
@@ -370,7 +370,7 @@ edit.head = (args: { program: string | number | { id: string | number }, kegiata
  * @see app/Http/Controllers/KegiatanController.php:41
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
-        editForm.head = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.head = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -386,7 +386,7 @@ edit.head = (args: { program: string | number | { id: string | number }, kegiata
  * @see app/Http/Controllers/KegiatanController.php:53
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-export const update = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -401,7 +401,7 @@ update.definition = {
  * @see app/Http/Controllers/KegiatanController.php:53
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-update.url = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+update.url = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
                     program: args[0],
@@ -431,7 +431,7 @@ update.url = (args: { program: string | number | { id: string | number }, kegiat
  * @see app/Http/Controllers/KegiatanController.php:53
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-update.put = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -440,7 +440,7 @@ update.put = (args: { program: string | number | { id: string | number }, kegiat
  * @see app/Http/Controllers/KegiatanController.php:53
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-update.patch = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -450,7 +450,7 @@ update.patch = (args: { program: string | number | { id: string | number }, kegi
  * @see app/Http/Controllers/KegiatanController.php:53
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-    const updateForm = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -465,7 +465,7 @@ update.patch = (args: { program: string | number | { id: string | number }, kegi
  * @see app/Http/Controllers/KegiatanController.php:53
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-        updateForm.put = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -479,7 +479,7 @@ update.patch = (args: { program: string | number | { id: string | number }, kegi
  * @see app/Http/Controllers/KegiatanController.php:53
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-        updateForm.patch = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -495,7 +495,7 @@ update.patch = (args: { program: string | number | { id: string | number }, kegi
  * @see app/Http/Controllers/KegiatanController.php:69
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-export const destroy = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -510,7 +510,7 @@ destroy.definition = {
  * @see app/Http/Controllers/KegiatanController.php:69
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-destroy.url = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+destroy.url = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
                     program: args[0],
@@ -540,7 +540,7 @@ destroy.url = (args: { program: string | number | { id: string | number }, kegia
  * @see app/Http/Controllers/KegiatanController.php:69
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-destroy.delete = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -550,7 +550,7 @@ destroy.delete = (args: { program: string | number | { id: string | number }, ke
  * @see app/Http/Controllers/KegiatanController.php:69
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-    const destroyForm = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -565,7 +565,7 @@ destroy.delete = (args: { program: string | number | { id: string | number }, ke
  * @see app/Http/Controllers/KegiatanController.php:69
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
-        destroyForm.delete = (args: { program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } } | [program: string | number | { id: string | number }, kegiatan: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',

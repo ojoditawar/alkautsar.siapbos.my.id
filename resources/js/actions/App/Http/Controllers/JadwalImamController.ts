@@ -215,7 +215,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Http/Controllers/JadwalImamController.php:89
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
-export const edit = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -230,7 +230,7 @@ edit.definition = {
  * @see app/Http/Controllers/JadwalImamController.php:89
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
-edit.url = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+edit.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { jadwalImam: args }
     }
@@ -263,7 +263,7 @@ edit.url = (args: { jadwalImam: string | number | { id: string | number } } | [j
  * @see app/Http/Controllers/JadwalImamController.php:89
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
-edit.get = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -272,7 +272,7 @@ edit.get = (args: { jadwalImam: string | number | { id: string | number } } | [j
  * @see app/Http/Controllers/JadwalImamController.php:89
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
-edit.head = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -282,7 +282,7 @@ edit.head = (args: { jadwalImam: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/JadwalImamController.php:89
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
-    const editForm = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const editForm = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: edit.url(args, options),
         method: 'get',
     })
@@ -292,7 +292,7 @@ edit.head = (args: { jadwalImam: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/JadwalImamController.php:89
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
-        editForm.get = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.get = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, options),
             method: 'get',
         })
@@ -301,7 +301,7 @@ edit.head = (args: { jadwalImam: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/JadwalImamController.php:89
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
-        editForm.head = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.head = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -317,7 +317,7 @@ edit.head = (args: { jadwalImam: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/JadwalImamController.php:98
  * @route '/jadwal-imams/{jadwalImam}'
  */
-export const update = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -332,7 +332,7 @@ update.definition = {
  * @see app/Http/Controllers/JadwalImamController.php:98
  * @route '/jadwal-imams/{jadwalImam}'
  */
-update.url = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { jadwalImam: args }
     }
@@ -365,7 +365,7 @@ update.url = (args: { jadwalImam: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/JadwalImamController.php:98
  * @route '/jadwal-imams/{jadwalImam}'
  */
-update.put = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -374,7 +374,7 @@ update.put = (args: { jadwalImam: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/JadwalImamController.php:98
  * @route '/jadwal-imams/{jadwalImam}'
  */
-update.patch = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -384,7 +384,7 @@ update.patch = (args: { jadwalImam: string | number | { id: string | number } } 
  * @see app/Http/Controllers/JadwalImamController.php:98
  * @route '/jadwal-imams/{jadwalImam}'
  */
-    const updateForm = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -399,7 +399,7 @@ update.patch = (args: { jadwalImam: string | number | { id: string | number } } 
  * @see app/Http/Controllers/JadwalImamController.php:98
  * @route '/jadwal-imams/{jadwalImam}'
  */
-        updateForm.put = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -413,7 +413,7 @@ update.patch = (args: { jadwalImam: string | number | { id: string | number } } 
  * @see app/Http/Controllers/JadwalImamController.php:98
  * @route '/jadwal-imams/{jadwalImam}'
  */
-        updateForm.patch = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -429,7 +429,7 @@ update.patch = (args: { jadwalImam: string | number | { id: string | number } } 
  * @see app/Http/Controllers/JadwalImamController.php:115
  * @route '/jadwal-imams/{jadwalImam}'
  */
-export const destroy = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -444,7 +444,7 @@ destroy.definition = {
  * @see app/Http/Controllers/JadwalImamController.php:115
  * @route '/jadwal-imams/{jadwalImam}'
  */
-destroy.url = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { jadwalImam: args }
     }
@@ -477,7 +477,7 @@ destroy.url = (args: { jadwalImam: string | number | { id: string | number } } |
  * @see app/Http/Controllers/JadwalImamController.php:115
  * @route '/jadwal-imams/{jadwalImam}'
  */
-destroy.delete = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -487,7 +487,7 @@ destroy.delete = (args: { jadwalImam: string | number | { id: string | number } 
  * @see app/Http/Controllers/JadwalImamController.php:115
  * @route '/jadwal-imams/{jadwalImam}'
  */
-    const destroyForm = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -502,7 +502,7 @@ destroy.delete = (args: { jadwalImam: string | number | { id: string | number } 
  * @see app/Http/Controllers/JadwalImamController.php:115
  * @route '/jadwal-imams/{jadwalImam}'
  */
-        destroyForm.delete = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',
@@ -518,7 +518,7 @@ destroy.delete = (args: { jadwalImam: string | number | { id: string | number } 
  * @see app/Http/Controllers/JadwalImamController.php:122
  * @route '/jadwal-imams/{jadwalImam}/duplicate'
  */
-export const duplicate = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const duplicate = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: duplicate.url(args, options),
     method: 'post',
 })
@@ -533,7 +533,7 @@ duplicate.definition = {
  * @see app/Http/Controllers/JadwalImamController.php:122
  * @route '/jadwal-imams/{jadwalImam}/duplicate'
  */
-duplicate.url = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+duplicate.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { jadwalImam: args }
     }
@@ -566,7 +566,7 @@ duplicate.url = (args: { jadwalImam: string | number | { id: string | number } }
  * @see app/Http/Controllers/JadwalImamController.php:122
  * @route '/jadwal-imams/{jadwalImam}/duplicate'
  */
-duplicate.post = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+duplicate.post = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: duplicate.url(args, options),
     method: 'post',
 })
@@ -576,7 +576,7 @@ duplicate.post = (args: { jadwalImam: string | number | { id: string | number } 
  * @see app/Http/Controllers/JadwalImamController.php:122
  * @route '/jadwal-imams/{jadwalImam}/duplicate'
  */
-    const duplicateForm = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const duplicateForm = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: duplicate.url(args, options),
         method: 'post',
     })
@@ -586,7 +586,7 @@ duplicate.post = (args: { jadwalImam: string | number | { id: string | number } 
  * @see app/Http/Controllers/JadwalImamController.php:122
  * @route '/jadwal-imams/{jadwalImam}/duplicate'
  */
-        duplicateForm.post = (args: { jadwalImam: string | number | { id: string | number } } | [jadwalImam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        duplicateForm.post = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: duplicate.url(args, options),
             method: 'post',
         })

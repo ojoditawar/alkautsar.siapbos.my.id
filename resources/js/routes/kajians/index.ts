@@ -215,7 +215,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Http/Controllers/KajianController.php:41
  * @route '/kajians/{kajian}/edit'
  */
-export const edit = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -230,7 +230,7 @@ edit.definition = {
  * @see app/Http/Controllers/KajianController.php:41
  * @route '/kajians/{kajian}/edit'
  */
-edit.url = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+edit.url = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { kajian: args }
     }
@@ -263,7 +263,7 @@ edit.url = (args: { kajian: string | number | { id: string | number } } | [kajia
  * @see app/Http/Controllers/KajianController.php:41
  * @route '/kajians/{kajian}/edit'
  */
-edit.get = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -272,7 +272,7 @@ edit.get = (args: { kajian: string | number | { id: string | number } } | [kajia
  * @see app/Http/Controllers/KajianController.php:41
  * @route '/kajians/{kajian}/edit'
  */
-edit.head = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -282,7 +282,7 @@ edit.head = (args: { kajian: string | number | { id: string | number } } | [kaji
  * @see app/Http/Controllers/KajianController.php:41
  * @route '/kajians/{kajian}/edit'
  */
-    const editForm = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const editForm = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: edit.url(args, options),
         method: 'get',
     })
@@ -292,7 +292,7 @@ edit.head = (args: { kajian: string | number | { id: string | number } } | [kaji
  * @see app/Http/Controllers/KajianController.php:41
  * @route '/kajians/{kajian}/edit'
  */
-        editForm.get = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.get = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, options),
             method: 'get',
         })
@@ -301,7 +301,7 @@ edit.head = (args: { kajian: string | number | { id: string | number } } | [kaji
  * @see app/Http/Controllers/KajianController.php:41
  * @route '/kajians/{kajian}/edit'
  */
-        editForm.head = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.head = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -317,7 +317,7 @@ edit.head = (args: { kajian: string | number | { id: string | number } } | [kaji
  * @see app/Http/Controllers/KajianController.php:57
  * @route '/kajians/{kajian}'
  */
-export const update = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -332,7 +332,7 @@ update.definition = {
  * @see app/Http/Controllers/KajianController.php:57
  * @route '/kajians/{kajian}'
  */
-update.url = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { kajian: args }
     }
@@ -365,7 +365,7 @@ update.url = (args: { kajian: string | number | { id: string | number } } | [kaj
  * @see app/Http/Controllers/KajianController.php:57
  * @route '/kajians/{kajian}'
  */
-update.put = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -374,7 +374,7 @@ update.put = (args: { kajian: string | number | { id: string | number } } | [kaj
  * @see app/Http/Controllers/KajianController.php:57
  * @route '/kajians/{kajian}'
  */
-update.patch = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -384,7 +384,7 @@ update.patch = (args: { kajian: string | number | { id: string | number } } | [k
  * @see app/Http/Controllers/KajianController.php:57
  * @route '/kajians/{kajian}'
  */
-    const updateForm = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -399,7 +399,7 @@ update.patch = (args: { kajian: string | number | { id: string | number } } | [k
  * @see app/Http/Controllers/KajianController.php:57
  * @route '/kajians/{kajian}'
  */
-        updateForm.put = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -413,7 +413,7 @@ update.patch = (args: { kajian: string | number | { id: string | number } } | [k
  * @see app/Http/Controllers/KajianController.php:57
  * @route '/kajians/{kajian}'
  */
-        updateForm.patch = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -429,7 +429,7 @@ update.patch = (args: { kajian: string | number | { id: string | number } } | [k
  * @see app/Http/Controllers/KajianController.php:68
  * @route '/kajians/{kajian}'
  */
-export const destroy = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -444,7 +444,7 @@ destroy.definition = {
  * @see app/Http/Controllers/KajianController.php:68
  * @route '/kajians/{kajian}'
  */
-destroy.url = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { kajian: args }
     }
@@ -477,7 +477,7 @@ destroy.url = (args: { kajian: string | number | { id: string | number } } | [ka
  * @see app/Http/Controllers/KajianController.php:68
  * @route '/kajians/{kajian}'
  */
-destroy.delete = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -487,7 +487,7 @@ destroy.delete = (args: { kajian: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/KajianController.php:68
  * @route '/kajians/{kajian}'
  */
-    const destroyForm = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -502,7 +502,7 @@ destroy.delete = (args: { kajian: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/KajianController.php:68
  * @route '/kajians/{kajian}'
  */
-        destroyForm.delete = (args: { kajian: string | number | { id: string | number } } | [kajian: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',

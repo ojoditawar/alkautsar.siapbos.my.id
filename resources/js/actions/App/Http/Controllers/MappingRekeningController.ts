@@ -4,7 +4,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
  * @see app/Http/Controllers/MappingRekeningController.php:14
  * @route '/mapping-rekenings/{rekening}/edit'
  */
-export const edit = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -19,7 +19,7 @@ edit.definition = {
  * @see app/Http/Controllers/MappingRekeningController.php:14
  * @route '/mapping-rekenings/{rekening}/edit'
  */
-edit.url = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+edit.url = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { rekening: args }
     }
@@ -52,7 +52,7 @@ edit.url = (args: { rekening: string | number | { id: string | number } } | [rek
  * @see app/Http/Controllers/MappingRekeningController.php:14
  * @route '/mapping-rekenings/{rekening}/edit'
  */
-edit.get = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -61,7 +61,7 @@ edit.get = (args: { rekening: string | number | { id: string | number } } | [rek
  * @see app/Http/Controllers/MappingRekeningController.php:14
  * @route '/mapping-rekenings/{rekening}/edit'
  */
-edit.head = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -71,7 +71,7 @@ edit.head = (args: { rekening: string | number | { id: string | number } } | [re
  * @see app/Http/Controllers/MappingRekeningController.php:14
  * @route '/mapping-rekenings/{rekening}/edit'
  */
-    const editForm = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const editForm = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: edit.url(args, options),
         method: 'get',
     })
@@ -81,7 +81,7 @@ edit.head = (args: { rekening: string | number | { id: string | number } } | [re
  * @see app/Http/Controllers/MappingRekeningController.php:14
  * @route '/mapping-rekenings/{rekening}/edit'
  */
-        editForm.get = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.get = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, options),
             method: 'get',
         })
@@ -90,7 +90,7 @@ edit.head = (args: { rekening: string | number | { id: string | number } } | [re
  * @see app/Http/Controllers/MappingRekeningController.php:14
  * @route '/mapping-rekenings/{rekening}/edit'
  */
-        editForm.head = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.head = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -106,7 +106,7 @@ edit.head = (args: { rekening: string | number | { id: string | number } } | [re
  * @see app/Http/Controllers/MappingRekeningController.php:36
  * @route '/mapping-rekenings/{rekening}'
  */
-export const update = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -121,7 +121,7 @@ update.definition = {
  * @see app/Http/Controllers/MappingRekeningController.php:36
  * @route '/mapping-rekenings/{rekening}'
  */
-update.url = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { rekening: args }
     }
@@ -154,7 +154,7 @@ update.url = (args: { rekening: string | number | { id: string | number } } | [r
  * @see app/Http/Controllers/MappingRekeningController.php:36
  * @route '/mapping-rekenings/{rekening}'
  */
-update.put = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -164,7 +164,7 @@ update.put = (args: { rekening: string | number | { id: string | number } } | [r
  * @see app/Http/Controllers/MappingRekeningController.php:36
  * @route '/mapping-rekenings/{rekening}'
  */
-    const updateForm = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -179,7 +179,7 @@ update.put = (args: { rekening: string | number | { id: string | number } } | [r
  * @see app/Http/Controllers/MappingRekeningController.php:36
  * @route '/mapping-rekenings/{rekening}'
  */
-        updateForm.put = (args: { rekening: string | number | { id: string | number } } | [rekening: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { rekening: number | { id: number } } | [rekening: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',

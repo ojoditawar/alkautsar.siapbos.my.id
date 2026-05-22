@@ -215,7 +215,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Http/Controllers/ProgramController.php:43
  * @route '/programs/{program}/edit'
  */
-export const edit = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -230,7 +230,7 @@ edit.definition = {
  * @see app/Http/Controllers/ProgramController.php:43
  * @route '/programs/{program}/edit'
  */
-edit.url = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+edit.url = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { program: args }
     }
@@ -263,7 +263,7 @@ edit.url = (args: { program: string | number | { id: string | number } } | [prog
  * @see app/Http/Controllers/ProgramController.php:43
  * @route '/programs/{program}/edit'
  */
-edit.get = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -272,7 +272,7 @@ edit.get = (args: { program: string | number | { id: string | number } } | [prog
  * @see app/Http/Controllers/ProgramController.php:43
  * @route '/programs/{program}/edit'
  */
-edit.head = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -282,7 +282,7 @@ edit.head = (args: { program: string | number | { id: string | number } } | [pro
  * @see app/Http/Controllers/ProgramController.php:43
  * @route '/programs/{program}/edit'
  */
-    const editForm = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const editForm = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: edit.url(args, options),
         method: 'get',
     })
@@ -292,7 +292,7 @@ edit.head = (args: { program: string | number | { id: string | number } } | [pro
  * @see app/Http/Controllers/ProgramController.php:43
  * @route '/programs/{program}/edit'
  */
-        editForm.get = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.get = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, options),
             method: 'get',
         })
@@ -301,7 +301,7 @@ edit.head = (args: { program: string | number | { id: string | number } } | [pro
  * @see app/Http/Controllers/ProgramController.php:43
  * @route '/programs/{program}/edit'
  */
-        editForm.head = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.head = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -317,7 +317,7 @@ edit.head = (args: { program: string | number | { id: string | number } } | [pro
  * @see app/Http/Controllers/ProgramController.php:50
  * @route '/programs/{program}'
  */
-export const update = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -332,7 +332,7 @@ update.definition = {
  * @see app/Http/Controllers/ProgramController.php:50
  * @route '/programs/{program}'
  */
-update.url = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { program: args }
     }
@@ -365,7 +365,7 @@ update.url = (args: { program: string | number | { id: string | number } } | [pr
  * @see app/Http/Controllers/ProgramController.php:50
  * @route '/programs/{program}'
  */
-update.put = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -374,7 +374,7 @@ update.put = (args: { program: string | number | { id: string | number } } | [pr
  * @see app/Http/Controllers/ProgramController.php:50
  * @route '/programs/{program}'
  */
-update.patch = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -384,7 +384,7 @@ update.patch = (args: { program: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/ProgramController.php:50
  * @route '/programs/{program}'
  */
-    const updateForm = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -399,7 +399,7 @@ update.patch = (args: { program: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/ProgramController.php:50
  * @route '/programs/{program}'
  */
-        updateForm.put = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -413,7 +413,7 @@ update.patch = (args: { program: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/ProgramController.php:50
  * @route '/programs/{program}'
  */
-        updateForm.patch = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -429,7 +429,7 @@ update.patch = (args: { program: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/ProgramController.php:64
  * @route '/programs/{program}'
  */
-export const destroy = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -444,7 +444,7 @@ destroy.definition = {
  * @see app/Http/Controllers/ProgramController.php:64
  * @route '/programs/{program}'
  */
-destroy.url = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { program: args }
     }
@@ -477,7 +477,7 @@ destroy.url = (args: { program: string | number | { id: string | number } } | [p
  * @see app/Http/Controllers/ProgramController.php:64
  * @route '/programs/{program}'
  */
-destroy.delete = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -487,7 +487,7 @@ destroy.delete = (args: { program: string | number | { id: string | number } } |
  * @see app/Http/Controllers/ProgramController.php:64
  * @route '/programs/{program}'
  */
-    const destroyForm = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -502,7 +502,7 @@ destroy.delete = (args: { program: string | number | { id: string | number } } |
  * @see app/Http/Controllers/ProgramController.php:64
  * @route '/programs/{program}'
  */
-        destroyForm.delete = (args: { program: string | number | { id: string | number } } | [program: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',

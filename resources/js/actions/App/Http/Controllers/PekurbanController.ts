@@ -215,7 +215,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Http/Controllers/PekurbanController.php:134
  * @route '/pekurbans/{pekurban}/edit'
  */
-export const edit = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -230,7 +230,7 @@ edit.definition = {
  * @see app/Http/Controllers/PekurbanController.php:134
  * @route '/pekurbans/{pekurban}/edit'
  */
-edit.url = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+edit.url = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { pekurban: args }
     }
@@ -263,7 +263,7 @@ edit.url = (args: { pekurban: string | number | { id: string | number } } | [pek
  * @see app/Http/Controllers/PekurbanController.php:134
  * @route '/pekurbans/{pekurban}/edit'
  */
-edit.get = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -272,7 +272,7 @@ edit.get = (args: { pekurban: string | number | { id: string | number } } | [pek
  * @see app/Http/Controllers/PekurbanController.php:134
  * @route '/pekurbans/{pekurban}/edit'
  */
-edit.head = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -282,7 +282,7 @@ edit.head = (args: { pekurban: string | number | { id: string | number } } | [pe
  * @see app/Http/Controllers/PekurbanController.php:134
  * @route '/pekurbans/{pekurban}/edit'
  */
-    const editForm = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const editForm = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: edit.url(args, options),
         method: 'get',
     })
@@ -292,7 +292,7 @@ edit.head = (args: { pekurban: string | number | { id: string | number } } | [pe
  * @see app/Http/Controllers/PekurbanController.php:134
  * @route '/pekurbans/{pekurban}/edit'
  */
-        editForm.get = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.get = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, options),
             method: 'get',
         })
@@ -301,7 +301,7 @@ edit.head = (args: { pekurban: string | number | { id: string | number } } | [pe
  * @see app/Http/Controllers/PekurbanController.php:134
  * @route '/pekurbans/{pekurban}/edit'
  */
-        editForm.head = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.head = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -317,7 +317,7 @@ edit.head = (args: { pekurban: string | number | { id: string | number } } | [pe
  * @see app/Http/Controllers/PekurbanController.php:151
  * @route '/pekurbans/{pekurban}'
  */
-export const update = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -332,7 +332,7 @@ update.definition = {
  * @see app/Http/Controllers/PekurbanController.php:151
  * @route '/pekurbans/{pekurban}'
  */
-update.url = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { pekurban: args }
     }
@@ -365,7 +365,7 @@ update.url = (args: { pekurban: string | number | { id: string | number } } | [p
  * @see app/Http/Controllers/PekurbanController.php:151
  * @route '/pekurbans/{pekurban}'
  */
-update.put = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -374,7 +374,7 @@ update.put = (args: { pekurban: string | number | { id: string | number } } | [p
  * @see app/Http/Controllers/PekurbanController.php:151
  * @route '/pekurbans/{pekurban}'
  */
-update.patch = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -384,7 +384,7 @@ update.patch = (args: { pekurban: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/PekurbanController.php:151
  * @route '/pekurbans/{pekurban}'
  */
-    const updateForm = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -399,7 +399,7 @@ update.patch = (args: { pekurban: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/PekurbanController.php:151
  * @route '/pekurbans/{pekurban}'
  */
-        updateForm.put = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -413,7 +413,7 @@ update.patch = (args: { pekurban: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/PekurbanController.php:151
  * @route '/pekurbans/{pekurban}'
  */
-        updateForm.patch = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -429,7 +429,7 @@ update.patch = (args: { pekurban: string | number | { id: string | number } } | 
  * @see app/Http/Controllers/PekurbanController.php:212
  * @route '/pekurbans/{pekurban}'
  */
-export const destroy = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -444,7 +444,7 @@ destroy.definition = {
  * @see app/Http/Controllers/PekurbanController.php:212
  * @route '/pekurbans/{pekurban}'
  */
-destroy.url = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { pekurban: args }
     }
@@ -477,7 +477,7 @@ destroy.url = (args: { pekurban: string | number | { id: string | number } } | [
  * @see app/Http/Controllers/PekurbanController.php:212
  * @route '/pekurbans/{pekurban}'
  */
-destroy.delete = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -487,7 +487,7 @@ destroy.delete = (args: { pekurban: string | number | { id: string | number } } 
  * @see app/Http/Controllers/PekurbanController.php:212
  * @route '/pekurbans/{pekurban}'
  */
-    const destroyForm = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -502,7 +502,7 @@ destroy.delete = (args: { pekurban: string | number | { id: string | number } } 
  * @see app/Http/Controllers/PekurbanController.php:212
  * @route '/pekurbans/{pekurban}'
  */
-        destroyForm.delete = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',
@@ -518,7 +518,7 @@ destroy.delete = (args: { pekurban: string | number | { id: string | number } } 
  * @see app/Http/Controllers/PekurbanController.php:224
  * @route '/pekurbans/{pekurban}/duplicate'
  */
-export const duplicate = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const duplicate = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: duplicate.url(args, options),
     method: 'post',
 })
@@ -533,7 +533,7 @@ duplicate.definition = {
  * @see app/Http/Controllers/PekurbanController.php:224
  * @route '/pekurbans/{pekurban}/duplicate'
  */
-duplicate.url = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+duplicate.url = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { pekurban: args }
     }
@@ -566,7 +566,7 @@ duplicate.url = (args: { pekurban: string | number | { id: string | number } } |
  * @see app/Http/Controllers/PekurbanController.php:224
  * @route '/pekurbans/{pekurban}/duplicate'
  */
-duplicate.post = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+duplicate.post = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: duplicate.url(args, options),
     method: 'post',
 })
@@ -576,7 +576,7 @@ duplicate.post = (args: { pekurban: string | number | { id: string | number } } 
  * @see app/Http/Controllers/PekurbanController.php:224
  * @route '/pekurbans/{pekurban}/duplicate'
  */
-    const duplicateForm = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const duplicateForm = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: duplicate.url(args, options),
         method: 'post',
     })
@@ -586,7 +586,7 @@ duplicate.post = (args: { pekurban: string | number | { id: string | number } } 
  * @see app/Http/Controllers/PekurbanController.php:224
  * @route '/pekurbans/{pekurban}/duplicate'
  */
-        duplicateForm.post = (args: { pekurban: string | number | { id: string | number } } | [pekurban: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        duplicateForm.post = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: duplicate.url(args, options),
             method: 'post',
         })

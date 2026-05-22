@@ -215,7 +215,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Http/Controllers/MutiaraImageController.php:65
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
-export const edit = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -230,7 +230,7 @@ edit.definition = {
  * @see app/Http/Controllers/MutiaraImageController.php:65
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
-edit.url = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+edit.url = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { mutiara_image: args }
     }
@@ -263,7 +263,7 @@ edit.url = (args: { mutiara_image: string | number | { id: string | number } } |
  * @see app/Http/Controllers/MutiaraImageController.php:65
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
-edit.get = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -272,7 +272,7 @@ edit.get = (args: { mutiara_image: string | number | { id: string | number } } |
  * @see app/Http/Controllers/MutiaraImageController.php:65
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
-edit.head = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -282,7 +282,7 @@ edit.head = (args: { mutiara_image: string | number | { id: string | number } } 
  * @see app/Http/Controllers/MutiaraImageController.php:65
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
-    const editForm = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const editForm = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: edit.url(args, options),
         method: 'get',
     })
@@ -292,7 +292,7 @@ edit.head = (args: { mutiara_image: string | number | { id: string | number } } 
  * @see app/Http/Controllers/MutiaraImageController.php:65
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
-        editForm.get = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.get = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, options),
             method: 'get',
         })
@@ -301,7 +301,7 @@ edit.head = (args: { mutiara_image: string | number | { id: string | number } } 
  * @see app/Http/Controllers/MutiaraImageController.php:65
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
-        editForm.head = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.head = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -317,7 +317,7 @@ edit.head = (args: { mutiara_image: string | number | { id: string | number } } 
  * @see app/Http/Controllers/MutiaraImageController.php:85
  * @route '/mutiara-images/{mutiara_image}'
  */
-export const update = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -332,7 +332,7 @@ update.definition = {
  * @see app/Http/Controllers/MutiaraImageController.php:85
  * @route '/mutiara-images/{mutiara_image}'
  */
-update.url = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { mutiara_image: args }
     }
@@ -365,7 +365,7 @@ update.url = (args: { mutiara_image: string | number | { id: string | number } }
  * @see app/Http/Controllers/MutiaraImageController.php:85
  * @route '/mutiara-images/{mutiara_image}'
  */
-update.put = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -374,7 +374,7 @@ update.put = (args: { mutiara_image: string | number | { id: string | number } }
  * @see app/Http/Controllers/MutiaraImageController.php:85
  * @route '/mutiara-images/{mutiara_image}'
  */
-update.patch = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -384,7 +384,7 @@ update.patch = (args: { mutiara_image: string | number | { id: string | number }
  * @see app/Http/Controllers/MutiaraImageController.php:85
  * @route '/mutiara-images/{mutiara_image}'
  */
-    const updateForm = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -399,7 +399,7 @@ update.patch = (args: { mutiara_image: string | number | { id: string | number }
  * @see app/Http/Controllers/MutiaraImageController.php:85
  * @route '/mutiara-images/{mutiara_image}'
  */
-        updateForm.put = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -413,7 +413,7 @@ update.patch = (args: { mutiara_image: string | number | { id: string | number }
  * @see app/Http/Controllers/MutiaraImageController.php:85
  * @route '/mutiara-images/{mutiara_image}'
  */
-        updateForm.patch = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -429,7 +429,7 @@ update.patch = (args: { mutiara_image: string | number | { id: string | number }
  * @see app/Http/Controllers/MutiaraImageController.php:122
  * @route '/mutiara-images/{mutiara_image}'
  */
-export const destroy = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -444,7 +444,7 @@ destroy.definition = {
  * @see app/Http/Controllers/MutiaraImageController.php:122
  * @route '/mutiara-images/{mutiara_image}'
  */
-destroy.url = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { mutiara_image: args }
     }
@@ -477,7 +477,7 @@ destroy.url = (args: { mutiara_image: string | number | { id: string | number } 
  * @see app/Http/Controllers/MutiaraImageController.php:122
  * @route '/mutiara-images/{mutiara_image}'
  */
-destroy.delete = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -487,7 +487,7 @@ destroy.delete = (args: { mutiara_image: string | number | { id: string | number
  * @see app/Http/Controllers/MutiaraImageController.php:122
  * @route '/mutiara-images/{mutiara_image}'
  */
-    const destroyForm = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -502,7 +502,7 @@ destroy.delete = (args: { mutiara_image: string | number | { id: string | number
  * @see app/Http/Controllers/MutiaraImageController.php:122
  * @route '/mutiara-images/{mutiara_image}'
  */
-        destroyForm.delete = (args: { mutiara_image: string | number | { id: string | number } } | [mutiara_image: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',
