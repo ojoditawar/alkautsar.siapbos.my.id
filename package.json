@@ -3,7 +3,7 @@
     "private": true,
     "type": "module",
     "engines": {
-        "node": "20"
+        "node": ">=20"
     },
     "scripts": {
         "build": "php artisan wayfinder:generate && vite build",
@@ -54,6 +54,8 @@
         "vue-sonner": "^2.0.0"
     },
     "optionalDependencies": {
+        "@rolldown/binding-linux-x64-gnu": "1.0.0-rc.15",
+        "@rolldown/binding-win32-x64-msvc": "1.0.0-rc.15",
         "@rollup/rollup-linux-x64-gnu": "4.9.5",
         "@rollup/rollup-win32-x64-msvc": "4.9.5",
         "@tailwindcss/oxide-linux-x64-gnu": "^4.0.1",
