@@ -10,14 +10,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Sinkronkan sequence dengan nilai id terbesar
-        DB::statement("
-            SELECT setval(
-                'rekenings_id_seq',
-                COALESCE((SELECT MAX(id) FROM rekenings), 1)
-            )
-        ");
-
         // Tambahkan primary key jika belum ada
         DB::statement("
             ALTER TABLE rekenings
