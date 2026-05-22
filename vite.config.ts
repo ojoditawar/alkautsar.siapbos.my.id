@@ -12,7 +12,8 @@ export default defineConfig({
             refresh: true,
         }),
         wayfinder({
-            command: 'true'
+            formVariants: true,
+            command: process.env.NODE_ENV === 'production' ? 'true' : undefined
         }),
         inertia(),
         tailwindcss(),

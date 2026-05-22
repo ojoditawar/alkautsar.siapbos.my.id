@@ -1,0 +1,597 @@
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
+/**
+* @see \App\Http\Controllers\TrensaksiController::index
+ * @see app/Http/Controllers/TrensaksiController.php:16
+ * @route '/transaksis'
+ */
+export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: index.url(options),
+    method: 'get',
+})
+
+index.definition = {
+    methods: ["get","head"],
+    url: '/transaksis',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::index
+ * @see app/Http/Controllers/TrensaksiController.php:16
+ * @route '/transaksis'
+ */
+index.url = (options?: RouteQueryOptions) => {
+    return index.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::index
+ * @see app/Http/Controllers/TrensaksiController.php:16
+ * @route '/transaksis'
+ */
+index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: index.url(options),
+    method: 'get',
+})
+/**
+* @see \App\Http\Controllers\TrensaksiController::index
+ * @see app/Http/Controllers/TrensaksiController.php:16
+ * @route '/transaksis'
+ */
+index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: index.url(options),
+    method: 'head',
+})
+
+    /**
+* @see \App\Http\Controllers\TrensaksiController::index
+ * @see app/Http/Controllers/TrensaksiController.php:16
+ * @route '/transaksis'
+ */
+    const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: index.url(options),
+        method: 'get',
+    })
+
+            /**
+* @see \App\Http\Controllers\TrensaksiController::index
+ * @see app/Http/Controllers/TrensaksiController.php:16
+ * @route '/transaksis'
+ */
+        indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: index.url(options),
+            method: 'get',
+        })
+            /**
+* @see \App\Http\Controllers\TrensaksiController::index
+ * @see app/Http/Controllers/TrensaksiController.php:16
+ * @route '/transaksis'
+ */
+        indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: index.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    index.form = indexForm
+/**
+* @see \App\Http\Controllers\TrensaksiController::create
+ * @see app/Http/Controllers/TrensaksiController.php:117
+ * @route '/transaksis/create'
+ */
+export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: create.url(options),
+    method: 'get',
+})
+
+create.definition = {
+    methods: ["get","head"],
+    url: '/transaksis/create',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::create
+ * @see app/Http/Controllers/TrensaksiController.php:117
+ * @route '/transaksis/create'
+ */
+create.url = (options?: RouteQueryOptions) => {
+    return create.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::create
+ * @see app/Http/Controllers/TrensaksiController.php:117
+ * @route '/transaksis/create'
+ */
+create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: create.url(options),
+    method: 'get',
+})
+/**
+* @see \App\Http\Controllers\TrensaksiController::create
+ * @see app/Http/Controllers/TrensaksiController.php:117
+ * @route '/transaksis/create'
+ */
+create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: create.url(options),
+    method: 'head',
+})
+
+    /**
+* @see \App\Http\Controllers\TrensaksiController::create
+ * @see app/Http/Controllers/TrensaksiController.php:117
+ * @route '/transaksis/create'
+ */
+    const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: create.url(options),
+        method: 'get',
+    })
+
+            /**
+* @see \App\Http\Controllers\TrensaksiController::create
+ * @see app/Http/Controllers/TrensaksiController.php:117
+ * @route '/transaksis/create'
+ */
+        createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: create.url(options),
+            method: 'get',
+        })
+            /**
+* @see \App\Http\Controllers\TrensaksiController::create
+ * @see app/Http/Controllers/TrensaksiController.php:117
+ * @route '/transaksis/create'
+ */
+        createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: create.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    create.form = createForm
+/**
+* @see \App\Http\Controllers\TrensaksiController::store
+ * @see app/Http/Controllers/TrensaksiController.php:131
+ * @route '/transaksis'
+ */
+export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: store.url(options),
+    method: 'post',
+})
+
+store.definition = {
+    methods: ["post"],
+    url: '/transaksis',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::store
+ * @see app/Http/Controllers/TrensaksiController.php:131
+ * @route '/transaksis'
+ */
+store.url = (options?: RouteQueryOptions) => {
+    return store.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::store
+ * @see app/Http/Controllers/TrensaksiController.php:131
+ * @route '/transaksis'
+ */
+store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: store.url(options),
+    method: 'post',
+})
+
+    /**
+* @see \App\Http\Controllers\TrensaksiController::store
+ * @see app/Http/Controllers/TrensaksiController.php:131
+ * @route '/transaksis'
+ */
+    const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: store.url(options),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\TrensaksiController::store
+ * @see app/Http/Controllers/TrensaksiController.php:131
+ * @route '/transaksis'
+ */
+        storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: store.url(options),
+            method: 'post',
+        })
+    
+    store.form = storeForm
+/**
+* @see \App\Http\Controllers\TrensaksiController::edit
+ * @see app/Http/Controllers/TrensaksiController.php:169
+ * @route '/transaksis/{trensaksi}/edit'
+ */
+export const edit = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: edit.url(args, options),
+    method: 'get',
+})
+
+edit.definition = {
+    methods: ["get","head"],
+    url: '/transaksis/{trensaksi}/edit',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::edit
+ * @see app/Http/Controllers/TrensaksiController.php:169
+ * @route '/transaksis/{trensaksi}/edit'
+ */
+edit.url = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { trensaksi: args }
+    }
+
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { trensaksi: args.id }
+        }
+    
+    if (Array.isArray(args)) {
+        args = {
+                    trensaksi: args[0],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        trensaksi: typeof args.trensaksi === 'object'
+                ? args.trensaksi.id
+                : args.trensaksi,
+                }
+
+    return edit.definition.url
+            .replace('{trensaksi}', parsedArgs.trensaksi.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::edit
+ * @see app/Http/Controllers/TrensaksiController.php:169
+ * @route '/transaksis/{trensaksi}/edit'
+ */
+edit.get = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: edit.url(args, options),
+    method: 'get',
+})
+/**
+* @see \App\Http\Controllers\TrensaksiController::edit
+ * @see app/Http/Controllers/TrensaksiController.php:169
+ * @route '/transaksis/{trensaksi}/edit'
+ */
+edit.head = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: edit.url(args, options),
+    method: 'head',
+})
+
+    /**
+* @see \App\Http\Controllers\TrensaksiController::edit
+ * @see app/Http/Controllers/TrensaksiController.php:169
+ * @route '/transaksis/{trensaksi}/edit'
+ */
+    const editForm = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: edit.url(args, options),
+        method: 'get',
+    })
+
+            /**
+* @see \App\Http\Controllers\TrensaksiController::edit
+ * @see app/Http/Controllers/TrensaksiController.php:169
+ * @route '/transaksis/{trensaksi}/edit'
+ */
+        editForm.get = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: edit.url(args, options),
+            method: 'get',
+        })
+            /**
+* @see \App\Http\Controllers\TrensaksiController::edit
+ * @see app/Http/Controllers/TrensaksiController.php:169
+ * @route '/transaksis/{trensaksi}/edit'
+ */
+        editForm.head = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: edit.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    edit.form = editForm
+/**
+* @see \App\Http\Controllers\TrensaksiController::update
+ * @see app/Http/Controllers/TrensaksiController.php:196
+ * @route '/transaksis/{trensaksi}'
+ */
+export const update = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: update.url(args, options),
+    method: 'put',
+})
+
+update.definition = {
+    methods: ["put","patch"],
+    url: '/transaksis/{trensaksi}',
+} satisfies RouteDefinition<["put","patch"]>
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::update
+ * @see app/Http/Controllers/TrensaksiController.php:196
+ * @route '/transaksis/{trensaksi}'
+ */
+update.url = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { trensaksi: args }
+    }
+
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { trensaksi: args.id }
+        }
+    
+    if (Array.isArray(args)) {
+        args = {
+                    trensaksi: args[0],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        trensaksi: typeof args.trensaksi === 'object'
+                ? args.trensaksi.id
+                : args.trensaksi,
+                }
+
+    return update.definition.url
+            .replace('{trensaksi}', parsedArgs.trensaksi.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::update
+ * @see app/Http/Controllers/TrensaksiController.php:196
+ * @route '/transaksis/{trensaksi}'
+ */
+update.put = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: update.url(args, options),
+    method: 'put',
+})
+/**
+* @see \App\Http\Controllers\TrensaksiController::update
+ * @see app/Http/Controllers/TrensaksiController.php:196
+ * @route '/transaksis/{trensaksi}'
+ */
+update.patch = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+    url: update.url(args, options),
+    method: 'patch',
+})
+
+    /**
+* @see \App\Http\Controllers\TrensaksiController::update
+ * @see app/Http/Controllers/TrensaksiController.php:196
+ * @route '/transaksis/{trensaksi}'
+ */
+    const updateForm = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: update.url(args, {
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'PUT',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\TrensaksiController::update
+ * @see app/Http/Controllers/TrensaksiController.php:196
+ * @route '/transaksis/{trensaksi}'
+ */
+        updateForm.put = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: update.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PUT',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+            /**
+* @see \App\Http\Controllers\TrensaksiController::update
+ * @see app/Http/Controllers/TrensaksiController.php:196
+ * @route '/transaksis/{trensaksi}'
+ */
+        updateForm.patch = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: update.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PATCH',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    update.form = updateForm
+/**
+* @see \App\Http\Controllers\TrensaksiController::destroy
+ * @see app/Http/Controllers/TrensaksiController.php:235
+ * @route '/transaksis/{trensaksi}'
+ */
+export const destroy = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+    url: destroy.url(args, options),
+    method: 'delete',
+})
+
+destroy.definition = {
+    methods: ["delete"],
+    url: '/transaksis/{trensaksi}',
+} satisfies RouteDefinition<["delete"]>
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::destroy
+ * @see app/Http/Controllers/TrensaksiController.php:235
+ * @route '/transaksis/{trensaksi}'
+ */
+destroy.url = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { trensaksi: args }
+    }
+
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { trensaksi: args.id }
+        }
+    
+    if (Array.isArray(args)) {
+        args = {
+                    trensaksi: args[0],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        trensaksi: typeof args.trensaksi === 'object'
+                ? args.trensaksi.id
+                : args.trensaksi,
+                }
+
+    return destroy.definition.url
+            .replace('{trensaksi}', parsedArgs.trensaksi.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::destroy
+ * @see app/Http/Controllers/TrensaksiController.php:235
+ * @route '/transaksis/{trensaksi}'
+ */
+destroy.delete = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+    url: destroy.url(args, options),
+    method: 'delete',
+})
+
+    /**
+* @see \App\Http\Controllers\TrensaksiController::destroy
+ * @see app/Http/Controllers/TrensaksiController.php:235
+ * @route '/transaksis/{trensaksi}'
+ */
+    const destroyForm = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: destroy.url(args, {
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'DELETE',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\TrensaksiController::destroy
+ * @see app/Http/Controllers/TrensaksiController.php:235
+ * @route '/transaksis/{trensaksi}'
+ */
+        destroyForm.delete = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: destroy.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'DELETE',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    destroy.form = destroyForm
+/**
+* @see \App\Http\Controllers\TrensaksiController::duplicate
+ * @see app/Http/Controllers/TrensaksiController.php:251
+ * @route '/transaksis/{trensaksi}/duplicate'
+ */
+export const duplicate = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: duplicate.url(args, options),
+    method: 'post',
+})
+
+duplicate.definition = {
+    methods: ["post"],
+    url: '/transaksis/{trensaksi}/duplicate',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::duplicate
+ * @see app/Http/Controllers/TrensaksiController.php:251
+ * @route '/transaksis/{trensaksi}/duplicate'
+ */
+duplicate.url = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { trensaksi: args }
+    }
+
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { trensaksi: args.id }
+        }
+    
+    if (Array.isArray(args)) {
+        args = {
+                    trensaksi: args[0],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        trensaksi: typeof args.trensaksi === 'object'
+                ? args.trensaksi.id
+                : args.trensaksi,
+                }
+
+    return duplicate.definition.url
+            .replace('{trensaksi}', parsedArgs.trensaksi.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\TrensaksiController::duplicate
+ * @see app/Http/Controllers/TrensaksiController.php:251
+ * @route '/transaksis/{trensaksi}/duplicate'
+ */
+duplicate.post = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: duplicate.url(args, options),
+    method: 'post',
+})
+
+    /**
+* @see \App\Http\Controllers\TrensaksiController::duplicate
+ * @see app/Http/Controllers/TrensaksiController.php:251
+ * @route '/transaksis/{trensaksi}/duplicate'
+ */
+    const duplicateForm = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: duplicate.url(args, options),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\TrensaksiController::duplicate
+ * @see app/Http/Controllers/TrensaksiController.php:251
+ * @route '/transaksis/{trensaksi}/duplicate'
+ */
+        duplicateForm.post = (args: { trensaksi: string | number | { id: string | number } } | [trensaksi: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: duplicate.url(args, options),
+            method: 'post',
+        })
+    
+    duplicate.form = duplicateForm
+const TrensaksiController = { index, create, store, edit, update, destroy, duplicate }
+
+export default TrensaksiController
