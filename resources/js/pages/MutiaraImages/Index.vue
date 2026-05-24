@@ -104,10 +104,10 @@ function toggleActive(item: MutiaraImageItem) {
                     <div>
                         <CardTitle class="flex items-center gap-2">
                             <ImageIcon class="h-5 w-5" />
-                            Gambar Mutiara
+                            Kumpulan Kata-kata Mutiara
                         </CardTitle>
                         <CardDescription>
-                            Kelola gambar untuk tampilan monitor masjid.
+                            Kelola Kata-kata Mutiara untuk tampilan monitor masjid.
                         </CardDescription>
                     </div>
                     <div class="flex gap-2">
