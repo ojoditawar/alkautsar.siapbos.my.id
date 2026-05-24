@@ -44,7 +44,7 @@ const props = defineProps<{
 
 defineOptions({
     layout: {
-        breadcrumbs: [{ title: 'Gambar Mutiara', href: '/mutiara-images' }],
+        breadcrumbs: [{ title: 'Kata-kata Mutiara', href: '/mutiara-images' }],
     },
 });
 
