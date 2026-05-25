@@ -60,6 +60,16 @@ class MonitorController extends Controller
                 ]),
             'monitorConfig' => $this->loadMonitorConfig($masjidId),
             'mutiaraImages' => $mutiaraImages,
+            'imams' => \App\Models\ImamMasjid::where('masjid_id', $masjidId)
+                ->get()
+                ->map(fn($i) => [
+                    'id' => $i->id,
+                    'nama' => $i->nama,
+                    'foto' => $i->foto ? asset('storage/' . $i->foto) : null,
+                    'jabatan' => $i->jabatan,
+                    'tipe' => $i->tipe,
+                    'sholat' => $i->sholat,
+                ]),
             'tahun' => $tahun,
         ]);
     }

@@ -26,6 +26,7 @@ use App\Http\Controllers\JadwalImamController;
 use App\Http\Controllers\JadwalImamPdfController;
 use App\Http\Controllers\KhotbahController;
 use App\Http\Controllers\KhotbahPdfController;
+use App\Http\Controllers\ImamMasjidController;
 use App\Http\Controllers\MutiaraImageController;
 use App\Http\Controllers\PekurbanController;
 use App\Http\Controllers\PekurbanPdfController;
@@ -146,6 +147,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Monitor Config & Mutiara Images: hanya Admin yang bisa mengakses.
         Route::middleware('role_or_permission:Admin')->group(function () {
             Route::resource('mutiara-images', MutiaraImageController::class)->except(['show']);
+            Route::resource('imam-masjids', ImamMasjidController::class)->except(['show'])->parameters(['imam-masjids' => 'imamMasjid']);
 
 
         Route::get('monitor-config', [MonitorConfigController::class, 'edit'])->name('monitor-config.edit');

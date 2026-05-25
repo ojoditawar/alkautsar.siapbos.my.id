@@ -80,6 +80,16 @@ interface MutiaraImageItem {
     caption: string | null;
 }
 
+interface ImamMasjidItem {
+    id: number;
+    masjid_id: string;
+    nama: string;
+    foto: string | null;
+    jabatan: string;
+    tipe: 'utama' | 'cadangan';
+    sholat: string;
+}
+
 const props = defineProps<{
     masjid?: MasjidInfo | null;
     saldoCharts?: SaldoChartItem[];
@@ -87,6 +97,7 @@ const props = defineProps<{
     upcomingKajians?: KajianItem[];
     monitorConfig?: MonitorConfigData | null;
     mutiaraImages?: MutiaraImageItem[];
+    imams?: ImamMasjidItem[];
     tahun?: number;
 }>();
 
@@ -409,6 +420,75 @@ const sholatDisplayName = computed(() => {
 const isJumatMode = computed(() => {
     return new Date().getDay() === 5 && activePrayerName.value === 'DZUHUR';
 });
+
+// === UJICOBA MASUK WAKTU SHOLAT & IMAM DUMMY ===
+const showTestPanel = ref(false);
+
+interface Imam {
+    nama: string;
+    foto: string;
+    jabatan: string;
+}
+
+const dummyImams: Record<string, Imam> = {
+    SUBUH: { nama: 'Ustadz H. Abdul Somad, Lc., M.A.', foto: 'https://i.pravatar.cc/150?img=12', jabatan: 'Imam Masjid Al Kautsar' },
+    DZUHUR: { nama: 'Ustadz H. Adi Hidayat, Lc., M.A.', foto: 'https://i.pravatar.cc/150?img=11', jabatan: 'Imam Masjid Al Kautsar' },
+    ASHAR: { nama: 'Ustadz Hanan Attaki, Lc.', foto: 'https://i.pravatar.cc/150?img=13', jabatan: 'Imam Masjid Al Kautsar' },
+    MAGHRIB: { nama: 'KH. Ahmad Bahauddin Nursalim', foto: 'https://i.pravatar.cc/150?img=14', jabatan: 'Imam Masjid Al Kautsar' },
+    ISYA: { nama: 'Ustadz H. Yusuf Mansur', foto: 'https://i.pravatar.cc/150?img=15', jabatan: 'Imam Masjid Al Kautsar' },
+};
+
+const currentImam = computed<Imam>(() => {
+    const prayer = activePrayerName.value ?? 'SUBUH';
+    const dbImam = props.imams?.find(i => i.sholat === prayer && i.tipe === 'utama');
+    if (dbImam) {
+        return {
+            nama: dbImam.nama,
+            foto: dbImam.foto || 'https://i.pravatar.cc/150?img=12',
+            jabatan: dbImam.jabatan
+        };
+    }
+    return dummyImams[prayer] || dummyImams['SUBUH'];
+});
+
+const dummyBackupImams: Record<string, Imam> = {
+    SUBUH: { nama: 'Ustadz H. Ahmad Muzakky, M.A.', foto: 'https://i.pravatar.cc/150?img=68', jabatan: 'Imam Cadangan' },
+    DZUHUR: { nama: 'Ustadz H. Riza Muhammad', foto: 'https://i.pravatar.cc/150?img=60', jabatan: 'Imam Cadangan' },
+    ASHAR: { nama: 'Ustadz H. Luqmanulhakim', foto: 'https://i.pravatar.cc/150?img=59', jabatan: 'Imam Cadangan' },
+    MAGHRIB: { nama: 'Ustadz H. Hilman Fauzi', foto: 'https://i.pravatar.cc/150?img=57', jabatan: 'Imam Cadangan' },
+    ISYA: { nama: 'Ustadz H. Bobby Herwibowo', foto: 'https://i.pravatar.cc/150?img=56', jabatan: 'Imam Cadangan' },
+};
+
+const backupImam = computed<Imam>(() => {
+    const prayer = activePrayerName.value ?? 'SUBUH';
+    const dbImam = props.imams?.find(i => i.sholat === prayer && i.tipe === 'cadangan');
+    if (dbImam) {
+        return {
+            nama: dbImam.nama,
+            foto: dbImam.foto || 'https://i.pravatar.cc/150?img=68',
+            jabatan: dbImam.jabatan
+        };
+    }
+    return dummyBackupImams[prayer] || dummyBackupImams['SUBUH'];
+});
+
+function triggerTestIqomah() {
+    isSholatMode.value = false;
+    isIqomahMode.value = true;
+    
+    // Tentukan sholat terdekat atau default SUBUH
+    activePrayerName.value = nextPrayer.value?.name && nextPrayer.value.name !== 'TERBIT' && nextPrayer.value.name !== 'IMSAK'
+        ? nextPrayer.value.name
+        : 'SUBUH';
+        
+    // Set hitung mundur iqomah uji coba selama 15 detik
+    const testDurationSeconds = 15;
+    iqomahEndTime.value = new Date(Date.now() + testDurationSeconds * 1000);
+    iqomahCountdown.value = '00:00:15';
+    
+    currentSlide.value = 'sholat';
+    stopRotation();
+}
 
 async function fetchPrayerTimes() {
     try {
@@ -794,18 +874,58 @@ onUnmounted(() => {
             <div v-if="isIqomahMode"
                 class="prayer-overlay fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-md">
                 <div
-                    class="prayer-card flex w-full max-w-[95vw] flex-col items-center justify-center rounded-[2rem] border border-amber-500/40 bg-slate-900/90 p-8 shadow-[0_0_80px_rgba(0,0,0,0.5)] sm:max-w-3xl sm:rounded-[3rem] sm:p-12 md:max-w-4xl md:p-14 lg:max-w-5xl lg:p-16 xl:max-w-6xl 2xl:max-w-7xl">
-                    <p
-                        class="mb-3 text-center text-2xl font-extrabold tracking-wide text-amber-400 uppercase drop-shadow-lg sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-                        Sisa Waktu Iqomah
-                    </p>
-                    <p
-                        class="text-center font-mono text-6xl leading-none font-black tracking-widest text-amber-300 drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] sm:text-8xl md:text-[10rem] lg:text-[12rem] xl:text-[14rem] 2xl:text-[16rem]">
-                        {{ iqomahCountdown }}
-                    </p>
-                    <p class="mt-6 text-center text-lg font-semibold tracking-wider text-emerald-300 sm:mt-8 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
-                        Isi dengan Sholat Sunnah dan Dzikir Yang Baik
-                    </p>
+                    class="prayer-card flex w-full max-w-[98vw] 2xl:max-w-[95vw] flex-col items-center justify-center rounded-[2rem] border border-amber-500/30 bg-slate-900/90 p-6 shadow-[0_0_80px_rgba(0,0,0,0.6)] sm:p-10 md:p-12 xl:p-16">
+                    <div class="grid w-full gap-8 grid-cols-1 md:grid-cols-3 items-center justify-center">
+                        
+                        <!-- Left Column: Imam Utama -->
+                        <div class="flex flex-col items-center justify-center text-center order-2 md:order-1 border-t border-slate-700/40 pt-6 md:border-t-0 md:pt-0">
+                            <h3 class="mb-3 text-lg font-bold text-emerald-400 tracking-wide uppercase sm:text-xl">
+                                Imam Utama
+                            </h3>
+                            <img :src="currentImam.foto" :alt="currentImam.nama"
+                                class="h-28 w-28 rounded-full object-cover ring-4 ring-emerald-500/40 shadow-lg sm:h-36 sm:w-36 md:h-40 md:w-40 lg:h-44 lg:w-44 xl:h-48 xl:w-48" />
+                            <p class="mt-3 text-base font-black text-amber-300 sm:text-lg md:text-xl">
+                                {{ currentImam.nama }}
+                            </p>
+                            <p class="text-xs font-semibold text-slate-400 sm:text-sm">
+                                {{ currentImam.jabatan }}
+                            </p>
+                        </div>
+
+                        <!-- Middle Column: Countdown -->
+                        <div class="flex flex-col items-center justify-center text-center order-1 md:order-2">
+                            <p
+                                class="mb-2 text-xl font-extrabold tracking-wide text-amber-400 uppercase drop-shadow-lg sm:text-2xl md:text-3xl lg:text-4xl">
+                                Sisa Waktu Iqomah
+                            </p>
+                            <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 sm:text-sm">
+                                Sholat {{ activePrayerName }}
+                            </h2>
+                            <p
+                                class="font-mono text-5xl leading-none font-black tracking-widest text-amber-300 drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] sm:text-7xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
+                                {{ iqomahCountdown }}
+                            </p>
+                            <p class="mt-4 text-sm font-semibold tracking-wider text-emerald-300 sm:text-base md:text-lg">
+                                Isi dengan Sholat Sunnah & Dzikir
+                            </p>
+                        </div>
+                        
+                        <!-- Right Column: Imam Cadangan -->
+                        <div class="flex flex-col items-center justify-center text-center order-3 border-t border-slate-700/40 pt-6 md:border-t-0 md:border-l md:border-slate-700/30 md:pt-0 md:pl-6">
+                            <h3 class="mb-3 text-lg font-bold text-amber-500 tracking-wide uppercase sm:text-xl">
+                                Imam Cadangan (Badal)
+                            </h3>
+                            <img :src="backupImam.foto" :alt="backupImam.nama"
+                                class="h-28 w-28 rounded-full object-cover ring-4 ring-amber-500/40 shadow-lg sm:h-36 sm:w-36 md:h-40 md:w-40 lg:h-44 lg:w-44 xl:h-48 xl:w-48" />
+                            <p class="mt-3 text-base font-black text-amber-300 sm:text-lg md:text-xl">
+                                {{ backupImam.nama }}
+                            </p>
+                            <p class="text-xs font-semibold text-slate-400 sm:text-sm">
+                                {{ backupImam.jabatan }}
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
@@ -1113,6 +1233,24 @@ onUnmounted(() => {
                 <ChevronRight class="h-6 w-6" />
             </button>
         </div>
+
+        <!-- Panel Ujicoba Masuk Waktu Sholat -->
+        <div class="fixed bottom-4 left-4 z-[150] flex flex-col gap-2 rounded-lg bg-slate-900/95 p-3 text-white shadow-xl border border-slate-700 backdrop-blur-sm text-xs w-60" v-if="showTestPanel">
+            <div class="flex items-center justify-between gap-4 font-bold border-b border-slate-700 pb-1.5 mb-1.5">
+                <span class="text-amber-400">⚙️ Panel Simulasi</span>
+                <button @click="showTestPanel = false" class="text-slate-400 hover:text-white text-sm">✕</button>
+            </div>
+            <p class="text-[10px] text-slate-400 leading-relaxed mb-1">
+                Klik tombol di bawah ini untuk mensimulasikan waktu masuk sholat dan memulai hitung mundur Iqomah (15 detik) lengkap dengan info Imam.
+            </p>
+            <button @click="triggerTestIqomah" class="rounded bg-emerald-600 px-2 py-1.5 font-bold hover:bg-emerald-500 transition text-center text-white cursor-pointer shadow">
+                Simulasi Masuk Waktu Sholat
+            </button>
+        </div>
+        <!-- Tombol Buka Panel Ujicoba -->
+        <button v-if="!showTestPanel" @click="showTestPanel = true" class="fixed bottom-4 left-4 z-[150] rounded-full bg-slate-900/90 px-3 py-2 text-white border border-slate-700 shadow-lg hover:bg-slate-800 transition text-xs font-semibold cursor-pointer">
+            ⚙️ Simulasi Sholat
+        </button>
     </div>
 </template>
 
