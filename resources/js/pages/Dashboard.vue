@@ -465,7 +465,7 @@ onMounted(() => {
 
         <!-- Green section (hero + footer info, full-width menyentuh navbar) -->
         <section
-            class="flex min-h-[calc(100vh-280px)] items-center bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-300">
+            class="hero-section flex min-h-[calc(100vh-280px)] items-center bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-300">
             <!-- Chart saldo kas + daftar kajian -->
             <div class="mx-auto w-full max-w-7xl px-3 py-6 sm:px-6 sm:py-8 lg:px-8">
                 <div class="grid gap-4 lg:grid-cols-5">
@@ -622,7 +622,7 @@ onMounted(() => {
                         <p class="mt-1 text-slate-700">
                             {{ masjid.telepon }}
                         </p>
-                        <div class="mt-2 flex items-center gap-1.5 text-slate-500 sm:mt-3 sm:gap-2">
+                        <div class="social-links mt-2 flex items-center gap-1.5 text-slate-500 sm:mt-3 sm:gap-2">
                             <a href="#" class="rounded-full bg-slate-100 p-1.5 hover:bg-slate-200 sm:p-2" title="Pesan">
                                 <MessageCircle class="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                             </a>
@@ -739,14 +739,14 @@ onMounted(() => {
 
 /* ── Footer social icons wrapping di mobile kecil ── */
 @media (max-width: 400px) {
-    .flex.items-center.gap-1\\.5 {
+    .social-links {
         flex-wrap: wrap;
     }
 }
 
 /* ── Green section min-height for TV ── */
 @media (min-width: 1920px) {
-    section.flex.min-h-\\[calc\\(100vh-280px\\)\\] {
+    .hero-section {
         min-height: calc(100vh - 350px);
     }
 }

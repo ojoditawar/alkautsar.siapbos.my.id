@@ -792,9 +792,9 @@ onUnmounted(() => {
 
             <!-- SLIDE IQOMAH (Fullscreen) -->
             <div v-if="isIqomahMode"
-                class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-md">
+                class="prayer-overlay fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-md">
                 <div
-                    class="flex w-full max-w-[95vw] flex-col items-center justify-center rounded-[2rem] border border-amber-500/40 bg-slate-900/90 p-8 shadow-[0_0_80px_rgba(0,0,0,0.5)] sm:max-w-3xl sm:rounded-[3rem] sm:p-12 md:max-w-4xl md:p-14 lg:max-w-5xl lg:p-16 xl:max-w-6xl 2xl:max-w-7xl">
+                    class="prayer-card flex w-full max-w-[95vw] flex-col items-center justify-center rounded-[2rem] border border-amber-500/40 bg-slate-900/90 p-8 shadow-[0_0_80px_rgba(0,0,0,0.5)] sm:max-w-3xl sm:rounded-[3rem] sm:p-12 md:max-w-4xl md:p-14 lg:max-w-5xl lg:p-16 xl:max-w-6xl 2xl:max-w-7xl">
                     <p
                         class="mb-3 text-center text-2xl font-extrabold tracking-wide text-amber-400 uppercase drop-shadow-lg sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                         Sisa Waktu Iqomah
@@ -811,10 +811,10 @@ onUnmounted(() => {
 
             <!-- SLIDE JEDA SHOLAT (Prioritas Utama) -->
             <div v-else-if="isSholatMode"
-                class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-md">
+                class="prayer-overlay fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-md">
                 <!-- Tampilan Jumat Khusus -->
                 <div v-if="isJumatMode"
-                    class="flex w-full max-w-[95vw] flex-col items-center justify-center rounded-[2rem] border border-emerald-500/40 bg-slate-900/90 p-6 shadow-[0_0_80px_rgba(0,0,0,0.5)] sm:max-w-3xl sm:rounded-[3rem] sm:p-8 md:max-w-4xl md:p-10 lg:max-w-5xl lg:p-12 xl:max-w-6xl 2xl:max-w-7xl">
+                    class="prayer-card flex w-full max-w-[95vw] flex-col items-center justify-center rounded-[2rem] border border-emerald-500/40 bg-slate-900/90 p-6 shadow-[0_0_80px_rgba(0,0,0,0.5)] sm:max-w-3xl sm:rounded-[3rem] sm:p-8 md:max-w-4xl md:p-10 lg:max-w-5xl lg:p-12 xl:max-w-6xl 2xl:max-w-7xl">
                     <p
                         class="mb-3 text-center text-2xl font-extrabold tracking-wide text-emerald-400 uppercase drop-shadow-lg sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                         Kegiatan Sholat JUMAT Sedang Berlangsung
@@ -835,7 +835,7 @@ onUnmounted(() => {
                 </div>
                 <!-- Tampilan Sholat Biasa -->
                 <div v-else
-                    class="flex w-full max-w-[95vw] flex-col items-center justify-center rounded-[2rem] border border-slate-700/50 bg-slate-900/90 p-8 shadow-[0_0_80px_rgba(0,0,0,0.5)] sm:max-w-3xl sm:rounded-[3rem] sm:p-12 md:max-w-4xl md:p-14 lg:max-w-5xl lg:p-16 xl:max-w-6xl 2xl:max-w-7xl">
+                    class="prayer-card flex w-full max-w-[95vw] flex-col items-center justify-center rounded-[2rem] border border-slate-700/50 bg-slate-900/90 p-8 shadow-[0_0_80px_rgba(0,0,0,0.5)] sm:max-w-3xl sm:rounded-[3rem] sm:p-12 md:max-w-4xl md:p-14 lg:max-w-5xl lg:p-16 xl:max-w-6xl 2xl:max-w-7xl">
                     <p
                         class="mb-4 text-center text-3xl font-extrabold tracking-wide text-rose-500 uppercase drop-shadow-lg sm:mb-5 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
                         Kegiatan Sholat {{ sholatDisplayName }} Sedang
@@ -2284,7 +2284,7 @@ onUnmounted(() => {
 
 /* ── Iqomah / Sholat overlay ── */
 @media (min-width: 1920px) {
-    .fixed.inset-0.z-\\[100\\] .rounded-\\[3rem\\] {
+    .prayer-overlay .prayer-card {
         border-radius: 4rem;
     }
 }
