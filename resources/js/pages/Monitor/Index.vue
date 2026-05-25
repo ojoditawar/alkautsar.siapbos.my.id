@@ -728,10 +728,10 @@ onUnmounted(() => {
             <!-- Header -->
             <div class="header" v-if="!isSholatMode && !isStreamingActive">
                 <div class="header-left">
-                    <h1 class="text-2xl font-bold text-slate-800 drop-shadow-md">
+                    <h1 class="text-xl font-bold text-slate-800 drop-shadow-md sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
                         {{ props.masjid?.nama ?? 'Monitor Masjid' }}
                     </h1>
-                    <p class="text-sm text-slate-700">{{ todayLabel }}</p>
+                    <p class="text-xs text-slate-700 sm:text-sm md:text-base lg:text-lg xl:text-xl">{{ todayLabel }}</p>
                 </div>
                 <div class="header-right">
                     <button class="control-btn" :title="isPaused ? 'Lanjutkan rotasi' : 'Jeda rotasi'"
@@ -794,16 +794,16 @@ onUnmounted(() => {
             <div v-if="isIqomahMode"
                 class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-md">
                 <div
-                    class="flex w-full max-w-6xl flex-col items-center justify-center rounded-[3rem] border border-amber-500/40 bg-slate-900/90 p-16 shadow-[0_0_80px_rgba(0,0,0,0.5)]">
+                    class="flex w-full max-w-[95vw] flex-col items-center justify-center rounded-[2rem] border border-amber-500/40 bg-slate-900/90 p-8 shadow-[0_0_80px_rgba(0,0,0,0.5)] sm:max-w-3xl sm:rounded-[3rem] sm:p-12 md:max-w-4xl md:p-14 lg:max-w-5xl lg:p-16 xl:max-w-6xl 2xl:max-w-7xl">
                     <p
-                        class="mb-4 text-center text-3xl font-extrabold tracking-wide text-amber-400 uppercase drop-shadow-lg sm:text-5xl">
+                        class="mb-3 text-center text-2xl font-extrabold tracking-wide text-amber-400 uppercase drop-shadow-lg sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                         Sisa Waktu Iqomah
                     </p>
                     <p
-                        class="text-center font-mono text-8xl leading-none font-black tracking-widest text-amber-300 drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] sm:text-[12rem]">
+                        class="text-center font-mono text-6xl leading-none font-black tracking-widest text-amber-300 drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] sm:text-8xl md:text-[10rem] lg:text-[12rem] xl:text-[14rem] 2xl:text-[16rem]">
                         {{ iqomahCountdown }}
                     </p>
-                    <p class="mt-10 text-center text-2xl font-semibold tracking-wider text-emerald-300 sm:text-3xl">
+                    <p class="mt-6 text-center text-lg font-semibold tracking-wider text-emerald-300 sm:mt-8 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                         Isi dengan Sholat Sunnah dan Dzikir Yang Baik
                     </p>
                 </div>
@@ -814,38 +814,38 @@ onUnmounted(() => {
                 class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/95 backdrop-blur-md">
                 <!-- Tampilan Jumat Khusus -->
                 <div v-if="isJumatMode"
-                    class="flex w-full max-w-6xl flex-col items-center justify-center rounded-[3rem] border border-emerald-500/40 bg-slate-900/90 p-10 shadow-[0_0_80px_rgba(0,0,0,0.5)]">
+                    class="flex w-full max-w-[95vw] flex-col items-center justify-center rounded-[2rem] border border-emerald-500/40 bg-slate-900/90 p-6 shadow-[0_0_80px_rgba(0,0,0,0.5)] sm:max-w-3xl sm:rounded-[3rem] sm:p-8 md:max-w-4xl md:p-10 lg:max-w-5xl lg:p-12 xl:max-w-6xl 2xl:max-w-7xl">
                     <p
-                        class="mb-4 text-center text-3xl font-extrabold tracking-wide text-emerald-400 uppercase drop-shadow-lg sm:text-5xl">
+                        class="mb-3 text-center text-2xl font-extrabold tracking-wide text-emerald-400 uppercase drop-shadow-lg sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                         Kegiatan Sholat JUMAT Sedang Berlangsung
                     </p>
-                    <p class="mb-6 text-center text-lg leading-relaxed font-medium text-amber-200 sm:text-xl">
+                    <p class="mb-4 text-center text-sm leading-relaxed font-medium text-amber-200 sm:mb-5 sm:text-base md:text-lg lg:text-xl xl:text-2xl">
                         Alat Komunikasi Termasuk Handphone mohon di Non Aktifkan
                         (Mode Silent) untuk menjaga Kekhusyukan dan Kesempurnaan
                         Ibadah Sholat Jumat
                     </p>
                     <p
-                        class="text-center font-mono text-7xl leading-none font-black tracking-widest text-white drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] sm:text-[10rem]">
+                        class="text-center font-mono text-5xl leading-none font-black tracking-widest text-white drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] sm:text-7xl md:text-[9rem] lg:text-[10rem] xl:text-[12rem] 2xl:text-[14rem]">
                         {{ sholatCountdown }}
                     </p>
-                    <p class="mt-6 text-center text-lg font-semibold text-emerald-300 sm:text-xl">
+                    <p class="mt-4 text-center text-sm font-semibold text-emerald-300 sm:mt-5 sm:text-base md:text-lg lg:text-xl xl:text-2xl">
                         Terima Kasih Atas Perhatian dan Kerja Sama nya 🙏<br />
                         Semoga Allah Meridhoi Kita Semua, AaaMiiin 🤲
                     </p>
                 </div>
                 <!-- Tampilan Sholat Biasa -->
                 <div v-else
-                    class="flex w-full max-w-6xl flex-col items-center justify-center rounded-[3rem] border border-slate-700/50 bg-slate-900/90 p-16 shadow-[0_0_80px_rgba(0,0,0,0.5)]">
+                    class="flex w-full max-w-[95vw] flex-col items-center justify-center rounded-[2rem] border border-slate-700/50 bg-slate-900/90 p-8 shadow-[0_0_80px_rgba(0,0,0,0.5)] sm:max-w-3xl sm:rounded-[3rem] sm:p-12 md:max-w-4xl md:p-14 lg:max-w-5xl lg:p-16 xl:max-w-6xl 2xl:max-w-7xl">
                     <p
-                        class="mb-6 text-center text-4xl font-extrabold tracking-wide text-rose-500 uppercase drop-shadow-lg sm:text-6xl">
+                        class="mb-4 text-center text-3xl font-extrabold tracking-wide text-rose-500 uppercase drop-shadow-lg sm:mb-5 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
                         Kegiatan Sholat {{ sholatDisplayName }} Sedang
                         Berlangsung...
                     </p>
-                    <p class="mb-12 text-center text-2xl font-semibold tracking-wider text-slate-300 sm:text-4xl">
+                    <p class="mb-8 text-center text-xl font-semibold tracking-wider text-slate-300 sm:mb-10 sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
                         Harap Tenang
                     </p>
                     <p
-                        class="text-center font-mono text-8xl leading-none font-black tracking-widest text-white drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] sm:text-[12rem]">
+                        class="text-center font-mono text-6xl leading-none font-black tracking-widest text-white drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] sm:text-8xl md:text-[10rem] lg:text-[12rem] xl:text-[14rem] 2xl:text-[16rem]">
                         {{ sholatCountdown }}
                     </p>
                 </div>
@@ -929,10 +929,10 @@ onUnmounted(() => {
                 <!-- Countdown Box -->
                 <div class="countdown-box">
                     <template v-if="nextPrayer">
-                        <p class="text-base font-medium text-slate-600">
+                        <p class="text-sm font-medium text-slate-600 md:text-base lg:text-lg xl:text-xl">
                             Menuju {{ nextPrayer.name }}
                         </p>
-                        <p class="countdown-text text-7xl font-black tracking-widest text-slate-800 drop-shadow-lg">
+                        <p class="countdown-text text-5xl font-black tracking-widest text-slate-800 drop-shadow-lg sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
                             {{ countdown }}
                         </p>
                     </template>
@@ -1011,10 +1011,10 @@ onUnmounted(() => {
             <div v-else-if="currentSlide === 'keuangan'" class="slide-area slide-keuangan">
                 <!-- Total Saldo -->
                 <div class="total-saldo-box">
-                    <p class="text-sm font-medium text-slate-600">
+                    <p class="text-xs font-medium text-slate-600 md:text-sm lg:text-base xl:text-lg">
                         Total Saldo Kas {{ props.tahun }}
                     </p>
-                    <p class="text-4xl font-black text-slate-800 drop-shadow-lg">
+                    <p class="text-3xl font-black text-slate-800 drop-shadow-lg md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
                         {{ formatRp(totalSaldo) }}
                     </p>
                 </div>
@@ -1037,7 +1037,7 @@ onUnmounted(() => {
 
                 <!-- Chart -->
                 <div v-if="currentChart" class="chart-wrapper">
-                    <h3 class="mb-2 text-center text-lg font-bold text-slate-800">
+                    <h3 class="mb-2 text-center text-base font-bold text-slate-800 md:text-lg lg:text-xl xl:text-2xl">
                         {{ currentChart.nama }}
                     </h3>
                     <div class="chart-header-row">
@@ -1153,18 +1153,6 @@ onUnmounted(() => {
     flex: 1;
     flex-direction: column;
     padding: 1.5rem 1rem;
-}
-
-@media (min-width: 640px) {
-    .content-wrapper {
-        padding: 1.5rem 2rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .content-wrapper {
-        padding: 1.5rem 3rem;
-    }
 }
 
 .header {
@@ -1715,43 +1703,614 @@ onUnmounted(() => {
     }
 }
 
-/* === Responsive === */
-@media (max-width: 640px) {
+/* ══════════════════════════════════════════════════════════════════
+   RESPONSIVE — HP → Tablet → Laptop → TV 32" → 4K
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Content wrapper padding ── */
+/* default (phone <640px) already set */
+
+@media (min-width: 640px) {
+    .content-wrapper {
+        padding: 1.25rem 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .content-wrapper {
+        padding: 1.5rem 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .content-wrapper {
+        padding: 1.5rem 3rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .content-wrapper {
+        padding: 2rem 4rem;
+    }
+}
+
+@media (min-width: 1536px) {
+    .content-wrapper {
+        padding: 2.5rem 5rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .content-wrapper {
+        padding: 3rem 7rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .content-wrapper {
+        padding: 4rem 10rem;
+    }
+}
+
+/* ── Header ── */
+@media (min-width: 768px) {
+    .header {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .header {
+        margin-bottom: 2.5rem;
+    }
+    .header-left {
+        gap: 0.5rem;
+    }
+}
+
+/* ── Control button ── */
+@media (min-width: 1920px) {
+    .control-btn {
+        height: 3rem;
+        width: 3rem;
+    }
+    .control-btn svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
+
+/* ── Slide navigation ── */
+@media (min-width: 768px) {
+    .slide-nav {
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+    }
+    .slide-dot {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .slide-dot {
+        padding: 0.625rem 1.25rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .slide-nav {
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+    .slide-dot {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.125rem;
+    }
+    .slide-dot svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
+
+/* ── Countdown box ── */
+@media (min-width: 768px) {
+    .countdown-box {
+        padding: 2rem 3rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .countdown-box {
+        padding: 2.5rem 4rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .countdown-box {
+        padding: 3.5rem 6rem;
+        border-radius: 1.5rem;
+    }
+}
+
+/* ── Prayer grid ── */
+/* default: 4 columns (wraps smaller) */
+@media (max-width: 400px) {
     .prayer-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 0.375rem;
     }
+}
 
+@media (max-width: 360px) {
+    .prayer-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 401px) and (max-width: 639px) {
+    .prayer-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.375rem;
+    }
+}
+
+@media (min-width: 640px) {
+    .prayer-grid {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 0.5rem;
+        max-width: 42rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .prayer-grid {
+        max-width: 52rem;
+        gap: 0.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .prayer-grid {
+        max-width: 60rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .prayer-grid {
+        max-width: 72rem;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .prayer-grid {
+        max-width: 90rem;
+        gap: 1.25rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .prayer-grid {
+        max-width: 110rem;
+        gap: 1.5rem;
+    }
+}
+
+/* ── Prayer slot ── */
+@media (max-width: 640px) {
     .prayer-slot {
         padding: 0.5rem 0.25rem;
     }
+}
 
-    .countdown-box .countdown-text {
+@media (min-width: 768px) {
+    .prayer-slot {
+        padding: 1rem 0.75rem;
+    }
+    .prayer-slot .text-lg {
+        font-size: 1.5rem;
+    }
+    .prayer-slot .text-xs {
+        font-size: 0.875rem;
+    }
+    .prayer-slot .text-sm {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .prayer-slot {
+        padding: 1.25rem 1rem;
+        gap: 0.375rem;
+    }
+    .prayer-slot .text-lg {
+        font-size: 1.75rem;
+    }
+    .prayer-slot .text-xs {
+        font-size: 1rem;
+    }
+    .prayer-slot .text-sm {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .prayer-slot {
+        padding: 1.75rem 1.5rem;
+        gap: 0.5rem;
+        border-radius: 1rem;
+    }
+    .prayer-slot .text-lg {
+        font-size: 2.25rem;
+    }
+    .prayer-slot .text-xs {
+        font-size: 1.25rem;
+    }
+    .prayer-slot .text-sm {
+        font-size: 1.5rem;
+    }
+}
+
+/* ── Kajian grid ── */
+@media (min-width: 640px) {
+    .kajian-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .kajian-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+    .kajian-list-wrapper {
+        max-width: 64rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .kajian-list-wrapper {
+        max-width: 72rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .kajian-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+    .kajian-list-wrapper {
+        max-width: 96rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .kajian-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* ── Kajian card ── */
+@media (min-width: 768px) {
+    .kajian-card {
+        padding: 1.25rem;
+    }
+    .kajian-title {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .kajian-card {
+        padding: 1.5rem;
+    }
+    .kajian-title {
+        font-size: 1.25rem;
+    }
+    .kajian-date,
+    .kajian-meta {
+        font-size: 0.875rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .kajian-card {
+        padding: 2rem;
+        border-radius: 1rem;
+    }
+    .kajian-title {
+        font-size: 1.5rem;
+    }
+    .kajian-date,
+    .kajian-meta {
+        font-size: 1rem;
+    }
+    .kajian-date svg,
+    .kajian-meta svg {
+        width: 1.125rem;
+        height: 1.125rem;
+    }
+}
+
+/* ── Total saldo box ── */
+@media (min-width: 768px) {
+    .total-saldo-box {
+        padding: 1.25rem 2.5rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .total-saldo-box {
+        padding: 2rem 4rem;
+        border-radius: 1.25rem;
+    }
+}
+
+/* ── Chart wrapper ── */
+@media (min-width: 768px) {
+    .chart-wrapper {
+        max-width: 64rem;
+        padding: 1.25rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .chart-wrapper {
+        max-width: 72rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .chart-wrapper {
+        max-width: 96rem;
+        padding: 2rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .chart-wrapper {
+        max-width: 120rem;
+    }
+}
+
+/* ── Chart nav ── */
+@media (min-width: 1920px) {
+    .chart-nav-btn {
+        height: 2.75rem;
+        width: 2.75rem;
+    }
+    .chart-nav-btn svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+    .chart-nav {
+        gap: 1rem;
+    }
+}
+
+/* ── Streaming ── */
+@media (min-width: 768px) {
+    .streaming-container {
+        max-width: 64rem;
+        padding: 2rem;
+    }
+    .streaming-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .streaming-container {
+        max-width: 80rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .streaming-container {
+        padding: 2.5rem;
+    }
+    .streaming-title {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .streaming-container {
+        max-width: 100rem;
+        padding: 3rem;
+        border-radius: 2rem;
+    }
+    .streaming-title {
         font-size: 2.5rem;
     }
-
-    .kajian-grid {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
+    .streaming-header {
+        gap: 1rem;
+        margin-bottom: 2rem;
     }
+    .streaming-header svg {
+        width: 2rem;
+        height: 2rem;
+    }
+    .video-wrapper {
+        border-radius: 1rem;
+    }
+    .streaming-info {
+        margin-top: 1.5rem;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+    .streaming-schedule {
+        font-size: 1rem;
+    }
+    .streaming-status {
+        font-size: 1rem;
+    }
+}
 
+@media (min-width: 2560px) {
+    .streaming-container {
+        max-width: 130rem;
+        padding: 4rem;
+    }
+    .streaming-title {
+        font-size: 3rem;
+    }
+}
+
+/* ── Streaming waiting / offline ── */
+@media (min-width: 1920px) {
+    .streaming-waiting {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* ── Mutiara image ── */
+@media (min-width: 768px) {
+    .mutiara-image-wrapper {
+        max-height: calc(100dvh - 14rem);
+    }
+}
+
+@media (min-width: 1920px) {
+    .mutiara-image-wrapper {
+        max-height: calc(100dvh - 18rem);
+    }
+    .mutiara-image {
+        border-radius: 1.5rem;
+    }
+}
+
+/* ── Slide arrows ── */
+@media (max-width: 640px) {
     .slide-arrow {
         height: 2rem;
         width: 2rem;
     }
+}
 
-    .streaming-title {
-        font-size: 1rem;
+@media (min-width: 640px) {
+    .slide-arrow-left {
+        left: 1.25rem;
     }
-
-    .streaming-info {
-        flex-direction: column;
-        align-items: flex-start;
+    .slide-arrow-right {
+        right: 1.25rem;
     }
 }
 
-@media (max-width: 400px) {
-    .prayer-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+@media (min-width: 768px) {
+    .slide-arrow-left {
+        left: 2rem;
+    }
+    .slide-arrow-right {
+        right: 2rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .slide-arrow {
+        height: 4rem;
+        width: 4rem;
+    }
+    .slide-arrow svg {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+    .slide-arrow-left {
+        left: 3rem;
+    }
+    .slide-arrow-right {
+        right: 3rem;
+    }
+}
+
+/* ── Empty state ── */
+@media (min-width: 1920px) {
+    .empty-state svg {
+        width: 4rem;
+        height: 4rem;
+    }
+    .empty-state p {
+        font-size: 1.25rem;
+    }
+}
+
+/* ── Slide keuangan gap ── */
+@media (min-width: 768px) {
+    .slide-keuangan {
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .slide-keuangan {
+        gap: 2rem;
+    }
+    .slide-sholat {
+        gap: 2.5rem;
+    }
+    .slide-mutiara {
+        gap: 1.5rem;
+    }
+}
+
+/* ── Chart header row ── */
+@media (min-width: 1920px) {
+    .chart-header-row {
+        margin-bottom: 1.25rem;
+        font-size: 1.125rem;
+    }
+    .chart-header-row .text-sm {
+        font-size: 1.125rem;
+    }
+}
+
+/* ── Mutiara caption ── */
+@media (min-width: 1280px) {
+    .mutiara-caption {
+        font-size: 1.25rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .mutiara-caption {
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+    }
+}
+
+/* ── Iqomah / Sholat overlay ── */
+@media (min-width: 1920px) {
+    .fixed.inset-0.z-\\[100\\] .rounded-\\[3rem\\] {
+        border-radius: 4rem;
+    }
+}
+
+/* ── Streaming banner ── */
+@media (min-width: 1920px) {
+    .streaming-banner {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.125rem;
+        gap: 1rem;
+    }
+    .streaming-banner svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .streaming-time {
+        font-size: 0.875rem;
+        padding: 0.375rem 0.75rem;
+    }
+}
+
+/* ── Background mask for ultra-wide ── */
+/* ensure bg covers entire viewport even on ultrawide/TV */
+@media (min-width: 1920px) {
+    .bg-overlay {
+        background-size: cover, cover;
     }
 }
 
