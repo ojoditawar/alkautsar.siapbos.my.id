@@ -191,6 +191,13 @@ const allNavItems: (NavItem & { permission?: string })[] = [
     },
     {
         group: 'Konten',
+        title: 'Imam & Badal',
+        href: '/imam-masjids',
+        icon: Users,
+        permission: 'Admin',
+    },
+    {
+        group: 'Konten',
         title: 'Pekurban',
         href: '/pekurbans',
         icon: Calendar,
