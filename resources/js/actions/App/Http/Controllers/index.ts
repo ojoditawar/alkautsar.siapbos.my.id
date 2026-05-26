@@ -27,6 +27,7 @@ import MutiaraImageController from './MutiaraImageController'
 import ImamMasjidController from './ImamMasjidController'
 import JamaahController from './JamaahController'
 import MonitorConfigController from './MonitorConfigController'
+import FileExplorerController from './FileExplorerController'
 import ValidasiBukuBesarController from './ValidasiBukuBesarController'
 import Settings from './Settings'
 const Controllers = {
@@ -59,6 +60,7 @@ MutiaraImageController: Object.assign(MutiaraImageController, MutiaraImageContro
 ImamMasjidController: Object.assign(ImamMasjidController, ImamMasjidController),
 JamaahController: Object.assign(JamaahController, JamaahController),
 MonitorConfigController: Object.assign(MonitorConfigController, MonitorConfigController),
+FileExplorerController: Object.assign(FileExplorerController, FileExplorerController),
 ValidasiBukuBesarController: Object.assign(ValidasiBukuBesarController, ValidasiBukuBesarController),
 Settings: Object.assign(Settings, Settings),
 }

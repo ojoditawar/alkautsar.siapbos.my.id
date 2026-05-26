@@ -31,6 +31,7 @@ use App\Http\Controllers\ImamMasjidController;
 use App\Http\Controllers\MutiaraImageController;
 use App\Http\Controllers\PekurbanController;
 use App\Http\Controllers\PekurbanPdfController;
+use App\Http\Controllers\FileExplorerController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 
