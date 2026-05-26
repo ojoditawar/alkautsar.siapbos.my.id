@@ -103,7 +103,7 @@ function formatTanggalKajian(date: string): string {
 // === Data Dummy ===
 const masjid = {
     nama: 'Masjid Al Kautsar',
-    label: 'DKM',
+    label: 'DKMakmur',
     alamat: 'Jl Anggraini Raya Perumahan Griya Anggraini Citeureup',
     lokasi: 'Citeureup - Bogor',
     telepon: '081377277995',
