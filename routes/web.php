@@ -26,6 +26,7 @@ use App\Http\Controllers\JadwalImamController;
 use App\Http\Controllers\JadwalImamPdfController;
 use App\Http\Controllers\KhotbahController;
 use App\Http\Controllers\KhotbahPdfController;
+use App\Http\Controllers\JamaahController;
 use App\Http\Controllers\ImamMasjidController;
 use App\Http\Controllers\MutiaraImageController;
 use App\Http\Controllers\PekurbanController;
@@ -148,10 +149,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::middleware('role_or_permission:Admin')->group(function () {
             Route::resource('mutiara-images', MutiaraImageController::class)->except(['show']);
             Route::resource('imam-masjids', ImamMasjidController::class)->except(['show'])->parameters(['imam-masjids' => 'imamMasjid']);
+            Route::resource('jamaahs', JamaahController::class)->except(['show']);
 
 
         Route::get('monitor-config', [MonitorConfigController::class, 'edit'])->name('monitor-config.edit');
         Route::put('monitor-config', [MonitorConfigController::class, 'update'])->name('monitor-config.update');
+
+        // File Explorer
+        Route::get('file-explorer', [FileExplorerController::class, 'index'])->name('file-explorer.index');
+        Route::get('file-explorer/list', [FileExplorerController::class, 'list'])->name('file-explorer.list');
+        Route::post('file-explorer/upload', [FileExplorerController::class, 'upload'])->name('file-explorer.upload');
+        Route::get('file-explorer/download', [FileExplorerController::class, 'download'])->name('file-explorer.download');
+        Route::post('file-explorer/rename', [FileExplorerController::class, 'rename'])->name('file-explorer.rename');
+        Route::delete('file-explorer/delete', [FileExplorerController::class, 'delete'])->name('file-explorer.delete');
+        Route::post('file-explorer/create-folder', [FileExplorerController::class, 'createFolder'])->name('file-explorer.create-folder');
     });
 
     // Validasi / Closing buku besar: hanya Admin yang bisa memproses/membatalkan.

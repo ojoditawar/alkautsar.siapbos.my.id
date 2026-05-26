@@ -25,6 +25,7 @@ import KhotbahController from './KhotbahController'
 import Api from './Api'
 import MutiaraImageController from './MutiaraImageController'
 import ImamMasjidController from './ImamMasjidController'
+import JamaahController from './JamaahController'
 import MonitorConfigController from './MonitorConfigController'
 import ValidasiBukuBesarController from './ValidasiBukuBesarController'
 import Settings from './Settings'
@@ -56,6 +57,7 @@ KhotbahController: Object.assign(KhotbahController, KhotbahController),
 Api: Object.assign(Api, Api),
 MutiaraImageController: Object.assign(MutiaraImageController, MutiaraImageController),
 ImamMasjidController: Object.assign(ImamMasjidController, ImamMasjidController),
+JamaahController: Object.assign(JamaahController, JamaahController),
 MonitorConfigController: Object.assign(MonitorConfigController, MonitorConfigController),
 ValidasiBukuBesarController: Object.assign(ValidasiBukuBesarController, ValidasiBukuBesarController),
 Settings: Object.assign(Settings, Settings),
