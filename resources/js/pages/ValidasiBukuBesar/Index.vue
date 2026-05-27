@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Head, router, usePage } from '@inertiajs/vue3';
-import { CheckCircle2, FileCheck2, Lock, Unlock } from 'lucide-vue-next';
-import { computed, ref, watch } from 'vue';
+import { CheckCircle2, ChevronsUpDown, FileCheck2, Lock, Unlock, X } from 'lucide-vue-next';
+import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -19,6 +19,19 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+import {
+    Command,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+} from '@/components/ui/command';
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from '@/components/ui/popover';
 
 interface MasjidOption {
     id: string;
@@ -45,10 +58,13 @@ interface Summary {
 const props = defineProps<{
     trensaksis: TrensaksiRow[];
     masjids: MasjidOption[];
+    rekenings: { jenis: string; nama: string }[];
     filters: {
         masjid_id: string | null;
         month: string;
         status: 'all' | 'open' | 'closed';
+        rekening: string | null;
+        no_trans: string | null;
     };
     summary: Summary;
     is_admin: boolean;
@@ -68,6 +84,15 @@ const errors = computed(() => page.props.errors as Record<string, string>);
 const masjidId = ref(props.filters.masjid_id ?? '');
 const month = ref(props.filters.month);
 const status = ref<'all' | 'open' | 'closed'>(props.filters.status);
+const rekening = ref(props.filters.rekening || 'all');
+const noTrans = ref(props.filters.no_trans ?? '');
+const openRekeningPopover = ref(false);
+
+const selectedRekeningLabel = computed(() => {
+    if (rekening.value === 'all' || !rekening.value) return 'Semua Rekening';
+    const rek = props.rekenings.find((r) => r.jenis === rekening.value);
+    return rek ? `${rek.jenis} - ${rek.nama}` : rekening.value;
+});
 
 const selected = ref<number[]>([]);
 
@@ -78,14 +103,29 @@ function reload() {
             masjid_id: masjidId.value || undefined,
             month: month.value || undefined,
             status: status.value,
+            rekening: (rekening.value === 'all' || !rekening.value) ? undefined : rekening.value,
+            no_trans: noTrans.value || undefined,
         },
         { preserveState: true, preserveScroll: true, replace: true },
     );
 }
 
-watch([masjidId, month, status], () => {
+watch([masjidId, month, status, rekening], () => {
     selected.value = [];
     reload();
+});
+
+let noTransTimer: ReturnType<typeof setTimeout> | null = null;
+watch(noTrans, () => {
+    if (noTransTimer) clearTimeout(noTransTimer);
+    noTransTimer = setTimeout(() => {
+        selected.value = [];
+        reload();
+    }, 350);
+});
+
+onBeforeUnmount(() => {
+    if (noTransTimer) clearTimeout(noTransTimer);
 });
 
 const allIds = computed(() => props.trensaksis.map((t) => t.id));
@@ -206,7 +246,7 @@ function validateAllOpen() {
 
             <CardContent class="space-y-4">
                 <!-- Filter -->
-                <div class="grid gap-4 md:grid-cols-3">
+                <div class="grid gap-4 md:grid-cols-5">
                     <div class="space-y-2">
                         <label class="text-sm font-medium">Masjid</label>
                         <Select v-model="masjidId" :disabled="!props.is_admin">
@@ -259,6 +299,61 @@ function validateAllOpen() {
                                 <SelectItem value="closed">Closed</SelectItem>
                             </SelectContent>
                         </Select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium">Rekening</label>
+                        <Popover v-model:open="openRekeningPopover">
+                            <PopoverTrigger as-child>
+                                <Button variant="outline" role="combobox" class="w-full justify-between font-normal">
+                                    <span class="truncate">{{ selectedRekeningLabel }}</span>
+                                    <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                </Button>
+                            </PopoverTrigger>
+                            <PopoverContent class="w-[400px] p-0" align="start">
+                                <Command>
+                                    <CommandInput placeholder="Cari kode atau nama rekening..." />
+                                    <CommandList>
+                                        <CommandEmpty>Tidak ditemukan.</CommandEmpty>
+                                        <CommandGroup>
+                                            <CommandItem
+                                                value="all"
+                                                @select="() => { rekening = 'all'; openRekeningPopover = false; }">
+                                                Semua Rekening
+                                                <span v-if="rekening === 'all'" class="ml-auto text-primary">✓</span>
+                                            </CommandItem>
+                                            <CommandItem
+                                                v-for="rek in rekenings"
+                                                :key="rek.jenis"
+                                                :value="`${rek.jenis} - ${rek.nama}`"
+                                                @select="() => { rekening = rek.jenis; openRekeningPopover = false; }">
+                                                {{ rek.jenis }} - {{ rek.nama }}
+                                                <span v-if="rekening === rek.jenis" class="ml-auto text-primary">✓</span>
+                                            </CommandItem>
+                                        </CommandGroup>
+                                    </CommandList>
+                                </Command>
+                            </PopoverContent>
+                        </Popover>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium">No Trans</label>
+                        <div class="relative">
+                            <Input
+                                v-model="noTrans"
+                                type="text"
+                                placeholder="Cari no trans..."
+                                class="pr-8"
+                            />
+                            <button
+                                v-if="noTrans"
+                                type="button"
+                                class="absolute top-1/2 right-2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                                @click="noTrans = ''">
+                                <X class="h-4 w-4" />
+                            </button>
+                        </div>
                     </div>
                 </div>
 

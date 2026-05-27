@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head, router, usePage } from '@inertiajs/vue3';
-import { BookOpen, FileDown, X } from 'lucide-vue-next';
+import { BookOpen, ChevronDown, FileDown, X } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
 import DateInput from '@/components/DateInput.vue';
 import { Badge } from '@/components/ui/badge';
@@ -12,6 +12,11 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
+import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 import {
     Command,
     CommandEmpty,
@@ -299,10 +304,10 @@ function getMasjidNama(): string {
                 </CardDescription>
             </CardHeader>
             <CardContent class="space-y-6">
-                <div v-for="group in buku_besar" :key="group.rekening.id" class="rounded-lg border">
-                    <div class="border-b p-4">
-                        <div class="flex items-center justify-between gap-4">
-                            <div>
+                <Collapsible v-for="group in buku_besar" :key="group.rekening.id" v-slot="{ open }" :default-open="false" class="rounded-lg border">
+                    <CollapsibleTrigger class="w-full">
+                        <div class="flex cursor-pointer items-center justify-between gap-4 p-4 hover:bg-muted/30 transition-colors">
+                            <div class="text-left">
                                 <h3 class="font-semibold">
                                     {{ group.rekening.nama }}
                                 </h3>
@@ -310,94 +315,99 @@ function getMasjidNama(): string {
                                     Jenis: {{ group.rekening.jenis }}
                                 </p>
                             </div>
-                            <div class="text-right">
-                                <p class="text-xs text-muted-foreground">
-                                    Saldo Akhir:
-                                </p>
-                                <p class="text-lg font-bold text-green-600">
-                                    Rp {{ formatCurrency(group.saldo_akhir) }}
-                                </p>
+                            <div class="flex items-center gap-3">
+                                <div class="text-right">
+                                    <p class="text-xs text-muted-foreground">
+                                        Saldo Akhir
+                                    </p>
+                                    <p class="text-lg font-bold text-green-600">
+                                        Rp {{ formatCurrency(group.saldo_akhir) }}
+                                    </p>
+                                </div>
+                                <ChevronDown class="h-5 w-5 text-muted-foreground transition-transform duration-200" :class="{ 'rotate-180': open }" />
                             </div>
                         </div>
-                    </div>
+                    </CollapsibleTrigger>
 
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-sm">
-                            <thead>
-                                <tr class="border-b bg-muted/50 text-xs tracking-wider uppercase">
-                                    <th class="w-28 px-3 py-2 text-left">
-                                        Tanggal
-                                    </th>
-                                    <th class="w-24 px-3 py-2 text-left">
-                                        No. Trans
-                                    </th>
-                                    <th class="px-3 py-2 text-left">Uraian</th>
-                                    <th class="w-36 px-3 py-2 text-right">
-                                        Debet
-                                    </th>
-                                    <th class="w-36 px-3 py-2 text-right">
-                                        Kredit
-                                    </th>
-                                    <th class="w-40 px-3 py-2 text-right">
-                                        Saldo
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="(entry, idx) in group.entries" :key="idx"
-                                    class="border-b last:border-0 hover:bg-muted/20">
-                                    <td class="px-3 py-2">
-                                        {{ formatDate(entry.tanggal) }}
-                                    </td>
-                                    <td class="px-3 py-2">
-                                        {{ entry.no_trans || '' }}
-                                    </td>
-                                    <td class="px-3 py-2">
-                                        {{ entry.uraian }}
-                                    </td>
-                                    <td class="px-3 py-2 text-right">
-                                        {{
-                                            entry.debet
-                                                ? `Rp
-                                        ${formatCurrency(entry.debet)}`
-                                                : '-'
-                                        }}
-                                    </td>
-                                    <td class="px-3 py-2 text-right">
-                                        {{
-                                            entry.kredit
-                                                ? `Rp
-                                        ${formatCurrency(entry.kredit)}`
-                                                : '-'
-                                        }}
-                                    </td>
-                                    <td class="px-3 py-2 text-right font-medium text-green-600">
-                                        Rp {{ formatCurrency(entry.saldo) }}
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr class="border-t bg-muted/40 font-semibold">
-                                    <td colspan="3" class="px-3 py-2 text-right">
-                                        Total
-                                    </td>
-                                    <td class="px-3 py-2 text-right">
-                                        Rp
-                                        {{ formatCurrency(group.total_debet) }}
-                                    </td>
-                                    <td class="px-3 py-2 text-right">
-                                        Rp
-                                        {{ formatCurrency(group.total_kredit) }}
-                                    </td>
-                                    <td class="px-3 py-2 text-right text-green-600">
-                                        Rp
-                                        {{ formatCurrency(group.saldo_akhir) }}
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
+                    <CollapsibleContent>
+                        <div class="border-t overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b bg-muted/50 text-xs tracking-wider uppercase">
+                                        <th class="w-28 px-3 py-2 text-left">
+                                            Tanggal
+                                        </th>
+                                        <th class="w-24 px-3 py-2 text-left">
+                                            No. Trans
+                                        </th>
+                                        <th class="px-3 py-2 text-left">Uraian</th>
+                                        <th class="w-36 px-3 py-2 text-right">
+                                            Debet
+                                        </th>
+                                        <th class="w-36 px-3 py-2 text-right">
+                                            Kredit
+                                        </th>
+                                        <th class="w-40 px-3 py-2 text-right">
+                                            Saldo
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(entry, idx) in group.entries" :key="idx"
+                                        class="border-b last:border-0 hover:bg-muted/20">
+                                        <td class="px-3 py-2">
+                                            {{ formatDate(entry.tanggal) }}
+                                        </td>
+                                        <td class="px-3 py-2">
+                                            {{ entry.no_trans || '' }}
+                                        </td>
+                                        <td class="px-3 py-2">
+                                            {{ entry.uraian }}
+                                        </td>
+                                        <td class="px-3 py-2 text-right">
+                                            {{
+                                                entry.debet
+                                                    ? `Rp
+                                            ${formatCurrency(entry.debet)}`
+                                                    : '-'
+                                            }}
+                                        </td>
+                                        <td class="px-3 py-2 text-right">
+                                            {{
+                                                entry.kredit
+                                                    ? `Rp
+                                            ${formatCurrency(entry.kredit)}`
+                                                    : '-'
+                                            }}
+                                        </td>
+                                        <td class="px-3 py-2 text-right font-medium text-green-600">
+                                            Rp {{ formatCurrency(entry.saldo) }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="border-t bg-muted/40 font-semibold">
+                                        <td colspan="3" class="px-3 py-2 text-right">
+                                            Total
+                                        </td>
+                                        <td class="px-3 py-2 text-right">
+                                            Rp
+                                            {{ formatCurrency(group.total_debet) }}
+                                        </td>
+                                        <td class="px-3 py-2 text-right">
+                                            Rp
+                                            {{ formatCurrency(group.total_kredit) }}
+                                        </td>
+                                        <td class="px-3 py-2 text-right text-green-600">
+                                            Rp
+                                            {{ formatCurrency(group.saldo_akhir) }}
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </CollapsibleContent>
+                </Collapsible>
             </CardContent>
         </Card>
 

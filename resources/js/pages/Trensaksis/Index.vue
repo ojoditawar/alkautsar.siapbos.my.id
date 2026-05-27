@@ -5,6 +5,7 @@ import {
     ArrowUp,
     ChevronLeft,
     ChevronRight,
+    ChevronsUpDown,
     Copy,
     Edit,
     Plus,
@@ -13,7 +14,7 @@ import {
     Trash2,
     X,
 } from 'lucide-vue-next';
-import { onBeforeUnmount, ref, watch } from 'vue';
+import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -41,6 +42,19 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+import {
+    Command,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+} from '@/components/ui/command';
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from '@/components/ui/popover';
 
 interface TrensaksiItem {
     id: number;
@@ -77,10 +91,13 @@ interface PaginatedData {
 
 const props = defineProps<{
     trensaksis: PaginatedData;
+    rekenings: { jenis: string; nama: string }[];
     filters: {
         search: string | null;
         month: string | null;
         bayar: string | null;
+        jenis: string | null;
+        rekening_nama: string | null;
         per_page: number;
         sort_field?: string | null;
         sort_direction?: string | null;
@@ -117,6 +134,15 @@ const perPageOptions = [10, 20, 50, 100];
 const search = ref(props.filters?.search ?? '');
 const month = ref(props.filters?.month ?? '');
 const bayar = ref(props.filters?.bayar || 'all');
+const jenis = ref(props.filters?.jenis || 'all');
+const rekeningNama = ref(props.filters?.rekening_nama || 'all');
+const openRekeningPopover = ref(false);
+
+const selectedRekeningLabel = computed(() => {
+    if (rekeningNama.value === 'all' || !rekeningNama.value) return 'Semua Rekening';
+    const rek = props.rekenings.find((r) => r.jenis === rekeningNama.value);
+    return rek ? `${rek.jenis} - ${rek.nama}` : rekeningNama.value;
+});
 const sortField = ref<string>(props.filters?.sort_field ?? 'tanggal');
 const sortDirection = ref<'asc' | 'desc'>(
     (props.filters?.sort_direction as 'asc' | 'desc') ?? 'asc',
@@ -128,6 +154,8 @@ function buildQuery(extra: Record<string, unknown> = {}) {
         search: search.value || undefined,
         month: month.value || undefined,
         bayar: (bayar.value === 'all' || !bayar.value) ? undefined : bayar.value,
+        jenis: (jenis.value === 'all' || !jenis.value) ? undefined : jenis.value,
+        rekening_nama: (rekeningNama.value === 'all' || !rekeningNama.value) ? undefined : rekeningNama.value,
         sort_field: sortField.value || undefined,
         sort_direction: sortDirection.value || undefined,
         per_page: String(props.trensaksis.per_page),
@@ -165,6 +193,22 @@ watch(bayar, () => {
     });
 });
 
+watch(jenis, () => {
+    router.get('/transaksis', buildQuery({ page: 1 }), {
+        preserveState: true,
+        preserveScroll: true,
+        replace: true,
+    });
+});
+
+watch(rekeningNama, () => {
+    router.get('/transaksis', buildQuery({ page: 1 }), {
+        preserveState: true,
+        preserveScroll: true,
+        replace: true,
+    });
+});
+
 onBeforeUnmount(() => {
     if (searchTimer) {
         clearTimeout(searchTimer);
@@ -181,6 +225,14 @@ function clearMonth() {
 
 function clearBayar() {
     bayar.value = 'all';
+}
+
+function clearJenis() {
+    jenis.value = 'all';
+}
+
+function clearRekeningNama() {
+    rekeningNama.value = 'all';
 }
 
 function goToPage(page: number) {
@@ -342,6 +394,55 @@ function formatCurrency(value: number): string {
                                 </SelectItem>
                             </SelectContent>
                         </Select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-muted-foreground">Jenis</span>
+                        <Select v-model="jenis">
+                            <SelectTrigger class="h-9 w-48">
+                                <SelectValue placeholder="Semua" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="all">Semua</SelectItem>
+                                <SelectItem v-for="(label, value) in jenisLabels" :key="value" :value="String(value)">
+                                    {{ label }}
+                                </SelectItem>
+                            </SelectContent>
+                        </Select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-muted-foreground">Rekening</span>
+                        <Popover v-model:open="openRekeningPopover">
+                            <PopoverTrigger as-child>
+                                <Button variant="outline" role="combobox" class="h-9 w-64 justify-between font-normal">
+                                    <span class="truncate">{{ selectedRekeningLabel }}</span>
+                                    <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                </Button>
+                            </PopoverTrigger>
+                            <PopoverContent class="w-[400px] p-0" align="start">
+                                <Command>
+                                    <CommandInput placeholder="Cari kode atau nama rekening..." />
+                                    <CommandList>
+                                        <CommandEmpty>Tidak ditemukan.</CommandEmpty>
+                                        <CommandGroup>
+                                            <CommandItem
+                                                value="all"
+                                                @select="() => { rekeningNama = 'all'; openRekeningPopover = false; }">
+                                                Semua Rekening
+                                                <span v-if="rekeningNama === 'all'" class="ml-auto text-primary">✓</span>
+                                            </CommandItem>
+                                            <CommandItem
+                                                v-for="rek in rekenings"
+                                                :key="rek.jenis"
+                                                :value="`${rek.jenis} - ${rek.nama}`"
+                                                @select="() => { rekeningNama = rek.jenis; openRekeningPopover = false; }">
+                                                {{ rek.jenis }} - {{ rek.nama }}
+                                                <span v-if="rekeningNama === rek.jenis" class="ml-auto text-primary">✓</span>
+                                            </CommandItem>
+                                        </CommandGroup>
+                                    </CommandList>
+                                </Command>
+                            </PopoverContent>
+                        </Popover>
                     </div>
                     <div class="relative">
                         <Search

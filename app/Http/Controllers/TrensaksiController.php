@@ -21,6 +21,8 @@ class TrensaksiController extends Controller
         $sortField = trim((string) $request->input('sort_field', 'tanggal'));
         $sortDirection = trim((string) $request->input('sort_direction', 'desc'));
         $bayar = trim((string) $request->input('bayar', ''));
+        $jenis = trim((string) $request->input('jenis', ''));
+        $rekeningNama = trim((string) $request->input('rekening_nama', ''));
 
         // Validasi format YYYY-MM, jika tidak valid diabaikan.
         if ($month !== '' && !preg_match('/^\d{4}-(0[1-9]|1[0-2])$/', $month)) {
@@ -41,6 +43,8 @@ class TrensaksiController extends Controller
                 'sort_field' => $sortField,
                 'sort_direction' => $sortDirection,
                 'bayar' => $bayar,
+                'jenis' => $jenis,
+                'rekening_nama' => $rekeningNama,
             ],
         ]);
 
@@ -56,6 +60,12 @@ class TrensaksiController extends Controller
             })
             ->when($bayar !== '' && $bayar !== 'all', function ($q) use ($bayar) {
                 $q->where('bayar', $bayar);
+            })
+            ->when($jenis !== '' && $jenis !== 'all', function ($q) use ($jenis) {
+                $q->where('jenis', $jenis);
+            })
+            ->when($rekeningNama !== '' && $rekeningNama !== 'all', function ($q) use ($rekeningNama) {
+                $q->where('rekening', $rekeningNama);
             })
             ->when($search !== '', function ($q) use ($search) {
                 $like = '%' . mb_strtolower($search) . '%';
@@ -103,6 +113,10 @@ class TrensaksiController extends Controller
 
         return Inertia::render('Trensaksis/Index', [
             'trensaksis' => $trensaksis,
+            'rekenings' => $rekeningMap->map(fn($nama, $jenis) => [
+                'jenis' => $jenis,
+                'nama' => $nama,
+            ])->values(),
             'filters' => [
                 'search' => $search,
                 'month' => $month,
@@ -110,6 +124,8 @@ class TrensaksiController extends Controller
                 'sort_field' => $sortField,
                 'sort_direction' => $sortDirection,
                 'bayar' => $bayar,
+                'jenis' => $jenis,
+                'rekening_nama' => $rekeningNama,
             ],
         ]);
     }
@@ -283,6 +299,8 @@ class TrensaksiController extends Controller
             'search' => $filters['search'] ?? null,
             'month' => $filters['month'] ?? null,
             'bayar' => $filters['bayar'] ?? null,
+            'jenis' => $filters['jenis'] ?? null,
+            'rekening_nama' => $filters['rekening_nama'] ?? null,
             'per_page' => $filters['per_page'] ?? null,
         ], fn($v) => $v !== null && $v !== '');
 

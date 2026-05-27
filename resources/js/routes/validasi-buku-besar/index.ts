@@ -79,7 +79,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Http\Controllers\ValidasiBukuBesarController::validate
- * @see app/Http/Controllers/ValidasiBukuBesarController.php:95
+ * @see app/Http/Controllers/ValidasiBukuBesarController.php:107
  * @route '/validasi-buku-besar/validate'
  */
 export const validate = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -94,7 +94,7 @@ validate.definition = {
 
 /**
 * @see \App\Http\Controllers\ValidasiBukuBesarController::validate
- * @see app/Http/Controllers/ValidasiBukuBesarController.php:95
+ * @see app/Http/Controllers/ValidasiBukuBesarController.php:107
  * @route '/validasi-buku-besar/validate'
  */
 validate.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ validate.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ValidasiBukuBesarController::validate
- * @see app/Http/Controllers/ValidasiBukuBesarController.php:95
+ * @see app/Http/Controllers/ValidasiBukuBesarController.php:107
  * @route '/validasi-buku-besar/validate'
  */
 validate.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -113,7 +113,7 @@ validate.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\ValidasiBukuBesarController::validate
- * @see app/Http/Controllers/ValidasiBukuBesarController.php:95
+ * @see app/Http/Controllers/ValidasiBukuBesarController.php:107
  * @route '/validasi-buku-besar/validate'
  */
     const validateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -123,7 +123,7 @@ validate.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\ValidasiBukuBesarController::validate
- * @see app/Http/Controllers/ValidasiBukuBesarController.php:95
+ * @see app/Http/Controllers/ValidasiBukuBesarController.php:107
  * @route '/validasi-buku-besar/validate'
  */
         validateForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -134,7 +134,7 @@ validate.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     validate.form = validateForm
 /**
 * @see \App\Http\Controllers\ValidasiBukuBesarController::invalidate
- * @see app/Http/Controllers/ValidasiBukuBesarController.php:116
+ * @see app/Http/Controllers/ValidasiBukuBesarController.php:128
  * @route '/validasi-buku-besar/invalidate'
  */
 export const invalidate = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -149,7 +149,7 @@ invalidate.definition = {
 
 /**
 * @see \App\Http\Controllers\ValidasiBukuBesarController::invalidate
- * @see app/Http/Controllers/ValidasiBukuBesarController.php:116
+ * @see app/Http/Controllers/ValidasiBukuBesarController.php:128
  * @route '/validasi-buku-besar/invalidate'
  */
 invalidate.url = (options?: RouteQueryOptions) => {
@@ -158,7 +158,7 @@ invalidate.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ValidasiBukuBesarController::invalidate
- * @see app/Http/Controllers/ValidasiBukuBesarController.php:116
+ * @see app/Http/Controllers/ValidasiBukuBesarController.php:128
  * @route '/validasi-buku-besar/invalidate'
  */
 invalidate.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -168,7 +168,7 @@ invalidate.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\ValidasiBukuBesarController::invalidate
- * @see app/Http/Controllers/ValidasiBukuBesarController.php:116
+ * @see app/Http/Controllers/ValidasiBukuBesarController.php:128
  * @route '/validasi-buku-besar/invalidate'
  */
     const invalidateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -178,7 +178,7 @@ invalidate.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\ValidasiBukuBesarController::invalidate
- * @see app/Http/Controllers/ValidasiBukuBesarController.php:116
+ * @see app/Http/Controllers/ValidasiBukuBesarController.php:128
  * @route '/validasi-buku-besar/invalidate'
  */
         invalidateForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

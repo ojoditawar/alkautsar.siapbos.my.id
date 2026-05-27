@@ -46,6 +46,8 @@ class ValidasiBukuBesarController extends Controller
         $end = date('Y-m-t', strtotime($start));
 
         $status = (string) $request->input('status', 'all'); // all|open|closed
+        $rekening = trim((string) $request->input('rekening', ''));
+        $noTrans = trim((string) $request->input('no_trans', ''));
 
         $rekeningMap = Rekening::query()->pluck('nama', 'jenis');
 
@@ -54,6 +56,10 @@ class ValidasiBukuBesarController extends Controller
             ->whereBetween('tanggal', [$start, $end])
             ->when($status === 'open', fn($q) => $q->where('valid', false))
             ->when($status === 'closed', fn($q) => $q->where('valid', true))
+            ->when($rekening !== '' && $rekening !== 'all', fn($q) => $q->where('rekening', $rekening))
+            ->when($noTrans !== '', function ($q) use ($noTrans) {
+                $q->whereRaw('LOWER(no_trans) like ?', ['%' . mb_strtolower($noTrans) . '%']);
+            })
             ->orderBy('tanggal')
             ->orderByRaw("CAST(split_part(no_trans, '-', 1) AS INTEGER)")
             ->orderByRaw("CAST(split_part(no_trans, '-', 2) AS INTEGER)")
@@ -78,10 +84,16 @@ class ValidasiBukuBesarController extends Controller
         return Inertia::render('ValidasiBukuBesar/Index', [
             'trensaksis' => $trensaksis->values(),
             'masjids' => $masjids,
+            'rekenings' => $rekeningMap->map(fn($nama, $jenis) => [
+                'jenis' => $jenis,
+                'nama' => $nama,
+            ])->values(),
             'filters' => [
                 'masjid_id' => $masjidId,
                 'month' => $month,
                 'status' => $status,
+                'rekening' => $rekening,
+                'no_trans' => $noTrans,
             ],
             'summary' => $summary,
             'is_admin' => $isAdmin,
