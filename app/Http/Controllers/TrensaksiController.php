@@ -21,8 +21,16 @@ class TrensaksiController extends Controller
         $sortField = trim((string) $request->input('sort_field', 'tanggal'));
         $sortDirection = trim((string) $request->input('sort_direction', 'desc'));
         $bayar = trim((string) $request->input('bayar', ''));
-        $jenis = trim((string) $request->input('jenis', ''));
-        $rekeningNama = trim((string) $request->input('rekening_nama', ''));
+        $jenis = $request->input('jenis', []);
+        if (is_string($jenis)) {
+            $jenis = $jenis !== '' ? [$jenis] : [];
+        }
+        $jenis = array_filter($jenis);
+        $rekeningNama = $request->input('rekening_nama', []);
+        if (is_string($rekeningNama)) {
+            $rekeningNama = $rekeningNama !== '' ? [$rekeningNama] : [];
+        }
+        $rekeningNama = array_filter($rekeningNama);
 
         // Validasi format YYYY-MM, jika tidak valid diabaikan.
         if ($month !== '' && !preg_match('/^\d{4}-(0[1-9]|1[0-2])$/', $month)) {
@@ -61,11 +69,11 @@ class TrensaksiController extends Controller
             ->when($bayar !== '' && $bayar !== 'all', function ($q) use ($bayar) {
                 $q->where('bayar', $bayar);
             })
-            ->when($jenis !== '' && $jenis !== 'all', function ($q) use ($jenis) {
-                $q->where('jenis', $jenis);
+            ->when(!empty($jenis), function ($q) use ($jenis) {
+                $q->whereIn('jenis', $jenis);
             })
-            ->when($rekeningNama !== '' && $rekeningNama !== 'all', function ($q) use ($rekeningNama) {
-                $q->where('rekening', $rekeningNama);
+            ->when(!empty($rekeningNama), function ($q) use ($rekeningNama) {
+                $q->whereIn('rekening', $rekeningNama);
             })
             ->when($search !== '', function ($q) use ($search) {
                 $like = '%' . mb_strtolower($search) . '%';
@@ -299,10 +307,18 @@ class TrensaksiController extends Controller
             'search' => $filters['search'] ?? null,
             'month' => $filters['month'] ?? null,
             'bayar' => $filters['bayar'] ?? null,
-            'jenis' => $filters['jenis'] ?? null,
-            'rekening_nama' => $filters['rekening_nama'] ?? null,
             'per_page' => $filters['per_page'] ?? null,
         ], fn($v) => $v !== null && $v !== '');
+
+        $rekeningNama = $filters['rekening_nama'] ?? [];
+        if (!empty($rekeningNama)) {
+            $params['rekening_nama'] = $rekeningNama;
+        }
+
+        $jenis = $filters['jenis'] ?? [];
+        if (!empty($jenis)) {
+            $params['jenis'] = $jenis;
+        }
 
         return to_route('transaksis.index', $params);
     }

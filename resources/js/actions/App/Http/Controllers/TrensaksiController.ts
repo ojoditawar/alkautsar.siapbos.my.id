@@ -79,7 +79,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Http\Controllers\TrensaksiController::create
- * @see app/Http/Controllers/TrensaksiController.php:133
+ * @see app/Http/Controllers/TrensaksiController.php:141
  * @route '/transaksis/create'
  */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -94,7 +94,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::create
- * @see app/Http/Controllers/TrensaksiController.php:133
+ * @see app/Http/Controllers/TrensaksiController.php:141
  * @route '/transaksis/create'
  */
 create.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::create
- * @see app/Http/Controllers/TrensaksiController.php:133
+ * @see app/Http/Controllers/TrensaksiController.php:141
  * @route '/transaksis/create'
  */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -112,7 +112,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\TrensaksiController::create
- * @see app/Http/Controllers/TrensaksiController.php:133
+ * @see app/Http/Controllers/TrensaksiController.php:141
  * @route '/transaksis/create'
  */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -122,7 +122,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\TrensaksiController::create
- * @see app/Http/Controllers/TrensaksiController.php:133
+ * @see app/Http/Controllers/TrensaksiController.php:141
  * @route '/transaksis/create'
  */
     const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -132,7 +132,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\TrensaksiController::create
- * @see app/Http/Controllers/TrensaksiController.php:133
+ * @see app/Http/Controllers/TrensaksiController.php:141
  * @route '/transaksis/create'
  */
         createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -141,7 +141,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\TrensaksiController::create
- * @see app/Http/Controllers/TrensaksiController.php:133
+ * @see app/Http/Controllers/TrensaksiController.php:141
  * @route '/transaksis/create'
  */
         createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\TrensaksiController::store
- * @see app/Http/Controllers/TrensaksiController.php:147
+ * @see app/Http/Controllers/TrensaksiController.php:155
  * @route '/transaksis'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::store
- * @see app/Http/Controllers/TrensaksiController.php:147
+ * @see app/Http/Controllers/TrensaksiController.php:155
  * @route '/transaksis'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::store
- * @see app/Http/Controllers/TrensaksiController.php:147
+ * @see app/Http/Controllers/TrensaksiController.php:155
  * @route '/transaksis'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\TrensaksiController::store
- * @see app/Http/Controllers/TrensaksiController.php:147
+ * @see app/Http/Controllers/TrensaksiController.php:155
  * @route '/transaksis'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\TrensaksiController::store
- * @see app/Http/Controllers/TrensaksiController.php:147
+ * @see app/Http/Controllers/TrensaksiController.php:155
  * @route '/transaksis'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\TrensaksiController::edit
- * @see app/Http/Controllers/TrensaksiController.php:185
+ * @see app/Http/Controllers/TrensaksiController.php:193
  * @route '/transaksis/{trensaksi}/edit'
  */
 export const edit = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::edit
- * @see app/Http/Controllers/TrensaksiController.php:185
+ * @see app/Http/Controllers/TrensaksiController.php:193
  * @route '/transaksis/{trensaksi}/edit'
  */
 edit.url = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ edit.url = (args: { trensaksi: number | { id: number } } | [trensaksi: number | 
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::edit
- * @see app/Http/Controllers/TrensaksiController.php:185
+ * @see app/Http/Controllers/TrensaksiController.php:193
  * @route '/transaksis/{trensaksi}/edit'
  */
 edit.get = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ edit.get = (args: { trensaksi: number | { id: number } } | [trensaksi: number | 
 })
 /**
 * @see \App\Http\Controllers\TrensaksiController::edit
- * @see app/Http/Controllers/TrensaksiController.php:185
+ * @see app/Http/Controllers/TrensaksiController.php:193
  * @route '/transaksis/{trensaksi}/edit'
  */
 edit.head = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ edit.head = (args: { trensaksi: number | { id: number } } | [trensaksi: number |
 
     /**
 * @see \App\Http\Controllers\TrensaksiController::edit
- * @see app/Http/Controllers/TrensaksiController.php:185
+ * @see app/Http/Controllers/TrensaksiController.php:193
  * @route '/transaksis/{trensaksi}/edit'
  */
     const editForm = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ edit.head = (args: { trensaksi: number | { id: number } } | [trensaksi: number |
 
             /**
 * @see \App\Http\Controllers\TrensaksiController::edit
- * @see app/Http/Controllers/TrensaksiController.php:185
+ * @see app/Http/Controllers/TrensaksiController.php:193
  * @route '/transaksis/{trensaksi}/edit'
  */
         editForm.get = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ edit.head = (args: { trensaksi: number | { id: number } } | [trensaksi: number |
         })
             /**
 * @see \App\Http\Controllers\TrensaksiController::edit
- * @see app/Http/Controllers/TrensaksiController.php:185
+ * @see app/Http/Controllers/TrensaksiController.php:193
  * @route '/transaksis/{trensaksi}/edit'
  */
         editForm.head = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ edit.head = (args: { trensaksi: number | { id: number } } | [trensaksi: number |
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\TrensaksiController::update
- * @see app/Http/Controllers/TrensaksiController.php:212
+ * @see app/Http/Controllers/TrensaksiController.php:220
  * @route '/transaksis/{trensaksi}'
  */
 export const update = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -329,7 +329,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::update
- * @see app/Http/Controllers/TrensaksiController.php:212
+ * @see app/Http/Controllers/TrensaksiController.php:220
  * @route '/transaksis/{trensaksi}'
  */
 update.url = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ update.url = (args: { trensaksi: number | { id: number } } | [trensaksi: number 
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::update
- * @see app/Http/Controllers/TrensaksiController.php:212
+ * @see app/Http/Controllers/TrensaksiController.php:220
  * @route '/transaksis/{trensaksi}'
  */
 update.put = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -371,7 +371,7 @@ update.put = (args: { trensaksi: number | { id: number } } | [trensaksi: number 
 })
 /**
 * @see \App\Http\Controllers\TrensaksiController::update
- * @see app/Http/Controllers/TrensaksiController.php:212
+ * @see app/Http/Controllers/TrensaksiController.php:220
  * @route '/transaksis/{trensaksi}'
  */
 update.patch = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -381,7 +381,7 @@ update.patch = (args: { trensaksi: number | { id: number } } | [trensaksi: numbe
 
     /**
 * @see \App\Http\Controllers\TrensaksiController::update
- * @see app/Http/Controllers/TrensaksiController.php:212
+ * @see app/Http/Controllers/TrensaksiController.php:220
  * @route '/transaksis/{trensaksi}'
  */
     const updateForm = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -396,7 +396,7 @@ update.patch = (args: { trensaksi: number | { id: number } } | [trensaksi: numbe
 
             /**
 * @see \App\Http\Controllers\TrensaksiController::update
- * @see app/Http/Controllers/TrensaksiController.php:212
+ * @see app/Http/Controllers/TrensaksiController.php:220
  * @route '/transaksis/{trensaksi}'
  */
         updateForm.put = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -410,7 +410,7 @@ update.patch = (args: { trensaksi: number | { id: number } } | [trensaksi: numbe
         })
             /**
 * @see \App\Http\Controllers\TrensaksiController::update
- * @see app/Http/Controllers/TrensaksiController.php:212
+ * @see app/Http/Controllers/TrensaksiController.php:220
  * @route '/transaksis/{trensaksi}'
  */
         updateForm.patch = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -426,7 +426,7 @@ update.patch = (args: { trensaksi: number | { id: number } } | [trensaksi: numbe
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\TrensaksiController::destroy
- * @see app/Http/Controllers/TrensaksiController.php:251
+ * @see app/Http/Controllers/TrensaksiController.php:259
  * @route '/transaksis/{trensaksi}'
  */
 export const destroy = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -441,7 +441,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::destroy
- * @see app/Http/Controllers/TrensaksiController.php:251
+ * @see app/Http/Controllers/TrensaksiController.php:259
  * @route '/transaksis/{trensaksi}'
  */
 destroy.url = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -474,7 +474,7 @@ destroy.url = (args: { trensaksi: number | { id: number } } | [trensaksi: number
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::destroy
- * @see app/Http/Controllers/TrensaksiController.php:251
+ * @see app/Http/Controllers/TrensaksiController.php:259
  * @route '/transaksis/{trensaksi}'
  */
 destroy.delete = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -484,7 +484,7 @@ destroy.delete = (args: { trensaksi: number | { id: number } } | [trensaksi: num
 
     /**
 * @see \App\Http\Controllers\TrensaksiController::destroy
- * @see app/Http/Controllers/TrensaksiController.php:251
+ * @see app/Http/Controllers/TrensaksiController.php:259
  * @route '/transaksis/{trensaksi}'
  */
     const destroyForm = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -499,7 +499,7 @@ destroy.delete = (args: { trensaksi: number | { id: number } } | [trensaksi: num
 
             /**
 * @see \App\Http\Controllers\TrensaksiController::destroy
- * @see app/Http/Controllers/TrensaksiController.php:251
+ * @see app/Http/Controllers/TrensaksiController.php:259
  * @route '/transaksis/{trensaksi}'
  */
         destroyForm.delete = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -515,7 +515,7 @@ destroy.delete = (args: { trensaksi: number | { id: number } } | [trensaksi: num
     destroy.form = destroyForm
 /**
 * @see \App\Http\Controllers\TrensaksiController::duplicate
- * @see app/Http/Controllers/TrensaksiController.php:267
+ * @see app/Http/Controllers/TrensaksiController.php:275
  * @route '/transaksis/{trensaksi}/duplicate'
  */
 export const duplicate = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -530,7 +530,7 @@ duplicate.definition = {
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::duplicate
- * @see app/Http/Controllers/TrensaksiController.php:267
+ * @see app/Http/Controllers/TrensaksiController.php:275
  * @route '/transaksis/{trensaksi}/duplicate'
  */
 duplicate.url = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -563,7 +563,7 @@ duplicate.url = (args: { trensaksi: number | { id: number } } | [trensaksi: numb
 
 /**
 * @see \App\Http\Controllers\TrensaksiController::duplicate
- * @see app/Http/Controllers/TrensaksiController.php:267
+ * @see app/Http/Controllers/TrensaksiController.php:275
  * @route '/transaksis/{trensaksi}/duplicate'
  */
 duplicate.post = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -573,7 +573,7 @@ duplicate.post = (args: { trensaksi: number | { id: number } } | [trensaksi: num
 
     /**
 * @see \App\Http\Controllers\TrensaksiController::duplicate
- * @see app/Http/Controllers/TrensaksiController.php:267
+ * @see app/Http/Controllers/TrensaksiController.php:275
  * @route '/transaksis/{trensaksi}/duplicate'
  */
     const duplicateForm = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -583,7 +583,7 @@ duplicate.post = (args: { trensaksi: number | { id: number } } | [trensaksi: num
 
             /**
 * @see \App\Http\Controllers\TrensaksiController::duplicate
- * @see app/Http/Controllers/TrensaksiController.php:267
+ * @see app/Http/Controllers/TrensaksiController.php:275
  * @route '/transaksis/{trensaksi}/duplicate'
  */
         duplicateForm.post = (args: { trensaksi: number | { id: number } } | [trensaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

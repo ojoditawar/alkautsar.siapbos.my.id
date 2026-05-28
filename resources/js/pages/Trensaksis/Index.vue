@@ -96,8 +96,8 @@ const props = defineProps<{
         search: string | null;
         month: string | null;
         bayar: string | null;
-        jenis: string | null;
-        rekening_nama: string | null;
+        jenis: string[];
+        rekening_nama: string[];
         per_page: number;
         sort_field?: string | null;
         sort_direction?: string | null;
@@ -134,15 +134,57 @@ const perPageOptions = [10, 20, 50, 100];
 const search = ref(props.filters?.search ?? '');
 const month = ref(props.filters?.month ?? '');
 const bayar = ref(props.filters?.bayar || 'all');
-const jenis = ref(props.filters?.jenis || 'all');
-const rekeningNama = ref(props.filters?.rekening_nama || 'all');
+const jenis = ref<string[]>([...(props.filters?.jenis ?? [])]);
+const openJenisPopover = ref(false);
+const rekeningNama = ref<string[]>([...(props.filters?.rekening_nama ?? [])]);
 const openRekeningPopover = ref(false);
 
-const selectedRekeningLabel = computed(() => {
-    if (rekeningNama.value === 'all' || !rekeningNama.value) return 'Semua Rekening';
-    const rek = props.rekenings.find((r) => r.jenis === rekeningNama.value);
-    return rek ? `${rek.jenis} - ${rek.nama}` : rekeningNama.value;
+const selectedJenisItems = computed(() => {
+    return jenis.value.map((v) => ({
+        value: v,
+        label: jenisLabels[v] || v,
+    }));
 });
+
+const selectedRekenings = computed(() =>
+    props.rekenings.filter((r) => rekeningNama.value.includes(r.jenis)),
+);
+
+const selectedRekeningLabel = computed(() => {
+    if (rekeningNama.value.length === 0) return 'Semua Rekening';
+    if (rekeningNama.value.length === 1) {
+        const rek = props.rekenings.find((r) => r.jenis === rekeningNama.value[0]);
+        return rek ? `${rek.jenis} - ${rek.nama}` : rekeningNama.value[0];
+    }
+    return `${rekeningNama.value.length} rekening dipilih`;
+});
+
+function toggleRekening(jenisVal: string) {
+    const idx = rekeningNama.value.indexOf(jenisVal);
+    if (idx >= 0) {
+        rekeningNama.value.splice(idx, 1);
+    } else {
+        rekeningNama.value.push(jenisVal);
+    }
+}
+
+function removeRekening(jenisVal: string) {
+    rekeningNama.value = rekeningNama.value.filter((r) => r !== jenisVal);
+}
+
+function toggleJenis(val: string) {
+    const idx = jenis.value.indexOf(val);
+    if (idx >= 0) {
+        jenis.value.splice(idx, 1);
+    } else {
+        jenis.value.push(val);
+    }
+}
+
+function removeJenis(val: string) {
+    jenis.value = jenis.value.filter((j) => j !== val);
+}
+
 const sortField = ref<string>(props.filters?.sort_field ?? 'tanggal');
 const sortDirection = ref<'asc' | 'desc'>(
     (props.filters?.sort_direction as 'asc' | 'desc') ?? 'asc',
@@ -154,8 +196,8 @@ function buildQuery(extra: Record<string, unknown> = {}) {
         search: search.value || undefined,
         month: month.value || undefined,
         bayar: (bayar.value === 'all' || !bayar.value) ? undefined : bayar.value,
-        jenis: (jenis.value === 'all' || !jenis.value) ? undefined : jenis.value,
-        rekening_nama: (rekeningNama.value === 'all' || !rekeningNama.value) ? undefined : rekeningNama.value,
+        jenis: jenis.value.length > 0 ? jenis.value : undefined,
+        rekening_nama: rekeningNama.value.length > 0 ? rekeningNama.value : undefined,
         sort_field: sortField.value || undefined,
         sort_direction: sortDirection.value || undefined,
         per_page: String(props.trensaksis.per_page),
@@ -199,7 +241,7 @@ watch(jenis, () => {
         preserveScroll: true,
         replace: true,
     });
-});
+}, { deep: true });
 
 watch(rekeningNama, () => {
     router.get('/transaksis', buildQuery({ page: 1 }), {
@@ -207,7 +249,7 @@ watch(rekeningNama, () => {
         preserveScroll: true,
         replace: true,
     });
-});
+}, { deep: true });
 
 onBeforeUnmount(() => {
     if (searchTimer) {
@@ -228,11 +270,11 @@ function clearBayar() {
 }
 
 function clearJenis() {
-    jenis.value = 'all';
+    jenis.value = [];
 }
 
 function clearRekeningNama() {
-    rekeningNama.value = 'all';
+    rekeningNama.value = [];
 }
 
 function goToPage(page: number) {
@@ -397,26 +439,63 @@ function formatCurrency(value: number): string {
                     </div>
                     <div class="flex items-center gap-2">
                         <span class="text-sm text-muted-foreground">Jenis</span>
-                        <Select v-model="jenis">
-                            <SelectTrigger class="h-9 w-48">
-                                <SelectValue placeholder="Semua" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="all">Semua</SelectItem>
-                                <SelectItem v-for="(label, value) in jenisLabels" :key="value" :value="String(value)">
-                                    {{ label }}
-                                </SelectItem>
-                            </SelectContent>
-                        </Select>
+                        <Popover v-model:open="openJenisPopover">
+                            <PopoverTrigger as-child>
+                                <div
+                                    class="flex h-auto min-h-9 w-60 cursor-pointer flex-wrap items-center gap-1 rounded-md border border-input bg-background px-3 py-1.5 hover:bg-accent">
+                                    <Badge v-for="item in selectedJenisItems" :key="item.value" variant="secondary"
+                                        class="gap-1 text-xs">
+                                        {{ item.label }}
+                                        <button type="button" class="hover:text-destructive" @click.stop="removeJenis(item.value)">
+                                            <X class="h-3 w-3" />
+                                        </button>
+                                    </Badge>
+                                    <span v-if="selectedJenisItems.length === 0" class="text-sm text-muted-foreground">
+                                        Semua Jenis
+                                    </span>
+                                    <ChevronsUpDown class="ml-auto h-4 w-4 shrink-0 opacity-50" />
+                                </div>
+                            </PopoverTrigger>
+                            <PopoverContent class="w-[300px] p-0" align="start">
+                                <Command>
+                                    <CommandInput placeholder="Cari jenis..." />
+                                    <CommandList>
+                                        <CommandEmpty>Tidak ditemukan.</CommandEmpty>
+                                        <CommandGroup>
+                                            <CommandItem
+                                                v-for="(label, val) in jenisLabels"
+                                                :key="val"
+                                                :value="`${val} - ${label}`"
+                                                @select="(ev: any) => { ev.preventDefault(); toggleJenis(String(val)); }">
+                                                <span :class="jenis.includes(String(val)) ? 'font-semibold' : ''">
+                                                    {{ label }}
+                                                </span>
+                                                <span v-if="jenis.includes(String(val))" class="ml-auto text-primary">✓</span>
+                                            </CommandItem>
+                                        </CommandGroup>
+                                    </CommandList>
+                                </Command>
+                            </PopoverContent>
+                        </Popover>
                     </div>
                     <div class="flex items-center gap-2">
                         <span class="text-sm text-muted-foreground">Rekening</span>
                         <Popover v-model:open="openRekeningPopover">
                             <PopoverTrigger as-child>
-                                <Button variant="outline" role="combobox" class="h-9 w-64 justify-between font-normal">
-                                    <span class="truncate">{{ selectedRekeningLabel }}</span>
-                                    <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                </Button>
+                                <div
+                                    class="flex h-auto min-h-9 w-72 cursor-pointer flex-wrap items-center gap-1 rounded-md border border-input bg-background px-3 py-1.5 hover:bg-accent">
+                                    <Badge v-for="rek in selectedRekenings" :key="rek.jenis" variant="secondary"
+                                        class="gap-1 text-xs">
+                                        {{ rek.jenis }}
+                                        <button type="button" class="hover:text-destructive" @click.stop="removeRekening(rek.jenis)">
+                                            <X class="h-3 w-3" />
+                                        </button>
+                                    </Badge>
+                                    <span v-if="selectedRekenings.length === 0" class="text-sm text-muted-foreground">
+                                        Semua Rekening
+                                    </span>
+                                    <ChevronsUpDown class="ml-auto h-4 w-4 shrink-0 opacity-50" />
+                                </div>
                             </PopoverTrigger>
                             <PopoverContent class="w-[400px] p-0" align="start">
                                 <Command>
@@ -425,18 +504,14 @@ function formatCurrency(value: number): string {
                                         <CommandEmpty>Tidak ditemukan.</CommandEmpty>
                                         <CommandGroup>
                                             <CommandItem
-                                                value="all"
-                                                @select="() => { rekeningNama = 'all'; openRekeningPopover = false; }">
-                                                Semua Rekening
-                                                <span v-if="rekeningNama === 'all'" class="ml-auto text-primary">✓</span>
-                                            </CommandItem>
-                                            <CommandItem
                                                 v-for="rek in rekenings"
                                                 :key="rek.jenis"
                                                 :value="`${rek.jenis} - ${rek.nama}`"
-                                                @select="() => { rekeningNama = rek.jenis; openRekeningPopover = false; }">
-                                                {{ rek.jenis }} - {{ rek.nama }}
-                                                <span v-if="rekeningNama === rek.jenis" class="ml-auto text-primary">✓</span>
+                                                @select="(ev: any) => { ev.preventDefault(); toggleRekening(rek.jenis); }">
+                                                <span :class="rekeningNama.includes(rek.jenis) ? 'font-semibold' : ''">
+                                                    {{ rek.jenis }} - {{ rek.nama }}
+                                                </span>
+                                                <span v-if="rekeningNama.includes(rek.jenis)" class="ml-auto text-primary">✓</span>
                                             </CommandItem>
                                         </CommandGroup>
                                     </CommandList>
@@ -470,10 +545,10 @@ function formatCurrency(value: number): string {
                 </div>
             </CardHeader>
             <CardContent>
-                <div class="overflow-x-auto rounded-lg border">
+                <div class="overflow-x-auto rounded-lg border-2 border-zinc-300">
                     <table class="w-full text-sm">
                         <thead>
-                            <tr class="border-b bg-muted/50">
+                            <tr class="border-b-2 border-zinc-300 bg-muted/50">
                                 <th class="w-35 px-4 py-3 text-left font-semibold">
                                     <button type="button"
                                         class="flex items-center gap-1 hover:text-emerald-600 transition-colors"
@@ -514,7 +589,7 @@ function formatCurrency(value: number): string {
                         </thead>
                         <tbody>
                             <tr v-for="item in props.trensaksis.data" :key="item.id"
-                                class="border-b transition-colors last:border-0 hover:bg-muted/30">
+                                class="border-b-2 border-zinc-200 transition-colors last:border-0 hover:bg-muted/30">
                                 <td class="px-4 py-3">
                                     <Link :href="`/transaksis/${item.id}/edit`">
                                         {{ formatDate(item.tanggal) }}
