@@ -334,7 +334,7 @@ const iqomahDurations = computed(() => ({
 }));
 const sholatDurations = computed(() => {
     const today = new Date().getDay(); // 5 = Jumat
-    const isFriday = today === 5;
+    const isFriday = isJumatOverride.value || today === 5;
     return {
         SUBUH: props.monitorConfig?.sholat_subuh ?? 20,
         DZUHUR: isFriday
@@ -411,14 +411,16 @@ const activePrayerName = ref<string | null>(null);
 const sholatDisplayName = computed(() => {
     if (activePrayerName.value === 'DZUHUR') {
         const today = new Date().getDay();
-        return today === 5 ? 'JUMAT' : 'DZUHUR';
+        return (isJumatOverride.value || today === 5) ? 'JUMAT' : 'DZUHUR';
     }
     return activePrayerName.value ?? '';
 });
 
 // Deteksi mode Jumat
+const isJumatOverride = ref(false);
+
 const isJumatMode = computed(() => {
-    return new Date().getDay() === 5 && activePrayerName.value === 'DZUHUR';
+    return (isJumatOverride.value || new Date().getDay() === 5) && activePrayerName.value === 'DZUHUR';
 });
 
 // === UJICOBA MASUK WAKTU SHOLAT & IMAM DUMMY ===
@@ -473,6 +475,7 @@ const backupImam = computed<Imam>(() => {
 });
 
 function triggerTestIqomah() {
+    isJumatOverride.value = false;
     isSholatMode.value = false;
     isIqomahMode.value = true;
     
@@ -486,6 +489,23 @@ function triggerTestIqomah() {
     iqomahEndTime.value = new Date(Date.now() + testDurationSeconds * 1000);
     iqomahCountdown.value = '00:00:15';
     
+    currentSlide.value = 'sholat';
+    stopRotation();
+}
+
+function triggerTestJumat() {
+    isJumatOverride.value = true;
+    isSholatMode.value = false;
+    isIqomahMode.value = true;
+
+    // Paksa ke DZUHUR (otomatis jadi JUMAT karena override)
+    activePrayerName.value = 'DZUHUR';
+
+    // Set hitung mundur iqomah uji coba selama 15 detik
+    const testDurationSeconds = 15;
+    iqomahEndTime.value = new Date(Date.now() + testDurationSeconds * 1000);
+    iqomahCountdown.value = '00:00:15';
+
     currentSlide.value = 'sholat';
     stopRotation();
 }
@@ -549,6 +569,7 @@ function updateCountdown() {
             sholatEndTime.value = null;
             sholatCountdown.value = '00:00:00';
             activePrayerName.value = null;
+            isJumatOverride.value = false;
             startRotation();
         }
     }
@@ -584,6 +605,7 @@ function updateCountdown() {
                 currentSlide.value = 'sholat';
                 stopRotation();
             } else {
+                isJumatOverride.value = false;
                 startRotation();
             }
         }
@@ -1245,6 +1267,9 @@ onUnmounted(() => {
             </p>
             <button @click="triggerTestIqomah" class="rounded bg-emerald-600 px-2 py-1.5 font-bold hover:bg-emerald-500 transition text-center text-white cursor-pointer shadow">
                 Simulasi Masuk Waktu Sholat
+            </button>
+            <button @click="triggerTestJumat" class="rounded bg-amber-600 px-2 py-1.5 font-bold hover:bg-amber-500 transition text-center text-white cursor-pointer shadow">
+                🕌 Simulasi Sholat Jumat
             </button>
         </div>
         <!-- Tombol Buka Panel Ujicoba -->
