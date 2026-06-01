@@ -206,7 +206,7 @@ create.head = (args: { rek: string | { kode: string } } | [rek: string | { kode:
     create.form = createForm
 /**
 * @see \App\Http\Controllers\SubRekController::store
- * @see app/Http/Controllers/SubRekController.php:34
+ * @see app/Http/Controllers/SubRekController.php:36
  * @route '/reks/{rek}/sub-reks'
  */
 export const store = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -221,7 +221,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\SubRekController::store
- * @see app/Http/Controllers/SubRekController.php:34
+ * @see app/Http/Controllers/SubRekController.php:36
  * @route '/reks/{rek}/sub-reks'
  */
 store.url = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions) => {
@@ -254,7 +254,7 @@ store.url = (args: { rek: string | { kode: string } } | [rek: string | { kode: s
 
 /**
 * @see \App\Http\Controllers\SubRekController::store
- * @see app/Http/Controllers/SubRekController.php:34
+ * @see app/Http/Controllers/SubRekController.php:36
  * @route '/reks/{rek}/sub-reks'
  */
 store.post = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -264,7 +264,7 @@ store.post = (args: { rek: string | { kode: string } } | [rek: string | { kode: 
 
     /**
 * @see \App\Http\Controllers\SubRekController::store
- * @see app/Http/Controllers/SubRekController.php:34
+ * @see app/Http/Controllers/SubRekController.php:36
  * @route '/reks/{rek}/sub-reks'
  */
     const storeForm = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -274,7 +274,7 @@ store.post = (args: { rek: string | { kode: string } } | [rek: string | { kode: 
 
             /**
 * @see \App\Http\Controllers\SubRekController::store
- * @see app/Http/Controllers/SubRekController.php:34
+ * @see app/Http/Controllers/SubRekController.php:36
  * @route '/reks/{rek}/sub-reks'
  */
         storeForm.post = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -285,7 +285,7 @@ store.post = (args: { rek: string | { kode: string } } | [rek: string | { kode: 
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\SubRekController::edit
- * @see app/Http/Controllers/SubRekController.php:53
+ * @see app/Http/Controllers/SubRekController.php:57
  * @route '/reks/{rek}/sub-reks/{subRek}/edit'
  */
 export const edit = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -300,7 +300,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\SubRekController::edit
- * @see app/Http/Controllers/SubRekController.php:53
+ * @see app/Http/Controllers/SubRekController.php:57
  * @route '/reks/{rek}/sub-reks/{subRek}/edit'
  */
 edit.url = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -330,7 +330,7 @@ edit.url = (args: { rek: string | { kode: string }, subRek: number | { id: numbe
 
 /**
 * @see \App\Http\Controllers\SubRekController::edit
- * @see app/Http/Controllers/SubRekController.php:53
+ * @see app/Http/Controllers/SubRekController.php:57
  * @route '/reks/{rek}/sub-reks/{subRek}/edit'
  */
 edit.get = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -339,7 +339,7 @@ edit.get = (args: { rek: string | { kode: string }, subRek: number | { id: numbe
 })
 /**
 * @see \App\Http\Controllers\SubRekController::edit
- * @see app/Http/Controllers/SubRekController.php:53
+ * @see app/Http/Controllers/SubRekController.php:57
  * @route '/reks/{rek}/sub-reks/{subRek}/edit'
  */
 edit.head = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -349,7 +349,7 @@ edit.head = (args: { rek: string | { kode: string }, subRek: number | { id: numb
 
     /**
 * @see \App\Http\Controllers\SubRekController::edit
- * @see app/Http/Controllers/SubRekController.php:53
+ * @see app/Http/Controllers/SubRekController.php:57
  * @route '/reks/{rek}/sub-reks/{subRek}/edit'
  */
     const editForm = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -359,7 +359,7 @@ edit.head = (args: { rek: string | { kode: string }, subRek: number | { id: numb
 
             /**
 * @see \App\Http\Controllers\SubRekController::edit
- * @see app/Http/Controllers/SubRekController.php:53
+ * @see app/Http/Controllers/SubRekController.php:57
  * @route '/reks/{rek}/sub-reks/{subRek}/edit'
  */
         editForm.get = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -368,7 +368,7 @@ edit.head = (args: { rek: string | { kode: string }, subRek: number | { id: numb
         })
             /**
 * @see \App\Http\Controllers\SubRekController::edit
- * @see app/Http/Controllers/SubRekController.php:53
+ * @see app/Http/Controllers/SubRekController.php:57
  * @route '/reks/{rek}/sub-reks/{subRek}/edit'
  */
         editForm.head = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -384,7 +384,7 @@ edit.head = (args: { rek: string | { kode: string }, subRek: number | { id: numb
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\SubRekController::update
- * @see app/Http/Controllers/SubRekController.php:61
+ * @see app/Http/Controllers/SubRekController.php:67
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
 export const update = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -399,7 +399,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\SubRekController::update
- * @see app/Http/Controllers/SubRekController.php:61
+ * @see app/Http/Controllers/SubRekController.php:67
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
 update.url = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -429,7 +429,7 @@ update.url = (args: { rek: string | { kode: string }, subRek: number | { id: num
 
 /**
 * @see \App\Http\Controllers\SubRekController::update
- * @see app/Http/Controllers/SubRekController.php:61
+ * @see app/Http/Controllers/SubRekController.php:67
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
 update.put = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -438,7 +438,7 @@ update.put = (args: { rek: string | { kode: string }, subRek: number | { id: num
 })
 /**
 * @see \App\Http\Controllers\SubRekController::update
- * @see app/Http/Controllers/SubRekController.php:61
+ * @see app/Http/Controllers/SubRekController.php:67
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
 update.patch = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -448,7 +448,7 @@ update.patch = (args: { rek: string | { kode: string }, subRek: number | { id: n
 
     /**
 * @see \App\Http\Controllers\SubRekController::update
- * @see app/Http/Controllers/SubRekController.php:61
+ * @see app/Http/Controllers/SubRekController.php:67
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
     const updateForm = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -463,7 +463,7 @@ update.patch = (args: { rek: string | { kode: string }, subRek: number | { id: n
 
             /**
 * @see \App\Http\Controllers\SubRekController::update
- * @see app/Http/Controllers/SubRekController.php:61
+ * @see app/Http/Controllers/SubRekController.php:67
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
         updateForm.put = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -477,7 +477,7 @@ update.patch = (args: { rek: string | { kode: string }, subRek: number | { id: n
         })
             /**
 * @see \App\Http\Controllers\SubRekController::update
- * @see app/Http/Controllers/SubRekController.php:61
+ * @see app/Http/Controllers/SubRekController.php:67
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
         updateForm.patch = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -493,7 +493,7 @@ update.patch = (args: { rek: string | { kode: string }, subRek: number | { id: n
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\SubRekController::destroy
- * @see app/Http/Controllers/SubRekController.php:74
+ * @see app/Http/Controllers/SubRekController.php:82
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
 export const destroy = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -508,7 +508,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\SubRekController::destroy
- * @see app/Http/Controllers/SubRekController.php:74
+ * @see app/Http/Controllers/SubRekController.php:82
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
 destroy.url = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -538,7 +538,7 @@ destroy.url = (args: { rek: string | { kode: string }, subRek: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\SubRekController::destroy
- * @see app/Http/Controllers/SubRekController.php:74
+ * @see app/Http/Controllers/SubRekController.php:82
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
 destroy.delete = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -548,7 +548,7 @@ destroy.delete = (args: { rek: string | { kode: string }, subRek: number | { id:
 
     /**
 * @see \App\Http\Controllers\SubRekController::destroy
- * @see app/Http/Controllers/SubRekController.php:74
+ * @see app/Http/Controllers/SubRekController.php:82
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
     const destroyForm = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -563,7 +563,7 @@ destroy.delete = (args: { rek: string | { kode: string }, subRek: number | { id:
 
             /**
 * @see \App\Http\Controllers\SubRekController::destroy
- * @see app/Http/Controllers/SubRekController.php:74
+ * @see app/Http/Controllers/SubRekController.php:82
  * @route '/reks/{rek}/sub-reks/{subRek}'
  */
         destroyForm.delete = (args: { rek: string | { kode: string }, subRek: number | { id: number } } | [rek: string | { kode: string }, subRek: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

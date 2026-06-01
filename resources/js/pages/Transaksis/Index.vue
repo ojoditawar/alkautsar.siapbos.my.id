@@ -11,6 +11,9 @@ import {
     X,
 } from 'lucide-vue-next';
 import { onBeforeUnmount, ref, watch } from 'vue';
+import { useCan } from '@/composables/useCan';
+
+const { can } = useCan();
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -252,7 +255,7 @@ function formatCurrency(value: number): string {
                                 </SelectContent>
                             </Select>
                         </div>
-                        <Button as-child class="gap-2">
+                        <Button v-if="can('create-transaksis')" as-child class="gap-2">
                             <Link href="/transaksis/create">
                                 <Plus class="h-4 w-4" />
                                 Tambah Transaksi
@@ -342,7 +345,7 @@ function formatCurrency(value: number): string {
                                     <div
                                         class="flex items-center justify-center gap-1"
                                     >
-                                        <Button
+                                        <Button v-if="can('edit-transaksis')"
                                             variant="ghost"
                                             size="icon"
                                             as-child
@@ -354,7 +357,7 @@ function formatCurrency(value: number): string {
                                                 <Edit class="h-4 w-4" />
                                             </Link>
                                         </Button>
-                                        <Button
+                                        <Button v-if="can('delete-transaksis')"
                                             variant="ghost"
                                             size="icon"
                                             class="h-8 w-8 text-red-500 hover:text-red-600"
@@ -439,7 +442,7 @@ function formatCurrency(value: number): string {
         </Card>
 
         <!-- Delete Dialog -->
-        <Dialog v-model:open="showDeleteDialog">
+        <Dialog v-if="can('delete-transaksis')" v-model:open="showDeleteDialog">
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Hapus Transaksi</DialogTitle>

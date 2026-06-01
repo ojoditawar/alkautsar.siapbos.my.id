@@ -2,6 +2,7 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import { Edit, Plus, Search, Trash2, X, Users } from 'lucide-vue-next';
 import { ref } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -20,6 +21,8 @@ import {
     DialogTitle,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
+
+const { can } = useCan();
 
 interface User {
     id: number;
@@ -142,7 +145,7 @@ function formatRupiah(value: number): string {
                         </CardDescription>
                     </div>
 
-                    <Button as-child class="gap-2">
+                    <Button as-child class="gap-2" v-if="can('create-khotbahs')">
                         <Link href="/khotib-jumat/create">
                             <Plus class="h-4 w-4" />
                             Tambah
@@ -220,7 +223,8 @@ function formatRupiah(value: number): string {
                                 <td class="px-3 py-2" @click.stop>
                                     <div class="flex items-center justify-center gap-1">
                                         <Button as-child size="icon" variant="ghost"
-                                            class="h-8 w-8 text-green-600 hover:text-green-700">
+                                            class="h-8 w-8 text-green-600 hover:text-green-700"
+                                            v-if="can('edit-khotbahs')">
                                             <Link :href="`/khotib-jumat/${item.id}/edit`">
                                                 <Edit class="h-4 w-4" />
                                             </Link>
@@ -228,6 +232,7 @@ function formatRupiah(value: number): string {
 
                                         <Button size="icon" variant="ghost"
                                             class="h-8 w-8 text-red-600 hover:text-red-700"
+                                            v-if="can('delete-khotbahs')"
                                             @click="confirmDelete(item)">
                                             <Trash2 class="h-4 w-4" />
                                         </Button>

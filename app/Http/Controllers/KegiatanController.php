@@ -21,6 +21,8 @@ class KegiatanController extends Controller
 
     public function create(Program $program)
     {
+        abort_unless(auth()->user()->can('create-kegiatans'), 403);
+
         return Inertia::render('Kegiatans/Create', [
             'program' => $program,
         ]);
@@ -28,6 +30,8 @@ class KegiatanController extends Controller
 
     public function store(Request $request, Program $program)
     {
+        abort_unless($request->user()->can('create-kegiatans'), 403);
+
         $validated = $request->validate([
             'kegiatan' => ['required', 'string', 'max:255'],
             'nama' => ['required', 'string', 'max:255'],
@@ -40,6 +44,8 @@ class KegiatanController extends Controller
 
     public function edit(Program $program, Kegiatan $kegiatan)
     {
+        abort_unless(auth()->user()->can('edit-kegiatans'), 403);
+
         if ($kegiatan->program_id !== $program->id) {
             abort(404);
         }
@@ -52,6 +58,8 @@ class KegiatanController extends Controller
 
     public function update(Request $request, Program $program, Kegiatan $kegiatan)
     {
+        abort_unless($request->user()->can('edit-kegiatans'), 403);
+
         if ($kegiatan->program_id !== $program->id) {
             abort(404);
         }
@@ -68,6 +76,8 @@ class KegiatanController extends Controller
 
     public function destroy(Program $program, Kegiatan $kegiatan)
     {
+        abort_unless(auth()->user()->can('delete-kegiatans'), 403);
+
         if ($kegiatan->program_id !== $program->id) {
             abort(404);
         }

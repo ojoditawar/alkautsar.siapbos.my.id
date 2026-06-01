@@ -98,11 +98,15 @@ class JamaahController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-jamaahs'), 403);
+
         return Inertia::render('Jamaahs/Create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-jamaahs'), 403);
+
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'rt' => ['nullable', 'string', 'max:10'],
@@ -142,6 +146,8 @@ class JamaahController extends Controller
 
     public function edit(Jamaah $jamaah): Response
     {
+        abort_unless(auth()->user()->can('edit-jamaahs'), 403);
+
         $masjidId = auth()->user()->masjid_id;
 
         if ($jamaah->masjid_id !== $masjidId) {
@@ -168,6 +174,8 @@ class JamaahController extends Controller
 
     public function update(Request $request, Jamaah $jamaah): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-jamaahs'), 403);
+
         $masjidId = auth()->user()->masjid_id;
 
         if ($jamaah->masjid_id !== $masjidId) {
@@ -217,6 +225,8 @@ class JamaahController extends Controller
 
     public function destroy(Jamaah $jamaah): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-jamaahs'), 403);
+
         $masjidId = auth()->user()->masjid_id;
 
         if ($jamaah->masjid_id !== $masjidId) {

@@ -24,11 +24,15 @@ class KajianController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-kajians'), 403);
+
         return Inertia::render('Kajians/Create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-kajians'), 403);
+
         $data = $this->validateData($request);
 
         Kajian::create($data);
@@ -40,6 +44,8 @@ class KajianController extends Controller
 
     public function edit(Kajian $kajian): Response
     {
+        abort_unless(auth()->user()->can('edit-kajians'), 403);
+
         return Inertia::render('Kajians/Edit', [
             'kajian' => [
                 'id' => $kajian->id,
@@ -56,6 +62,8 @@ class KajianController extends Controller
 
     public function update(Request $request, Kajian $kajian): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-kajians'), 403);
+
         $data = $this->validateData($request);
 
         $kajian->update($data);
@@ -67,6 +75,8 @@ class KajianController extends Controller
 
     public function destroy(Kajian $kajian): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-kajians'), 403);
+
         $kajian->delete();
 
         Inertia::flash('toast', ['type' => 'success', 'message' => 'Kajian berhasil dihapus.']);

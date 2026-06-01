@@ -21,11 +21,15 @@ class MasjidController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-masjids'), 403);
+
         return Inertia::render('Masjids/Create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-masjids'), 403);
+
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'alamat' => ['nullable', 'string', 'max:500'],
@@ -48,6 +52,8 @@ class MasjidController extends Controller
 
     public function edit(Masjid $masjid): Response
     {
+        abort_unless(auth()->user()->can('edit-masjids'), 403);
+
         return Inertia::render('Masjids/Edit', [
             'masjid' => $masjid->only('id', 'nama', 'alamat', 'image'),
         ]);
@@ -55,6 +61,8 @@ class MasjidController extends Controller
 
     public function update(Request $request, Masjid $masjid): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-masjids'), 403);
+
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'alamat' => ['nullable', 'string', 'max:500'],
@@ -84,6 +92,8 @@ class MasjidController extends Controller
 
     public function destroy(Masjid $masjid): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-masjids'), 403);
+
         // Hapus gambar jika ada
         if ($masjid->image && file_exists(public_path($masjid->image))) {
             unlink(public_path($masjid->image));

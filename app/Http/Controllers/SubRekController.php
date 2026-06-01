@@ -26,6 +26,8 @@ class SubRekController extends Controller
 
     public function create(Rek $rek): Response
     {
+        abort_unless(auth()->user()->can('create-sub-reks'), 403);
+
         return Inertia::render('SubReks/Create', [
             'rek' => $rek->only('kode', 'nama'),
         ]);
@@ -33,6 +35,8 @@ class SubRekController extends Controller
 
     public function store(Request $request, Rek $rek): RedirectResponse
     {
+        abort_unless($request->user()->can('create-sub-reks'), 403);
+
         $validated = $request->validate([
             'kelompok' => ['required', 'string', 'max:2'],
             'nama' => ['required', 'string', 'max:255'],
@@ -52,6 +56,8 @@ class SubRekController extends Controller
 
     public function edit(Rek $rek, SubRek $subRek): Response
     {
+        abort_unless(auth()->user()->can('edit-sub-reks'), 403);
+
         return Inertia::render('SubReks/Edit', [
             'rek' => $rek->only('kode', 'nama'),
             'subRek' => $subRek->only('id', 'rek_id', 'kode', 'kelompok', 'nama'),
@@ -60,6 +66,8 @@ class SubRekController extends Controller
 
     public function update(Request $request, Rek $rek, SubRek $subRek): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-sub-reks'), 403);
+
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
         ]);
@@ -73,6 +81,8 @@ class SubRekController extends Controller
 
     public function destroy(Rek $rek, SubRek $subRek): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-sub-reks'), 403);
+
         $rekeningCount = Rekening::where('sub_rek_id', $subRek->id)->count();
 
         if ($rekeningCount > 0) {

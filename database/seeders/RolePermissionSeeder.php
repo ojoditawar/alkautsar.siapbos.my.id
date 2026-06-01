@@ -13,7 +13,7 @@ class RolePermissionSeeder extends Seeder
         // Reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        // Daftar permissions
+        // Daftar permissions (manage/view level)
         $permissions = [
             'manage-users',
             'manage-masjids',
@@ -28,14 +28,42 @@ class RolePermissionSeeder extends Seeder
             'manage-kajians',
             'manage-pekurbans',
             'manage-jadwal-imams',
+            'manage-monitor-configs',
+            'manage-programs',
+            'manage-hijri-holidays',
+            'manage-khotbahs',
+            'manage-file-explorer',
+            'manage-mutiara-images',
+            'manage-imam-masjids',
+            'manage-jamaahs',
         ];
 
         foreach ($permissions as $permission) {
             Permission::firstOrCreate(['name' => $permission]);
         }
 
+        // Granular CRUD permissions
+        $crudEntities = [
+            'users', 'roles', 'permissions', 'masjids', 'reks', 'sub-reks',
+            'rekenings', 'programs', 'kegiatans', 'transaksis', 'trensaksis',
+            'jamaahs', 'imam-masjids', 'mutiara-images', 'running-texts',
+            'kajians', 'pekurbans', 'jadwal-imams', 'khotbahs',
+        ];
+
+        $granularPermissions = [];
+        foreach ($crudEntities as $entity) {
+            foreach (['create', 'edit', 'delete'] as $action) {
+                $permName = "{$action}-{$entity}";
+                Permission::firstOrCreate(['name' => $permName]);
+                $granularPermissions[] = $permName;
+            }
+        }
+
+        // All permissions for Admin
+        $allPermissions = array_merge($permissions, $granularPermissions);
+
         // Buat role Admin dengan semua permissions
         $adminRole = Role::firstOrCreate(['name' => 'Admin']);
-        $adminRole->syncPermissions($permissions);
+        $adminRole->syncPermissions($allPermissions);
     }
 }

@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\MutiaraImageController::store
- * @see app/Http/Controllers/MutiaraImageController.php:41
+ * @see app/Http/Controllers/MutiaraImageController.php:43
  * @route '/mutiara-images'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\MutiaraImageController::store
- * @see app/Http/Controllers/MutiaraImageController.php:41
+ * @see app/Http/Controllers/MutiaraImageController.php:43
  * @route '/mutiara-images'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\MutiaraImageController::store
- * @see app/Http/Controllers/MutiaraImageController.php:41
+ * @see app/Http/Controllers/MutiaraImageController.php:43
  * @route '/mutiara-images'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\MutiaraImageController::store
- * @see app/Http/Controllers/MutiaraImageController.php:41
+ * @see app/Http/Controllers/MutiaraImageController.php:43
  * @route '/mutiara-images'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\MutiaraImageController::store
- * @see app/Http/Controllers/MutiaraImageController.php:41
+ * @see app/Http/Controllers/MutiaraImageController.php:43
  * @route '/mutiara-images'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\MutiaraImageController::edit
- * @see app/Http/Controllers/MutiaraImageController.php:65
+ * @see app/Http/Controllers/MutiaraImageController.php:69
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
 export const edit = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\MutiaraImageController::edit
- * @see app/Http/Controllers/MutiaraImageController.php:65
+ * @see app/Http/Controllers/MutiaraImageController.php:69
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
 edit.url = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ edit.url = (args: { mutiara_image: number | { id: number } } | [mutiara_image: n
 
 /**
 * @see \App\Http\Controllers\MutiaraImageController::edit
- * @see app/Http/Controllers/MutiaraImageController.php:65
+ * @see app/Http/Controllers/MutiaraImageController.php:69
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
 edit.get = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ edit.get = (args: { mutiara_image: number | { id: number } } | [mutiara_image: n
 })
 /**
 * @see \App\Http\Controllers\MutiaraImageController::edit
- * @see app/Http/Controllers/MutiaraImageController.php:65
+ * @see app/Http/Controllers/MutiaraImageController.php:69
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
 edit.head = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ edit.head = (args: { mutiara_image: number | { id: number } } | [mutiara_image: 
 
     /**
 * @see \App\Http\Controllers\MutiaraImageController::edit
- * @see app/Http/Controllers/MutiaraImageController.php:65
+ * @see app/Http/Controllers/MutiaraImageController.php:69
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
     const editForm = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ edit.head = (args: { mutiara_image: number | { id: number } } | [mutiara_image: 
 
             /**
 * @see \App\Http\Controllers\MutiaraImageController::edit
- * @see app/Http/Controllers/MutiaraImageController.php:65
+ * @see app/Http/Controllers/MutiaraImageController.php:69
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
         editForm.get = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ edit.head = (args: { mutiara_image: number | { id: number } } | [mutiara_image: 
         })
             /**
 * @see \App\Http\Controllers\MutiaraImageController::edit
- * @see app/Http/Controllers/MutiaraImageController.php:65
+ * @see app/Http/Controllers/MutiaraImageController.php:69
  * @route '/mutiara-images/{mutiara_image}/edit'
  */
         editForm.head = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ edit.head = (args: { mutiara_image: number | { id: number } } | [mutiara_image: 
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\MutiaraImageController::update
- * @see app/Http/Controllers/MutiaraImageController.php:85
+ * @see app/Http/Controllers/MutiaraImageController.php:91
  * @route '/mutiara-images/{mutiara_image}'
  */
 export const update = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -329,7 +329,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\MutiaraImageController::update
- * @see app/Http/Controllers/MutiaraImageController.php:85
+ * @see app/Http/Controllers/MutiaraImageController.php:91
  * @route '/mutiara-images/{mutiara_image}'
  */
 update.url = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ update.url = (args: { mutiara_image: number | { id: number } } | [mutiara_image:
 
 /**
 * @see \App\Http\Controllers\MutiaraImageController::update
- * @see app/Http/Controllers/MutiaraImageController.php:85
+ * @see app/Http/Controllers/MutiaraImageController.php:91
  * @route '/mutiara-images/{mutiara_image}'
  */
 update.put = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -371,7 +371,7 @@ update.put = (args: { mutiara_image: number | { id: number } } | [mutiara_image:
 })
 /**
 * @see \App\Http\Controllers\MutiaraImageController::update
- * @see app/Http/Controllers/MutiaraImageController.php:85
+ * @see app/Http/Controllers/MutiaraImageController.php:91
  * @route '/mutiara-images/{mutiara_image}'
  */
 update.patch = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -381,7 +381,7 @@ update.patch = (args: { mutiara_image: number | { id: number } } | [mutiara_imag
 
     /**
 * @see \App\Http\Controllers\MutiaraImageController::update
- * @see app/Http/Controllers/MutiaraImageController.php:85
+ * @see app/Http/Controllers/MutiaraImageController.php:91
  * @route '/mutiara-images/{mutiara_image}'
  */
     const updateForm = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -396,7 +396,7 @@ update.patch = (args: { mutiara_image: number | { id: number } } | [mutiara_imag
 
             /**
 * @see \App\Http\Controllers\MutiaraImageController::update
- * @see app/Http/Controllers/MutiaraImageController.php:85
+ * @see app/Http/Controllers/MutiaraImageController.php:91
  * @route '/mutiara-images/{mutiara_image}'
  */
         updateForm.put = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -410,7 +410,7 @@ update.patch = (args: { mutiara_image: number | { id: number } } | [mutiara_imag
         })
             /**
 * @see \App\Http\Controllers\MutiaraImageController::update
- * @see app/Http/Controllers/MutiaraImageController.php:85
+ * @see app/Http/Controllers/MutiaraImageController.php:91
  * @route '/mutiara-images/{mutiara_image}'
  */
         updateForm.patch = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -426,7 +426,7 @@ update.patch = (args: { mutiara_image: number | { id: number } } | [mutiara_imag
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\MutiaraImageController::destroy
- * @see app/Http/Controllers/MutiaraImageController.php:122
+ * @see app/Http/Controllers/MutiaraImageController.php:130
  * @route '/mutiara-images/{mutiara_image}'
  */
 export const destroy = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -441,7 +441,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\MutiaraImageController::destroy
- * @see app/Http/Controllers/MutiaraImageController.php:122
+ * @see app/Http/Controllers/MutiaraImageController.php:130
  * @route '/mutiara-images/{mutiara_image}'
  */
 destroy.url = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -474,7 +474,7 @@ destroy.url = (args: { mutiara_image: number | { id: number } } | [mutiara_image
 
 /**
 * @see \App\Http\Controllers\MutiaraImageController::destroy
- * @see app/Http/Controllers/MutiaraImageController.php:122
+ * @see app/Http/Controllers/MutiaraImageController.php:130
  * @route '/mutiara-images/{mutiara_image}'
  */
 destroy.delete = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -484,7 +484,7 @@ destroy.delete = (args: { mutiara_image: number | { id: number } } | [mutiara_im
 
     /**
 * @see \App\Http\Controllers\MutiaraImageController::destroy
- * @see app/Http/Controllers/MutiaraImageController.php:122
+ * @see app/Http/Controllers/MutiaraImageController.php:130
  * @route '/mutiara-images/{mutiara_image}'
  */
     const destroyForm = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -499,7 +499,7 @@ destroy.delete = (args: { mutiara_image: number | { id: number } } | [mutiara_im
 
             /**
 * @see \App\Http\Controllers\MutiaraImageController::destroy
- * @see app/Http/Controllers/MutiaraImageController.php:122
+ * @see app/Http/Controllers/MutiaraImageController.php:130
  * @route '/mutiara-images/{mutiara_image}'
  */
         destroyForm.delete = (args: { mutiara_image: number | { id: number } } | [mutiara_image: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

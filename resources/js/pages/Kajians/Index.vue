@@ -2,6 +2,7 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import { CheckCircle2, Edit, Mic2, Plus, Trash2, XCircle } from 'lucide-vue-next';
 import { ref } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -20,6 +21,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog';
+
+const { can } = useCan();
 
 interface KajianItem {
     id: number;
@@ -89,7 +92,7 @@ function formatDate(dateString: string): string {
                             Kelola jadwal kajian masjid yang ditampilkan di Beranda.
                         </CardDescription>
                     </div>
-                    <Button as-child class="gap-2">
+                    <Button as-child class="gap-2" v-if="can('create-kajians')">
                         <Link href="/kajians/create">
                             <Plus class="h-4 w-4" />
                             Tambah
@@ -144,6 +147,7 @@ function formatDate(dateString: string): string {
                                             size="icon"
                                             as-child
                                             class="h-9 w-9 bg-green-600 text-white hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600"
+                                            v-if="can('edit-kajians')"
                                         >
                                             <Link :href="`/kajians/${item.id}/edit`">
                                                 <Edit class="h-4 w-4" />
@@ -153,6 +157,7 @@ function formatDate(dateString: string): string {
                                             type="button"
                                             size="icon"
                                             class="h-9 w-9 bg-red-600 text-white hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
+                                            v-if="can('delete-kajians')"
                                             @click="confirmDelete(item)"
                                         >
                                             <Trash2 class="h-4 w-4" />

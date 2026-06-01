@@ -2,8 +2,11 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import { CheckCircle2, Edit, Megaphone, Plus, Trash2, XCircle } from 'lucide-vue-next';
 import { ref } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+
+const { can } = useCan();
 import {
     Card,
     CardContent,
@@ -85,7 +88,7 @@ function formatDate(dateString: string): string {
                             Pengumuman teks berjalan yang ditampilkan di Dashboard.
                         </CardDescription>
                     </div>
-                    <Button as-child class="gap-2">
+                    <Button v-if="can('create-running-texts')" as-child class="gap-2">
                         <Link href="/running-texts/create">
                             <Plus class="h-4 w-4" />
                             Tambah
@@ -134,7 +137,7 @@ function formatDate(dateString: string): string {
                                 <td class="px-4 py-3 text-muted-foreground">{{ formatDate(item.created_at) }}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center justify-center gap-2">
-                                        <Button
+                                        <Button v-if="can('edit-running-texts')"
                                             size="icon"
                                             as-child
                                             class="h-9 w-9 bg-green-600 text-white hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600"
@@ -143,7 +146,7 @@ function formatDate(dateString: string): string {
                                                 <Edit class="h-4 w-4" />
                                             </Link>
                                         </Button>
-                                        <Button
+                                        <Button v-if="can('delete-running-texts')"
                                             type="button"
                                             size="icon"
                                             class="h-9 w-9 bg-red-600 text-white hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
@@ -165,7 +168,7 @@ function formatDate(dateString: string): string {
             </CardContent>
         </Card>
 
-        <Dialog v-model:open="showDeleteDialog">
+        <Dialog v-if="can('delete-running-texts')" v-model:open="showDeleteDialog">
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Hapus Running Text</DialogTitle>

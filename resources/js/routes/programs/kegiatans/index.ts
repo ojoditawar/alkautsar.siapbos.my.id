@@ -205,7 +205,7 @@ create.head = (args: { program: number | { id: number } } | [program: number | {
     create.form = createForm
 /**
 * @see \App\Http\Controllers\KegiatanController::store
- * @see app/Http/Controllers/KegiatanController.php:29
+ * @see app/Http/Controllers/KegiatanController.php:31
  * @route '/programs/{program}/kegiatans'
  */
 export const store = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -220,7 +220,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\KegiatanController::store
- * @see app/Http/Controllers/KegiatanController.php:29
+ * @see app/Http/Controllers/KegiatanController.php:31
  * @route '/programs/{program}/kegiatans'
  */
 store.url = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -253,7 +253,7 @@ store.url = (args: { program: number | { id: number } } | [program: number | { i
 
 /**
 * @see \App\Http\Controllers\KegiatanController::store
- * @see app/Http/Controllers/KegiatanController.php:29
+ * @see app/Http/Controllers/KegiatanController.php:31
  * @route '/programs/{program}/kegiatans'
  */
 store.post = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -263,7 +263,7 @@ store.post = (args: { program: number | { id: number } } | [program: number | { 
 
     /**
 * @see \App\Http\Controllers\KegiatanController::store
- * @see app/Http/Controllers/KegiatanController.php:29
+ * @see app/Http/Controllers/KegiatanController.php:31
  * @route '/programs/{program}/kegiatans'
  */
     const storeForm = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -273,7 +273,7 @@ store.post = (args: { program: number | { id: number } } | [program: number | { 
 
             /**
 * @see \App\Http\Controllers\KegiatanController::store
- * @see app/Http/Controllers/KegiatanController.php:29
+ * @see app/Http/Controllers/KegiatanController.php:31
  * @route '/programs/{program}/kegiatans'
  */
         storeForm.post = (args: { program: number | { id: number } } | [program: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -284,7 +284,7 @@ store.post = (args: { program: number | { id: number } } | [program: number | { 
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\KegiatanController::edit
- * @see app/Http/Controllers/KegiatanController.php:41
+ * @see app/Http/Controllers/KegiatanController.php:45
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
 export const edit = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -299,7 +299,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\KegiatanController::edit
- * @see app/Http/Controllers/KegiatanController.php:41
+ * @see app/Http/Controllers/KegiatanController.php:45
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
 edit.url = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -329,7 +329,7 @@ edit.url = (args: { program: number | { id: number }, kegiatan: number | { id: n
 
 /**
 * @see \App\Http\Controllers\KegiatanController::edit
- * @see app/Http/Controllers/KegiatanController.php:41
+ * @see app/Http/Controllers/KegiatanController.php:45
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
 edit.get = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -338,7 +338,7 @@ edit.get = (args: { program: number | { id: number }, kegiatan: number | { id: n
 })
 /**
 * @see \App\Http\Controllers\KegiatanController::edit
- * @see app/Http/Controllers/KegiatanController.php:41
+ * @see app/Http/Controllers/KegiatanController.php:45
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
 edit.head = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -348,7 +348,7 @@ edit.head = (args: { program: number | { id: number }, kegiatan: number | { id: 
 
     /**
 * @see \App\Http\Controllers\KegiatanController::edit
- * @see app/Http/Controllers/KegiatanController.php:41
+ * @see app/Http/Controllers/KegiatanController.php:45
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
     const editForm = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -358,7 +358,7 @@ edit.head = (args: { program: number | { id: number }, kegiatan: number | { id: 
 
             /**
 * @see \App\Http\Controllers\KegiatanController::edit
- * @see app/Http/Controllers/KegiatanController.php:41
+ * @see app/Http/Controllers/KegiatanController.php:45
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
         editForm.get = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -367,7 +367,7 @@ edit.head = (args: { program: number | { id: number }, kegiatan: number | { id: 
         })
             /**
 * @see \App\Http\Controllers\KegiatanController::edit
- * @see app/Http/Controllers/KegiatanController.php:41
+ * @see app/Http/Controllers/KegiatanController.php:45
  * @route '/programs/{program}/kegiatans/{kegiatan}/edit'
  */
         editForm.head = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -383,7 +383,7 @@ edit.head = (args: { program: number | { id: number }, kegiatan: number | { id: 
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\KegiatanController::update
- * @see app/Http/Controllers/KegiatanController.php:53
+ * @see app/Http/Controllers/KegiatanController.php:59
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
 export const update = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -398,7 +398,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\KegiatanController::update
- * @see app/Http/Controllers/KegiatanController.php:53
+ * @see app/Http/Controllers/KegiatanController.php:59
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
 update.url = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -428,7 +428,7 @@ update.url = (args: { program: number | { id: number }, kegiatan: number | { id:
 
 /**
 * @see \App\Http\Controllers\KegiatanController::update
- * @see app/Http/Controllers/KegiatanController.php:53
+ * @see app/Http/Controllers/KegiatanController.php:59
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
 update.put = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -437,7 +437,7 @@ update.put = (args: { program: number | { id: number }, kegiatan: number | { id:
 })
 /**
 * @see \App\Http\Controllers\KegiatanController::update
- * @see app/Http/Controllers/KegiatanController.php:53
+ * @see app/Http/Controllers/KegiatanController.php:59
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
 update.patch = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -447,7 +447,7 @@ update.patch = (args: { program: number | { id: number }, kegiatan: number | { i
 
     /**
 * @see \App\Http\Controllers\KegiatanController::update
- * @see app/Http/Controllers/KegiatanController.php:53
+ * @see app/Http/Controllers/KegiatanController.php:59
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
     const updateForm = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -462,7 +462,7 @@ update.patch = (args: { program: number | { id: number }, kegiatan: number | { i
 
             /**
 * @see \App\Http\Controllers\KegiatanController::update
- * @see app/Http/Controllers/KegiatanController.php:53
+ * @see app/Http/Controllers/KegiatanController.php:59
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
         updateForm.put = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -476,7 +476,7 @@ update.patch = (args: { program: number | { id: number }, kegiatan: number | { i
         })
             /**
 * @see \App\Http\Controllers\KegiatanController::update
- * @see app/Http/Controllers/KegiatanController.php:53
+ * @see app/Http/Controllers/KegiatanController.php:59
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
         updateForm.patch = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -492,7 +492,7 @@ update.patch = (args: { program: number | { id: number }, kegiatan: number | { i
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\KegiatanController::destroy
- * @see app/Http/Controllers/KegiatanController.php:69
+ * @see app/Http/Controllers/KegiatanController.php:77
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
 export const destroy = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -507,7 +507,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\KegiatanController::destroy
- * @see app/Http/Controllers/KegiatanController.php:69
+ * @see app/Http/Controllers/KegiatanController.php:77
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
 destroy.url = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -537,7 +537,7 @@ destroy.url = (args: { program: number | { id: number }, kegiatan: number | { id
 
 /**
 * @see \App\Http\Controllers\KegiatanController::destroy
- * @see app/Http/Controllers/KegiatanController.php:69
+ * @see app/Http/Controllers/KegiatanController.php:77
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
 destroy.delete = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -547,7 +547,7 @@ destroy.delete = (args: { program: number | { id: number }, kegiatan: number | {
 
     /**
 * @see \App\Http\Controllers\KegiatanController::destroy
- * @see app/Http/Controllers/KegiatanController.php:69
+ * @see app/Http/Controllers/KegiatanController.php:77
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
     const destroyForm = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -562,7 +562,7 @@ destroy.delete = (args: { program: number | { id: number }, kegiatan: number | {
 
             /**
 * @see \App\Http\Controllers\KegiatanController::destroy
- * @see app/Http/Controllers/KegiatanController.php:69
+ * @see app/Http/Controllers/KegiatanController.php:77
  * @route '/programs/{program}/kegiatans/{kegiatan}'
  */
         destroyForm.delete = (args: { program: number | { id: number }, kegiatan: number | { id: number } } | [program: number | { id: number }, kegiatan: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

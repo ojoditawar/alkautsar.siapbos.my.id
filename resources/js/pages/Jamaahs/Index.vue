@@ -13,7 +13,10 @@ import {
     ChevronRight,
 } from 'lucide-vue-next';
 import { ref, computed } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
+
+const { can } = useCan();
 import { Input } from '@/components/ui/input';
 import {
     Select,
@@ -184,7 +187,7 @@ function deleteItem() {
                             Kelola data kependudukan warga/jamaah masjid di wilayah Griya Anggraini.
                         </CardDescription>
                     </div>
-                    <Button as-child class="gap-2 bg-emerald-600 hover:bg-emerald-700 text-white self-start sm:self-auto">
+                    <Button v-if="can('create-jamaahs')" as-child class="gap-2 bg-emerald-600 hover:bg-emerald-700 text-white self-start sm:self-auto">
                         <Link href="/jamaahs/create">
                             <Plus class="h-4 w-4" />
                             Tambah Jamaah
@@ -341,12 +344,12 @@ function deleteItem() {
                                 </td>
                                 <td class="p-3 text-center">
                                     <div class="flex items-center justify-center gap-1">
-                                        <Button variant="ghost" size="icon" class="h-8 w-8 text-slate-600 hover:text-emerald-600" title="Edit" as-child>
+                                        <Button v-if="can('edit-jamaahs')" variant="ghost" size="icon" class="h-8 w-8 text-slate-600 hover:text-emerald-600" title="Edit" as-child>
                                             <Link :href="`/jamaahs/${item.id}/edit`">
                                                 <Edit class="h-4 w-4" />
                                             </Link>
                                         </Button>
-                                        <Button variant="ghost" size="icon" class="h-8 w-8 text-destructive hover:text-destructive"
+                                        <Button v-if="can('delete-jamaahs')" variant="ghost" size="icon" class="h-8 w-8 text-destructive hover:text-destructive"
                                             title="Hapus" @click="confirmDelete(item)">
                                             <Trash2 class="h-4 w-4" />
                                         </Button>
@@ -453,7 +456,7 @@ function deleteItem() {
     </div>
 
     <!-- Delete Dialog -->
-    <Dialog v-model:open="showDeleteDialog">
+    <Dialog v-if="can('delete-jamaahs')" v-model:open="showDeleteDialog">
         <DialogContent>
             <DialogHeader>
                 <DialogTitle>Hapus Jamaah</DialogTitle>

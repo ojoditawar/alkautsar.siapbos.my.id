@@ -23,11 +23,15 @@ class RekController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-reks'), 403);
+
         return Inertia::render('Reks/Create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-reks'), 403);
+
         $validated = $request->validate([
             'kode' => ['required', 'string', 'max:1', 'unique:reks,kode'],
             'nama' => ['required', 'string', 'max:255'],
@@ -42,6 +46,8 @@ class RekController extends Controller
 
     public function edit(Rek $rek): Response
     {
+        abort_unless(auth()->user()->can('edit-reks'), 403);
+
         return Inertia::render('Reks/Edit', [
             'rek' => $rek->only('kode', 'nama'),
         ]);
@@ -49,6 +55,8 @@ class RekController extends Controller
 
     public function update(Request $request, Rek $rek): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-reks'), 403);
+
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
         ]);
@@ -80,6 +88,8 @@ class RekController extends Controller
 
     public function destroy(Rek $rek): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-reks'), 403);
+
         $subRekCount = SubRek::where('rek_id', $rek->kode)->count();
 
         if ($subRekCount > 0) {

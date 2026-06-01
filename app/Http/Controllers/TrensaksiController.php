@@ -140,6 +140,8 @@ class TrensaksiController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-trensaksis'), 403);
+
         $allRekenings = Rekening::orderBy('kelompok')->orderBy('jenis')->get(['id', 'kelompok', 'jenis', 'nama']);
         $noTrans = Trensaksi::generateNoTrensaksi(auth()->id());
         $saldoKas = $this->getSaldoKasPerBayar(auth()->user()->masjid_id);
@@ -154,6 +156,8 @@ class TrensaksiController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-trensaksis'), 403);
+
         $validated = $request->validate([
             'tahun' => ['required', 'string', 'max:4'],
             'tanggal' => ['required', 'date'],
@@ -192,6 +196,8 @@ class TrensaksiController extends Controller
 
     public function edit(Trensaksi $trensaksi): Response
     {
+        abort_unless(auth()->user()->can('edit-trensaksis'), 403);
+
         abort_if($trensaksi->valid, 403, 'Transaksi sudah ditutup (closed) dan tidak dapat diedit.');
         $trensaksi->load('detailTrensaksi');
         $allRekenings = Rekening::orderBy('kelompok')->orderBy('jenis')->get(['id', 'kelompok', 'jenis', 'nama']);
@@ -219,6 +225,8 @@ class TrensaksiController extends Controller
 
     public function update(Request $request, Trensaksi $trensaksi): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-trensaksis'), 403);
+
         abort_if($trensaksi->valid, 403, 'Transaksi sudah ditutup (closed) dan tidak dapat diubah.');
         $validated = $request->validate([
             'tahun' => ['required', 'string', 'max:4'],
@@ -258,6 +266,8 @@ class TrensaksiController extends Controller
 
     public function destroy(Trensaksi $trensaksi): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-trensaksis'), 403);
+
         abort_if($trensaksi->valid, 403, 'Transaksi sudah ditutup (closed) dan tidak dapat dihapus.');
         DB::transaction(function () use ($trensaksi) {
             if ($trensaksi->detailTrensaksi()->exists()) {
@@ -274,6 +284,8 @@ class TrensaksiController extends Controller
 
     public function duplicate(Trensaksi $trensaksi): RedirectResponse
     {
+        abort_unless(auth()->user()->can('create-trensaksis'), 403);
+
         $newTrensaksi = DB::transaction(function () use ($trensaksi) {
             $new = $trensaksi->replicate(['no_trans', 'valid']);
             $new->no_trans = Trensaksi::generateNoTrensaksi(auth()->id());

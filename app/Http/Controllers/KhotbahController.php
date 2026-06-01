@@ -37,11 +37,15 @@ class KhotbahController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-khotbahs'), 403);
+
         return Inertia::render('Khotbahs/Create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-khotbahs'), 403);
+
         $validated = $request->validate([
             'nama' => 'required|string|max:100',
             'alamat' => 'required|string|max:255',
@@ -69,12 +73,16 @@ class KhotbahController extends Controller
 
     public function edit(Khotbah $khotbah): Response
     {
+        abort_unless(auth()->user()->can('edit-khotbahs'), 403);
+
         return Inertia::render('Khotbahs/Edit', [
             'khotbah' => $khotbah,
         ]);
     }
     public function update(Request $request, Khotbah $khotbah): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-khotbahs'), 403);
+
         $validated = $request->validate([
             'nama' => 'required|string|max:100',
             'alamat' => 'required|string|max:255',
@@ -96,6 +104,8 @@ class KhotbahController extends Controller
 
     public function destroy(Khotbah $khotbah): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-khotbahs'), 403);
+
         $khotbah->delete();
 
         Inertia::flash('toast', ['type' => 'success', 'message' => 'Data khotbah berhasil dihapus.']);

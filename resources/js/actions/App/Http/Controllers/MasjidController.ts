@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\MasjidController::store
- * @see app/Http/Controllers/MasjidController.php:27
+ * @see app/Http/Controllers/MasjidController.php:29
  * @route '/masjids'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\MasjidController::store
- * @see app/Http/Controllers/MasjidController.php:27
+ * @see app/Http/Controllers/MasjidController.php:29
  * @route '/masjids'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\MasjidController::store
- * @see app/Http/Controllers/MasjidController.php:27
+ * @see app/Http/Controllers/MasjidController.php:29
  * @route '/masjids'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\MasjidController::store
- * @see app/Http/Controllers/MasjidController.php:27
+ * @see app/Http/Controllers/MasjidController.php:29
  * @route '/masjids'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\MasjidController::store
- * @see app/Http/Controllers/MasjidController.php:27
+ * @see app/Http/Controllers/MasjidController.php:29
  * @route '/masjids'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\MasjidController::edit
- * @see app/Http/Controllers/MasjidController.php:49
+ * @see app/Http/Controllers/MasjidController.php:53
  * @route '/masjids/{masjid}/edit'
  */
 export const edit = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\MasjidController::edit
- * @see app/Http/Controllers/MasjidController.php:49
+ * @see app/Http/Controllers/MasjidController.php:53
  * @route '/masjids/{masjid}/edit'
  */
 edit.url = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ edit.url = (args: { masjid: string | { id: string } } | [masjid: string | { id: 
 
 /**
 * @see \App\Http\Controllers\MasjidController::edit
- * @see app/Http/Controllers/MasjidController.php:49
+ * @see app/Http/Controllers/MasjidController.php:53
  * @route '/masjids/{masjid}/edit'
  */
 edit.get = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ edit.get = (args: { masjid: string | { id: string } } | [masjid: string | { id: 
 })
 /**
 * @see \App\Http\Controllers\MasjidController::edit
- * @see app/Http/Controllers/MasjidController.php:49
+ * @see app/Http/Controllers/MasjidController.php:53
  * @route '/masjids/{masjid}/edit'
  */
 edit.head = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ edit.head = (args: { masjid: string | { id: string } } | [masjid: string | { id:
 
     /**
 * @see \App\Http\Controllers\MasjidController::edit
- * @see app/Http/Controllers/MasjidController.php:49
+ * @see app/Http/Controllers/MasjidController.php:53
  * @route '/masjids/{masjid}/edit'
  */
     const editForm = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ edit.head = (args: { masjid: string | { id: string } } | [masjid: string | { id:
 
             /**
 * @see \App\Http\Controllers\MasjidController::edit
- * @see app/Http/Controllers/MasjidController.php:49
+ * @see app/Http/Controllers/MasjidController.php:53
  * @route '/masjids/{masjid}/edit'
  */
         editForm.get = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ edit.head = (args: { masjid: string | { id: string } } | [masjid: string | { id:
         })
             /**
 * @see \App\Http\Controllers\MasjidController::edit
- * @see app/Http/Controllers/MasjidController.php:49
+ * @see app/Http/Controllers/MasjidController.php:53
  * @route '/masjids/{masjid}/edit'
  */
         editForm.head = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ edit.head = (args: { masjid: string | { id: string } } | [masjid: string | { id:
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\MasjidController::update
- * @see app/Http/Controllers/MasjidController.php:56
+ * @see app/Http/Controllers/MasjidController.php:62
  * @route '/masjids/{masjid}'
  */
 export const update = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -329,7 +329,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\MasjidController::update
- * @see app/Http/Controllers/MasjidController.php:56
+ * @see app/Http/Controllers/MasjidController.php:62
  * @route '/masjids/{masjid}'
  */
 update.url = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ update.url = (args: { masjid: string | { id: string } } | [masjid: string | { id
 
 /**
 * @see \App\Http\Controllers\MasjidController::update
- * @see app/Http/Controllers/MasjidController.php:56
+ * @see app/Http/Controllers/MasjidController.php:62
  * @route '/masjids/{masjid}'
  */
 update.put = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -371,7 +371,7 @@ update.put = (args: { masjid: string | { id: string } } | [masjid: string | { id
 })
 /**
 * @see \App\Http\Controllers\MasjidController::update
- * @see app/Http/Controllers/MasjidController.php:56
+ * @see app/Http/Controllers/MasjidController.php:62
  * @route '/masjids/{masjid}'
  */
 update.patch = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -381,7 +381,7 @@ update.patch = (args: { masjid: string | { id: string } } | [masjid: string | { 
 
     /**
 * @see \App\Http\Controllers\MasjidController::update
- * @see app/Http/Controllers/MasjidController.php:56
+ * @see app/Http/Controllers/MasjidController.php:62
  * @route '/masjids/{masjid}'
  */
     const updateForm = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -396,7 +396,7 @@ update.patch = (args: { masjid: string | { id: string } } | [masjid: string | { 
 
             /**
 * @see \App\Http\Controllers\MasjidController::update
- * @see app/Http/Controllers/MasjidController.php:56
+ * @see app/Http/Controllers/MasjidController.php:62
  * @route '/masjids/{masjid}'
  */
         updateForm.put = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -410,7 +410,7 @@ update.patch = (args: { masjid: string | { id: string } } | [masjid: string | { 
         })
             /**
 * @see \App\Http\Controllers\MasjidController::update
- * @see app/Http/Controllers/MasjidController.php:56
+ * @see app/Http/Controllers/MasjidController.php:62
  * @route '/masjids/{masjid}'
  */
         updateForm.patch = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -426,7 +426,7 @@ update.patch = (args: { masjid: string | { id: string } } | [masjid: string | { 
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\MasjidController::destroy
- * @see app/Http/Controllers/MasjidController.php:85
+ * @see app/Http/Controllers/MasjidController.php:93
  * @route '/masjids/{masjid}'
  */
 export const destroy = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -441,7 +441,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\MasjidController::destroy
- * @see app/Http/Controllers/MasjidController.php:85
+ * @see app/Http/Controllers/MasjidController.php:93
  * @route '/masjids/{masjid}'
  */
 destroy.url = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions) => {
@@ -474,7 +474,7 @@ destroy.url = (args: { masjid: string | { id: string } } | [masjid: string | { i
 
 /**
 * @see \App\Http\Controllers\MasjidController::destroy
- * @see app/Http/Controllers/MasjidController.php:85
+ * @see app/Http/Controllers/MasjidController.php:93
  * @route '/masjids/{masjid}'
  */
 destroy.delete = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -484,7 +484,7 @@ destroy.delete = (args: { masjid: string | { id: string } } | [masjid: string | 
 
     /**
 * @see \App\Http\Controllers\MasjidController::destroy
- * @see app/Http/Controllers/MasjidController.php:85
+ * @see app/Http/Controllers/MasjidController.php:93
  * @route '/masjids/{masjid}'
  */
     const destroyForm = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -499,7 +499,7 @@ destroy.delete = (args: { masjid: string | { id: string } } | [masjid: string | 
 
             /**
 * @see \App\Http\Controllers\MasjidController::destroy
- * @see app/Http/Controllers/MasjidController.php:85
+ * @see app/Http/Controllers/MasjidController.php:93
  * @route '/masjids/{masjid}'
  */
         destroyForm.delete = (args: { masjid: string | { id: string } } | [masjid: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

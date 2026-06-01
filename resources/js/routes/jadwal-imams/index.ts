@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\JadwalImamController::store
- * @see app/Http/Controllers/JadwalImamController.php:60
+ * @see app/Http/Controllers/JadwalImamController.php:62
  * @route '/jadwal-imams'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\JadwalImamController::store
- * @see app/Http/Controllers/JadwalImamController.php:60
+ * @see app/Http/Controllers/JadwalImamController.php:62
  * @route '/jadwal-imams'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\JadwalImamController::store
- * @see app/Http/Controllers/JadwalImamController.php:60
+ * @see app/Http/Controllers/JadwalImamController.php:62
  * @route '/jadwal-imams'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\JadwalImamController::store
- * @see app/Http/Controllers/JadwalImamController.php:60
+ * @see app/Http/Controllers/JadwalImamController.php:62
  * @route '/jadwal-imams'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\JadwalImamController::store
- * @see app/Http/Controllers/JadwalImamController.php:60
+ * @see app/Http/Controllers/JadwalImamController.php:62
  * @route '/jadwal-imams'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\JadwalImamController::edit
- * @see app/Http/Controllers/JadwalImamController.php:89
+ * @see app/Http/Controllers/JadwalImamController.php:93
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
 export const edit = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\JadwalImamController::edit
- * @see app/Http/Controllers/JadwalImamController.php:89
+ * @see app/Http/Controllers/JadwalImamController.php:93
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
 edit.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ edit.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number 
 
 /**
 * @see \App\Http\Controllers\JadwalImamController::edit
- * @see app/Http/Controllers/JadwalImamController.php:89
+ * @see app/Http/Controllers/JadwalImamController.php:93
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
 edit.get = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ edit.get = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number 
 })
 /**
 * @see \App\Http\Controllers\JadwalImamController::edit
- * @see app/Http/Controllers/JadwalImamController.php:89
+ * @see app/Http/Controllers/JadwalImamController.php:93
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
 edit.head = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ edit.head = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number
 
     /**
 * @see \App\Http\Controllers\JadwalImamController::edit
- * @see app/Http/Controllers/JadwalImamController.php:89
+ * @see app/Http/Controllers/JadwalImamController.php:93
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
     const editForm = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ edit.head = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number
 
             /**
 * @see \App\Http\Controllers\JadwalImamController::edit
- * @see app/Http/Controllers/JadwalImamController.php:89
+ * @see app/Http/Controllers/JadwalImamController.php:93
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
         editForm.get = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ edit.head = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number
         })
             /**
 * @see \App\Http\Controllers\JadwalImamController::edit
- * @see app/Http/Controllers/JadwalImamController.php:89
+ * @see app/Http/Controllers/JadwalImamController.php:93
  * @route '/jadwal-imams/{jadwalImam}/edit'
  */
         editForm.head = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ edit.head = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\JadwalImamController::update
- * @see app/Http/Controllers/JadwalImamController.php:98
+ * @see app/Http/Controllers/JadwalImamController.php:104
  * @route '/jadwal-imams/{jadwalImam}'
  */
 export const update = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -329,7 +329,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\JadwalImamController::update
- * @see app/Http/Controllers/JadwalImamController.php:98
+ * @see app/Http/Controllers/JadwalImamController.php:104
  * @route '/jadwal-imams/{jadwalImam}'
  */
 update.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ update.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: numbe
 
 /**
 * @see \App\Http\Controllers\JadwalImamController::update
- * @see app/Http/Controllers/JadwalImamController.php:98
+ * @see app/Http/Controllers/JadwalImamController.php:104
  * @route '/jadwal-imams/{jadwalImam}'
  */
 update.put = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -371,7 +371,7 @@ update.put = (args: { jadwalImam: number | { id: number } } | [jadwalImam: numbe
 })
 /**
 * @see \App\Http\Controllers\JadwalImamController::update
- * @see app/Http/Controllers/JadwalImamController.php:98
+ * @see app/Http/Controllers/JadwalImamController.php:104
  * @route '/jadwal-imams/{jadwalImam}'
  */
 update.patch = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -381,7 +381,7 @@ update.patch = (args: { jadwalImam: number | { id: number } } | [jadwalImam: num
 
     /**
 * @see \App\Http\Controllers\JadwalImamController::update
- * @see app/Http/Controllers/JadwalImamController.php:98
+ * @see app/Http/Controllers/JadwalImamController.php:104
  * @route '/jadwal-imams/{jadwalImam}'
  */
     const updateForm = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -396,7 +396,7 @@ update.patch = (args: { jadwalImam: number | { id: number } } | [jadwalImam: num
 
             /**
 * @see \App\Http\Controllers\JadwalImamController::update
- * @see app/Http/Controllers/JadwalImamController.php:98
+ * @see app/Http/Controllers/JadwalImamController.php:104
  * @route '/jadwal-imams/{jadwalImam}'
  */
         updateForm.put = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -410,7 +410,7 @@ update.patch = (args: { jadwalImam: number | { id: number } } | [jadwalImam: num
         })
             /**
 * @see \App\Http\Controllers\JadwalImamController::update
- * @see app/Http/Controllers/JadwalImamController.php:98
+ * @see app/Http/Controllers/JadwalImamController.php:104
  * @route '/jadwal-imams/{jadwalImam}'
  */
         updateForm.patch = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -426,7 +426,7 @@ update.patch = (args: { jadwalImam: number | { id: number } } | [jadwalImam: num
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\JadwalImamController::destroy
- * @see app/Http/Controllers/JadwalImamController.php:115
+ * @see app/Http/Controllers/JadwalImamController.php:123
  * @route '/jadwal-imams/{jadwalImam}'
  */
 export const destroy = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -441,7 +441,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\JadwalImamController::destroy
- * @see app/Http/Controllers/JadwalImamController.php:115
+ * @see app/Http/Controllers/JadwalImamController.php:123
  * @route '/jadwal-imams/{jadwalImam}'
  */
 destroy.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -474,7 +474,7 @@ destroy.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: numb
 
 /**
 * @see \App\Http\Controllers\JadwalImamController::destroy
- * @see app/Http/Controllers/JadwalImamController.php:115
+ * @see app/Http/Controllers/JadwalImamController.php:123
  * @route '/jadwal-imams/{jadwalImam}'
  */
 destroy.delete = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -484,7 +484,7 @@ destroy.delete = (args: { jadwalImam: number | { id: number } } | [jadwalImam: n
 
     /**
 * @see \App\Http\Controllers\JadwalImamController::destroy
- * @see app/Http/Controllers/JadwalImamController.php:115
+ * @see app/Http/Controllers/JadwalImamController.php:123
  * @route '/jadwal-imams/{jadwalImam}'
  */
     const destroyForm = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -499,7 +499,7 @@ destroy.delete = (args: { jadwalImam: number | { id: number } } | [jadwalImam: n
 
             /**
 * @see \App\Http\Controllers\JadwalImamController::destroy
- * @see app/Http/Controllers/JadwalImamController.php:115
+ * @see app/Http/Controllers/JadwalImamController.php:123
  * @route '/jadwal-imams/{jadwalImam}'
  */
         destroyForm.delete = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -515,7 +515,7 @@ destroy.delete = (args: { jadwalImam: number | { id: number } } | [jadwalImam: n
     destroy.form = destroyForm
 /**
 * @see \App\Http\Controllers\JadwalImamController::duplicate
- * @see app/Http/Controllers/JadwalImamController.php:122
+ * @see app/Http/Controllers/JadwalImamController.php:132
  * @route '/jadwal-imams/{jadwalImam}/duplicate'
  */
 export const duplicate = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -530,7 +530,7 @@ duplicate.definition = {
 
 /**
 * @see \App\Http\Controllers\JadwalImamController::duplicate
- * @see app/Http/Controllers/JadwalImamController.php:122
+ * @see app/Http/Controllers/JadwalImamController.php:132
  * @route '/jadwal-imams/{jadwalImam}/duplicate'
  */
 duplicate.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -563,7 +563,7 @@ duplicate.url = (args: { jadwalImam: number | { id: number } } | [jadwalImam: nu
 
 /**
 * @see \App\Http\Controllers\JadwalImamController::duplicate
- * @see app/Http/Controllers/JadwalImamController.php:122
+ * @see app/Http/Controllers/JadwalImamController.php:132
  * @route '/jadwal-imams/{jadwalImam}/duplicate'
  */
 duplicate.post = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -573,7 +573,7 @@ duplicate.post = (args: { jadwalImam: number | { id: number } } | [jadwalImam: n
 
     /**
 * @see \App\Http\Controllers\JadwalImamController::duplicate
- * @see app/Http/Controllers/JadwalImamController.php:122
+ * @see app/Http/Controllers/JadwalImamController.php:132
  * @route '/jadwal-imams/{jadwalImam}/duplicate'
  */
     const duplicateForm = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -583,7 +583,7 @@ duplicate.post = (args: { jadwalImam: number | { id: number } } | [jadwalImam: n
 
             /**
 * @see \App\Http\Controllers\JadwalImamController::duplicate
- * @see app/Http/Controllers/JadwalImamController.php:122
+ * @see app/Http/Controllers/JadwalImamController.php:132
  * @route '/jadwal-imams/{jadwalImam}/duplicate'
  */
         duplicateForm.post = (args: { jadwalImam: number | { id: number } } | [jadwalImam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

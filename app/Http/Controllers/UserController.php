@@ -25,6 +25,7 @@ class UserController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-users'), 403);
         $masjids = Masjid::orderBy('nama')->get(['id', 'nama']);
         $roles = Role::orderBy('name')->get(['id', 'name']);
 
@@ -36,6 +37,8 @@ class UserController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-users'), 403);
+
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -61,6 +64,7 @@ class UserController extends Controller
 
     public function edit(User $user): Response
     {
+        abort_unless(auth()->user()->can('edit-users'), 403);
         $masjids = Masjid::orderBy('nama')->get(['id', 'nama']);
         $roles = Role::orderBy('name')->get(['id', 'name']);
         $user->load('roles:id,name');
@@ -76,6 +80,8 @@ class UserController extends Controller
 
     public function update(Request $request, User $user): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-users'), 403);
+
         $rules = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $user->id],
@@ -119,6 +125,8 @@ class UserController extends Controller
 
     public function destroy(User $user): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-users'), 403);
+
         $user->delete();
 
         Inertia::flash('toast', ['type' => 'success', 'message' => 'User berhasil dihapus.']);

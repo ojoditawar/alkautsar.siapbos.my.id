@@ -24,6 +24,8 @@ class RoleController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-roles'), 403);
+
         $permissions = Permission::orderBy('name')->get(['id', 'name']);
 
         return Inertia::render('Roles/Create', [
@@ -33,6 +35,8 @@ class RoleController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-roles'), 403);
+
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:roles,name'],
             'permissions' => ['array'],
@@ -52,6 +56,8 @@ class RoleController extends Controller
 
     public function edit(Role $role): Response
     {
+        abort_unless(auth()->user()->can('edit-roles'), 403);
+
         $role->load('permissions:id,name');
         $permissions = Permission::orderBy('name')->get(['id', 'name']);
 
@@ -67,6 +73,8 @@ class RoleController extends Controller
 
     public function update(Request $request, Role $role): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-roles'), 403);
+
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:roles,name,' . $role->id],
             'permissions' => ['array'],
@@ -83,6 +91,8 @@ class RoleController extends Controller
 
     public function destroy(Role $role): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-roles'), 403);
+
         $role->delete();
 
         Inertia::flash('toast', ['type' => 'success', 'message' => 'Role berhasil dihapus.']);

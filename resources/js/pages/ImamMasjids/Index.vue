@@ -9,7 +9,10 @@ import {
     UserX,
 } from 'lucide-vue-next';
 import { ref } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
+
+const { can } = useCan();
 import {
     Card,
     CardContent,
@@ -85,7 +88,7 @@ function deleteItem() {
                         </CardDescription>
                     </div>
                     <div class="flex gap-2">
-                        <Button as-child class="gap-2 bg-emerald-600 hover:bg-emerald-700">
+                        <Button v-if="can('create-imam-masjids')" as-child class="gap-2 bg-emerald-600 hover:bg-emerald-700">
                             <Link href="/imam-masjids/create">
                                 <Plus class="h-4 w-4" />
                                 Tambah Imam
@@ -139,12 +142,12 @@ function deleteItem() {
 
                         <!-- Actions -->
                         <div class="flex items-center justify-end gap-1 border-t px-3 py-2 bg-slate-50/30">
-                            <Button variant="ghost" size="icon" class="h-8 w-8 text-slate-600 hover:text-emerald-600" title="Edit" as-child>
+                            <Button v-if="can('edit-imam-masjids')" variant="ghost" size="icon" class="h-8 w-8 text-slate-600 hover:text-emerald-600" title="Edit" as-child>
                                 <Link :href="`/imam-masjids/${item.id}/edit`">
                                     <Edit class="h-4 w-4" />
                                 </Link>
                             </Button>
-                            <Button variant="ghost" size="icon" class="h-8 w-8 text-destructive hover:text-destructive"
+                            <Button v-if="can('delete-imam-masjids')" variant="ghost" size="icon" class="h-8 w-8 text-destructive hover:text-destructive"
                                 title="Hapus" @click="confirmDelete(item)">
                                 <Trash2 class="h-4 w-4" />
                             </Button>
@@ -156,7 +159,7 @@ function deleteItem() {
     </div>
 
     <!-- Delete Dialog -->
-    <Dialog v-model:open="showDeleteDialog">
+    <Dialog v-if="can('delete-imam-masjids')" v-model:open="showDeleteDialog">
         <DialogContent>
             <DialogHeader>
                 <DialogTitle>Hapus Imam</DialogTitle>

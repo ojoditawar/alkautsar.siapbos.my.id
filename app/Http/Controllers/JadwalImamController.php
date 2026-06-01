@@ -51,6 +51,8 @@ class JadwalImamController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-jadwal-imams'), 403);
+
         return Inertia::render('JadwalImams/Create', [
             'masjids' => Masjid::select('id', 'nama')->orderBy('nama')->get(),
             'existingNames' => $this->getExistingNames(),
@@ -59,6 +61,8 @@ class JadwalImamController extends Controller
 
     public function store(Request $request)
     {
+        abort_unless($request->user()->can('create-jadwal-imams'), 403);
+
         $validated = $request->validate([
             'masjid_id' => 'required|uuid|exists:masjids,id',
             'rows' => 'required|array|min:1',
@@ -88,6 +92,8 @@ class JadwalImamController extends Controller
 
     public function edit(JadwalImam $jadwalImam): Response
     {
+        abort_unless(auth()->user()->can('edit-jadwal-imams'), 403);
+
         return Inertia::render('JadwalImams/Edit', [
             'jadwalImam' => $jadwalImam->load(['user:id,name', 'masjid:id,nama']),
             'masjids' => Masjid::select('id', 'nama')->orderBy('nama')->get(),
@@ -97,6 +103,8 @@ class JadwalImamController extends Controller
 
     public function update(Request $request, JadwalImam $jadwalImam)
     {
+        abort_unless($request->user()->can('edit-jadwal-imams'), 403);
+
         $validated = $request->validate([
             'masjid_id' => 'required|uuid|exists:masjids,id',
             'tanggal' => 'required|date',
@@ -114,6 +122,8 @@ class JadwalImamController extends Controller
 
     public function destroy(JadwalImam $jadwalImam)
     {
+        abort_unless(auth()->user()->can('delete-jadwal-imams'), 403);
+
         $jadwalImam->delete();
 
         return redirect()->route('jadwal-imams.index')->with('success', 'Jadwal imam berhasil dihapus.');
@@ -121,6 +131,8 @@ class JadwalImamController extends Controller
 
     public function duplicate(JadwalImam $jadwalImam)
     {
+        abort_unless(auth()->user()->can('create-jadwal-imams'), 403);
+
         $newJadwal = $jadwalImam->replicate();
         $newJadwal->save();
 

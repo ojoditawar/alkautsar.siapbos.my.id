@@ -2,6 +2,7 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import { BookText, ClipboardList, Copy, Edit, Plus, Printer, Search, Trash2, X } from 'lucide-vue-next';
 import { onBeforeUnmount, ref, watch } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -20,6 +21,8 @@ import {
     DialogTitle,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
+
+const { can } = useCan();
 
 interface User {
     id: number;
@@ -199,7 +202,7 @@ function formatDate(dateStr: string): string {
                         </CardDescription>
                     </div>
                     <div class="flex gap-2">
-                        <Button as-child class="gap-2">
+                        <Button as-child class="gap-2" v-if="can('create-jadwal-imams')">
                             <Link href="/jadwal-imams/create">
                                 <Plus class="h-4 w-4" />
                                 Tambah
@@ -273,13 +276,15 @@ function formatDate(dateStr: string): string {
                                             <Copy class="h-4 w-4" />
                                         </Button>
                                         <Button as-child size="icon" variant="ghost"
-                                            class="h-8 w-8 text-green-600 hover:text-green-700">
+                                            class="h-8 w-8 text-green-600 hover:text-green-700"
+                                            v-if="can('edit-jadwal-imams')">
                                             <Link :href="`/jadwal-imams/${item.id}/edit`">
                                                 <Edit class="h-4 w-4" />
                                             </Link>
                                         </Button>
                                         <Button size="icon" variant="ghost"
                                             class="h-8 w-8 text-red-600 hover:text-red-700"
+                                            v-if="can('delete-jadwal-imams')"
                                             @click="confirmDelete(item)">
                                             <Trash2 class="h-4 w-4" />
                                         </Button>

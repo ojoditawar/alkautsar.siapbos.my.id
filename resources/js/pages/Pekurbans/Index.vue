@@ -12,6 +12,7 @@ import {
     FileText,
 } from 'lucide-vue-next';
 import { ref } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -37,6 +38,8 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+
+const { can } = useCan();
 
 interface User {
     id: number;
@@ -235,7 +238,7 @@ function printPdf() {
                             <FileText class="h-4 w-4" />
                             Cetak PDF
                         </Button>
-                        <Button as-child class="gap-2">
+                        <Button as-child class="gap-2" v-if="can('create-pekurbans')">
                             <Link href="/pekurbans/create">
                                 <Plus class="h-4 w-4" />
                                 Tambah
@@ -369,13 +372,15 @@ function printPdf() {
                                 </span>
                                 <div class="flex gap-2">
                                     <Button as-child
-                                        class="h-9 w-9 bg-green-600 p-0 text-white hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600">
+                                        class="h-9 w-9 bg-green-600 p-0 text-white hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600"
+                                        v-if="can('edit-pekurbans')">
                                         <Link :href="`/pekurbans/${item.id}/edit`">
                                             <Edit class="h-4 w-4" />
                                         </Link>
                                     </Button>
                                     <Button type="button"
                                         class="h-9 w-9 bg-red-600 p-0 text-white hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
+                                        v-if="can('delete-pekurbans')"
                                         @click="confirmDelete(item)">
                                         <Trash2 class="h-4 w-4" />
                                     </Button>

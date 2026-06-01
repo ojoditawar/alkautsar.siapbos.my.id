@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\RekController::printPdf
- * @see app/Http/Controllers/RekController.php:63
+ * @see app/Http/Controllers/RekController.php:71
  * @route '/reks/print-pdf'
  */
 export const printPdf = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ printPdf.definition = {
 
 /**
 * @see \App\Http\Controllers\RekController::printPdf
- * @see app/Http/Controllers/RekController.php:63
+ * @see app/Http/Controllers/RekController.php:71
  * @route '/reks/print-pdf'
  */
 printPdf.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ printPdf.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\RekController::printPdf
- * @see app/Http/Controllers/RekController.php:63
+ * @see app/Http/Controllers/RekController.php:71
  * @route '/reks/print-pdf'
  */
 printPdf.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ printPdf.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\RekController::printPdf
- * @see app/Http/Controllers/RekController.php:63
+ * @see app/Http/Controllers/RekController.php:71
  * @route '/reks/print-pdf'
  */
 printPdf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ printPdf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\RekController::printPdf
- * @see app/Http/Controllers/RekController.php:63
+ * @see app/Http/Controllers/RekController.php:71
  * @route '/reks/print-pdf'
  */
     const printPdfForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ printPdf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\RekController::printPdf
- * @see app/Http/Controllers/RekController.php:63
+ * @see app/Http/Controllers/RekController.php:71
  * @route '/reks/print-pdf'
  */
         printPdfForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ printPdf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\RekController::printPdf
- * @see app/Http/Controllers/RekController.php:63
+ * @see app/Http/Controllers/RekController.php:71
  * @route '/reks/print-pdf'
  */
         printPdfForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -235,7 +235,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\RekController::store
- * @see app/Http/Controllers/RekController.php:29
+ * @see app/Http/Controllers/RekController.php:31
  * @route '/reks'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -250,7 +250,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\RekController::store
- * @see app/Http/Controllers/RekController.php:29
+ * @see app/Http/Controllers/RekController.php:31
  * @route '/reks'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -259,7 +259,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\RekController::store
- * @see app/Http/Controllers/RekController.php:29
+ * @see app/Http/Controllers/RekController.php:31
  * @route '/reks'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -269,7 +269,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\RekController::store
- * @see app/Http/Controllers/RekController.php:29
+ * @see app/Http/Controllers/RekController.php:31
  * @route '/reks'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -279,7 +279,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\RekController::store
- * @see app/Http/Controllers/RekController.php:29
+ * @see app/Http/Controllers/RekController.php:31
  * @route '/reks'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -290,7 +290,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\RekController::edit
- * @see app/Http/Controllers/RekController.php:43
+ * @see app/Http/Controllers/RekController.php:47
  * @route '/reks/{rek}/edit'
  */
 export const edit = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -305,7 +305,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\RekController::edit
- * @see app/Http/Controllers/RekController.php:43
+ * @see app/Http/Controllers/RekController.php:47
  * @route '/reks/{rek}/edit'
  */
 edit.url = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions) => {
@@ -338,7 +338,7 @@ edit.url = (args: { rek: string | { kode: string } } | [rek: string | { kode: st
 
 /**
 * @see \App\Http\Controllers\RekController::edit
- * @see app/Http/Controllers/RekController.php:43
+ * @see app/Http/Controllers/RekController.php:47
  * @route '/reks/{rek}/edit'
  */
 edit.get = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -347,7 +347,7 @@ edit.get = (args: { rek: string | { kode: string } } | [rek: string | { kode: st
 })
 /**
 * @see \App\Http\Controllers\RekController::edit
- * @see app/Http/Controllers/RekController.php:43
+ * @see app/Http/Controllers/RekController.php:47
  * @route '/reks/{rek}/edit'
  */
 edit.head = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -357,7 +357,7 @@ edit.head = (args: { rek: string | { kode: string } } | [rek: string | { kode: s
 
     /**
 * @see \App\Http\Controllers\RekController::edit
- * @see app/Http/Controllers/RekController.php:43
+ * @see app/Http/Controllers/RekController.php:47
  * @route '/reks/{rek}/edit'
  */
     const editForm = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -367,7 +367,7 @@ edit.head = (args: { rek: string | { kode: string } } | [rek: string | { kode: s
 
             /**
 * @see \App\Http\Controllers\RekController::edit
- * @see app/Http/Controllers/RekController.php:43
+ * @see app/Http/Controllers/RekController.php:47
  * @route '/reks/{rek}/edit'
  */
         editForm.get = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -376,7 +376,7 @@ edit.head = (args: { rek: string | { kode: string } } | [rek: string | { kode: s
         })
             /**
 * @see \App\Http\Controllers\RekController::edit
- * @see app/Http/Controllers/RekController.php:43
+ * @see app/Http/Controllers/RekController.php:47
  * @route '/reks/{rek}/edit'
  */
         editForm.head = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -392,7 +392,7 @@ edit.head = (args: { rek: string | { kode: string } } | [rek: string | { kode: s
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\RekController::update
- * @see app/Http/Controllers/RekController.php:50
+ * @see app/Http/Controllers/RekController.php:56
  * @route '/reks/{rek}'
  */
 export const update = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -407,7 +407,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\RekController::update
- * @see app/Http/Controllers/RekController.php:50
+ * @see app/Http/Controllers/RekController.php:56
  * @route '/reks/{rek}'
  */
 update.url = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions) => {
@@ -440,7 +440,7 @@ update.url = (args: { rek: string | { kode: string } } | [rek: string | { kode: 
 
 /**
 * @see \App\Http\Controllers\RekController::update
- * @see app/Http/Controllers/RekController.php:50
+ * @see app/Http/Controllers/RekController.php:56
  * @route '/reks/{rek}'
  */
 update.put = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -449,7 +449,7 @@ update.put = (args: { rek: string | { kode: string } } | [rek: string | { kode: 
 })
 /**
 * @see \App\Http\Controllers\RekController::update
- * @see app/Http/Controllers/RekController.php:50
+ * @see app/Http/Controllers/RekController.php:56
  * @route '/reks/{rek}'
  */
 update.patch = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -459,7 +459,7 @@ update.patch = (args: { rek: string | { kode: string } } | [rek: string | { kode
 
     /**
 * @see \App\Http\Controllers\RekController::update
- * @see app/Http/Controllers/RekController.php:50
+ * @see app/Http/Controllers/RekController.php:56
  * @route '/reks/{rek}'
  */
     const updateForm = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -474,7 +474,7 @@ update.patch = (args: { rek: string | { kode: string } } | [rek: string | { kode
 
             /**
 * @see \App\Http\Controllers\RekController::update
- * @see app/Http/Controllers/RekController.php:50
+ * @see app/Http/Controllers/RekController.php:56
  * @route '/reks/{rek}'
  */
         updateForm.put = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -488,7 +488,7 @@ update.patch = (args: { rek: string | { kode: string } } | [rek: string | { kode
         })
             /**
 * @see \App\Http\Controllers\RekController::update
- * @see app/Http/Controllers/RekController.php:50
+ * @see app/Http/Controllers/RekController.php:56
  * @route '/reks/{rek}'
  */
         updateForm.patch = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -504,7 +504,7 @@ update.patch = (args: { rek: string | { kode: string } } | [rek: string | { kode
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\RekController::destroy
- * @see app/Http/Controllers/RekController.php:81
+ * @see app/Http/Controllers/RekController.php:89
  * @route '/reks/{rek}'
  */
 export const destroy = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -519,7 +519,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\RekController::destroy
- * @see app/Http/Controllers/RekController.php:81
+ * @see app/Http/Controllers/RekController.php:89
  * @route '/reks/{rek}'
  */
 destroy.url = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions) => {
@@ -552,7 +552,7 @@ destroy.url = (args: { rek: string | { kode: string } } | [rek: string | { kode:
 
 /**
 * @see \App\Http\Controllers\RekController::destroy
- * @see app/Http/Controllers/RekController.php:81
+ * @see app/Http/Controllers/RekController.php:89
  * @route '/reks/{rek}'
  */
 destroy.delete = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -562,7 +562,7 @@ destroy.delete = (args: { rek: string | { kode: string } } | [rek: string | { ko
 
     /**
 * @see \App\Http\Controllers\RekController::destroy
- * @see app/Http/Controllers/RekController.php:81
+ * @see app/Http/Controllers/RekController.php:89
  * @route '/reks/{rek}'
  */
     const destroyForm = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -577,7 +577,7 @@ destroy.delete = (args: { rek: string | { kode: string } } | [rek: string | { ko
 
             /**
 * @see \App\Http\Controllers\RekController::destroy
- * @see app/Http/Controllers/RekController.php:81
+ * @see app/Http/Controllers/RekController.php:89
  * @route '/reks/{rek}'
  */
         destroyForm.delete = (args: { rek: string | { kode: string } } | [rek: string | { kode: string } ] | string | { kode: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

@@ -23,11 +23,15 @@ class ProgramController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-programs'), 403);
+
         return Inertia::render('Programs/Create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-programs'), 403);
+
         $request->validate([
             'program' => ['required', 'string', 'max:20', 'unique:programs,program'],
             'nama'    => ['required', 'string', 'max:255'],
@@ -42,6 +46,8 @@ class ProgramController extends Controller
 
     public function edit(Program $program): Response
     {
+        abort_unless(auth()->user()->can('edit-programs'), 403);
+
         return Inertia::render('Programs/Edit', [
             'program' => $program->only('id', 'program', 'nama'),
         ]);
@@ -49,6 +55,8 @@ class ProgramController extends Controller
 
     public function update(Request $request, Program $program): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-programs'), 403);
+
         $request->validate([
             'program' => ['required', 'string', 'max:20', 'unique:programs,program,' . $program->id],
             'nama'    => ['required', 'string', 'max:255'],
@@ -63,6 +71,8 @@ class ProgramController extends Controller
 
     public function destroy(Program $program): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-programs'), 403);
+
         $program->delete();
 
         Inertia::flash('toast', ['type' => 'success', 'message' => 'Program berhasil dihapus.']);

@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\RunningTextController::store
- * @see app/Http/Controllers/RunningTextController.php:27
+ * @see app/Http/Controllers/RunningTextController.php:29
  * @route '/running-texts'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\RunningTextController::store
- * @see app/Http/Controllers/RunningTextController.php:27
+ * @see app/Http/Controllers/RunningTextController.php:29
  * @route '/running-texts'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\RunningTextController::store
- * @see app/Http/Controllers/RunningTextController.php:27
+ * @see app/Http/Controllers/RunningTextController.php:29
  * @route '/running-texts'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\RunningTextController::store
- * @see app/Http/Controllers/RunningTextController.php:27
+ * @see app/Http/Controllers/RunningTextController.php:29
  * @route '/running-texts'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\RunningTextController::store
- * @see app/Http/Controllers/RunningTextController.php:27
+ * @see app/Http/Controllers/RunningTextController.php:29
  * @route '/running-texts'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\RunningTextController::edit
- * @see app/Http/Controllers/RunningTextController.php:46
+ * @see app/Http/Controllers/RunningTextController.php:50
  * @route '/running-texts/{runningText}/edit'
  */
 export const edit = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\RunningTextController::edit
- * @see app/Http/Controllers/RunningTextController.php:46
+ * @see app/Http/Controllers/RunningTextController.php:50
  * @route '/running-texts/{runningText}/edit'
  */
 edit.url = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ edit.url = (args: { runningText: number | { id: number } } | [runningText: numbe
 
 /**
 * @see \App\Http\Controllers\RunningTextController::edit
- * @see app/Http/Controllers/RunningTextController.php:46
+ * @see app/Http/Controllers/RunningTextController.php:50
  * @route '/running-texts/{runningText}/edit'
  */
 edit.get = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ edit.get = (args: { runningText: number | { id: number } } | [runningText: numbe
 })
 /**
 * @see \App\Http\Controllers\RunningTextController::edit
- * @see app/Http/Controllers/RunningTextController.php:46
+ * @see app/Http/Controllers/RunningTextController.php:50
  * @route '/running-texts/{runningText}/edit'
  */
 edit.head = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ edit.head = (args: { runningText: number | { id: number } } | [runningText: numb
 
     /**
 * @see \App\Http\Controllers\RunningTextController::edit
- * @see app/Http/Controllers/RunningTextController.php:46
+ * @see app/Http/Controllers/RunningTextController.php:50
  * @route '/running-texts/{runningText}/edit'
  */
     const editForm = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ edit.head = (args: { runningText: number | { id: number } } | [runningText: numb
 
             /**
 * @see \App\Http\Controllers\RunningTextController::edit
- * @see app/Http/Controllers/RunningTextController.php:46
+ * @see app/Http/Controllers/RunningTextController.php:50
  * @route '/running-texts/{runningText}/edit'
  */
         editForm.get = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ edit.head = (args: { runningText: number | { id: number } } | [runningText: numb
         })
             /**
 * @see \App\Http\Controllers\RunningTextController::edit
- * @see app/Http/Controllers/RunningTextController.php:46
+ * @see app/Http/Controllers/RunningTextController.php:50
  * @route '/running-texts/{runningText}/edit'
  */
         editForm.head = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ edit.head = (args: { runningText: number | { id: number } } | [runningText: numb
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\RunningTextController::update
- * @see app/Http/Controllers/RunningTextController.php:53
+ * @see app/Http/Controllers/RunningTextController.php:59
  * @route '/running-texts/{runningText}'
  */
 export const update = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -329,7 +329,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\RunningTextController::update
- * @see app/Http/Controllers/RunningTextController.php:53
+ * @see app/Http/Controllers/RunningTextController.php:59
  * @route '/running-texts/{runningText}'
  */
 update.url = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ update.url = (args: { runningText: number | { id: number } } | [runningText: num
 
 /**
 * @see \App\Http\Controllers\RunningTextController::update
- * @see app/Http/Controllers/RunningTextController.php:53
+ * @see app/Http/Controllers/RunningTextController.php:59
  * @route '/running-texts/{runningText}'
  */
 update.put = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -371,7 +371,7 @@ update.put = (args: { runningText: number | { id: number } } | [runningText: num
 })
 /**
 * @see \App\Http\Controllers\RunningTextController::update
- * @see app/Http/Controllers/RunningTextController.php:53
+ * @see app/Http/Controllers/RunningTextController.php:59
  * @route '/running-texts/{runningText}'
  */
 update.patch = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -381,7 +381,7 @@ update.patch = (args: { runningText: number | { id: number } } | [runningText: n
 
     /**
 * @see \App\Http\Controllers\RunningTextController::update
- * @see app/Http/Controllers/RunningTextController.php:53
+ * @see app/Http/Controllers/RunningTextController.php:59
  * @route '/running-texts/{runningText}'
  */
     const updateForm = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -396,7 +396,7 @@ update.patch = (args: { runningText: number | { id: number } } | [runningText: n
 
             /**
 * @see \App\Http\Controllers\RunningTextController::update
- * @see app/Http/Controllers/RunningTextController.php:53
+ * @see app/Http/Controllers/RunningTextController.php:59
  * @route '/running-texts/{runningText}'
  */
         updateForm.put = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -410,7 +410,7 @@ update.patch = (args: { runningText: number | { id: number } } | [runningText: n
         })
             /**
 * @see \App\Http\Controllers\RunningTextController::update
- * @see app/Http/Controllers/RunningTextController.php:53
+ * @see app/Http/Controllers/RunningTextController.php:59
  * @route '/running-texts/{runningText}'
  */
         updateForm.patch = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -426,7 +426,7 @@ update.patch = (args: { runningText: number | { id: number } } | [runningText: n
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\RunningTextController::destroy
- * @see app/Http/Controllers/RunningTextController.php:72
+ * @see app/Http/Controllers/RunningTextController.php:80
  * @route '/running-texts/{runningText}'
  */
 export const destroy = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -441,7 +441,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\RunningTextController::destroy
- * @see app/Http/Controllers/RunningTextController.php:72
+ * @see app/Http/Controllers/RunningTextController.php:80
  * @route '/running-texts/{runningText}'
  */
 destroy.url = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -474,7 +474,7 @@ destroy.url = (args: { runningText: number | { id: number } } | [runningText: nu
 
 /**
 * @see \App\Http\Controllers\RunningTextController::destroy
- * @see app/Http/Controllers/RunningTextController.php:72
+ * @see app/Http/Controllers/RunningTextController.php:80
  * @route '/running-texts/{runningText}'
  */
 destroy.delete = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -484,7 +484,7 @@ destroy.delete = (args: { runningText: number | { id: number } } | [runningText:
 
     /**
 * @see \App\Http\Controllers\RunningTextController::destroy
- * @see app/Http/Controllers/RunningTextController.php:72
+ * @see app/Http/Controllers/RunningTextController.php:80
  * @route '/running-texts/{runningText}'
  */
     const destroyForm = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -499,7 +499,7 @@ destroy.delete = (args: { runningText: number | { id: number } } | [runningText:
 
             /**
 * @see \App\Http\Controllers\RunningTextController::destroy
- * @see app/Http/Controllers/RunningTextController.php:72
+ * @see app/Http/Controllers/RunningTextController.php:80
  * @route '/running-texts/{runningText}'
  */
         destroyForm.delete = (args: { runningText: number | { id: number } } | [runningText: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

@@ -37,11 +37,15 @@ class ImamMasjidController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-imam-masjids'), 403);
+
         return Inertia::render('ImamMasjids/Create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-imam-masjids'), 403);
+
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'foto' => ['nullable', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
@@ -71,6 +75,8 @@ class ImamMasjidController extends Controller
 
     public function edit(ImamMasjid $imamMasjid): Response
     {
+        abort_unless(auth()->user()->can('edit-imam-masjids'), 403);
+
         $masjidId = auth()->user()->masjid_id;
 
         if ($imamMasjid->masjid_id !== $masjidId) {
@@ -92,6 +98,8 @@ class ImamMasjidController extends Controller
 
     public function update(Request $request, ImamMasjid $imamMasjid): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-imam-masjids'), 403);
+
         $masjidId = auth()->user()->masjid_id;
 
         if ($imamMasjid->masjid_id !== $masjidId) {
@@ -131,6 +139,8 @@ class ImamMasjidController extends Controller
 
     public function destroy(ImamMasjid $imamMasjid): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-imam-masjids'), 403);
+
         $masjidId = auth()->user()->masjid_id;
 
         if ($imamMasjid->masjid_id !== $masjidId) {

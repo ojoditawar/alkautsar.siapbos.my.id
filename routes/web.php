@@ -146,15 +146,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('hijri-holidays/{holiday}/duplicate', [HijriHolidayController::class, 'duplicate'])->name('hijri-holidays.duplicate');
     });
 
-    // Monitor Config & Mutiara Images: hanya Admin yang bisa mengakses.
-        Route::middleware('role_or_permission:Admin')->group(function () {
-            Route::resource('mutiara-images', MutiaraImageController::class)->except(['show']);
-            Route::resource('imam-masjids', ImamMasjidController::class)->except(['show'])->parameters(['imam-masjids' => 'imamMasjid']);
-            Route::resource('jamaahs', JamaahController::class)->except(['show']);
-
-
+    Route::middleware('role_or_permission:Admin|manage-monitor-configs')->group(function () {
         Route::get('monitor-config', [MonitorConfigController::class, 'edit'])->name('monitor-config.edit');
         Route::put('monitor-config', [MonitorConfigController::class, 'update'])->name('monitor-config.update');
+    });
+
+    // Monitor Config & Mutiara Images: hanya Admin yang bisa mengakses.
+    Route::middleware('role_or_permission:Admin')->group(function () {
+        Route::resource('mutiara-images', MutiaraImageController::class)->except(['show']);
+        Route::resource('imam-masjids', ImamMasjidController::class)->except(['show'])->parameters(['imam-masjids' => 'imamMasjid']);
+        Route::resource('jamaahs', JamaahController::class)->except(['show']);
+
 
         // File Explorer
         Route::get('file-explorer', [FileExplorerController::class, 'index'])->name('file-explorer.index');

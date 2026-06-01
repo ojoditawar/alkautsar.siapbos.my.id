@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\KajianController::store
- * @see app/Http/Controllers/KajianController.php:30
+ * @see app/Http/Controllers/KajianController.php:32
  * @route '/kajians'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\KajianController::store
- * @see app/Http/Controllers/KajianController.php:30
+ * @see app/Http/Controllers/KajianController.php:32
  * @route '/kajians'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\KajianController::store
- * @see app/Http/Controllers/KajianController.php:30
+ * @see app/Http/Controllers/KajianController.php:32
  * @route '/kajians'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\KajianController::store
- * @see app/Http/Controllers/KajianController.php:30
+ * @see app/Http/Controllers/KajianController.php:32
  * @route '/kajians'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\KajianController::store
- * @see app/Http/Controllers/KajianController.php:30
+ * @see app/Http/Controllers/KajianController.php:32
  * @route '/kajians'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\KajianController::edit
- * @see app/Http/Controllers/KajianController.php:41
+ * @see app/Http/Controllers/KajianController.php:45
  * @route '/kajians/{kajian}/edit'
  */
 export const edit = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\KajianController::edit
- * @see app/Http/Controllers/KajianController.php:41
+ * @see app/Http/Controllers/KajianController.php:45
  * @route '/kajians/{kajian}/edit'
  */
 edit.url = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ edit.url = (args: { kajian: number | { id: number } } | [kajian: number | { id: 
 
 /**
 * @see \App\Http\Controllers\KajianController::edit
- * @see app/Http/Controllers/KajianController.php:41
+ * @see app/Http/Controllers/KajianController.php:45
  * @route '/kajians/{kajian}/edit'
  */
 edit.get = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ edit.get = (args: { kajian: number | { id: number } } | [kajian: number | { id: 
 })
 /**
 * @see \App\Http\Controllers\KajianController::edit
- * @see app/Http/Controllers/KajianController.php:41
+ * @see app/Http/Controllers/KajianController.php:45
  * @route '/kajians/{kajian}/edit'
  */
 edit.head = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ edit.head = (args: { kajian: number | { id: number } } | [kajian: number | { id:
 
     /**
 * @see \App\Http\Controllers\KajianController::edit
- * @see app/Http/Controllers/KajianController.php:41
+ * @see app/Http/Controllers/KajianController.php:45
  * @route '/kajians/{kajian}/edit'
  */
     const editForm = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ edit.head = (args: { kajian: number | { id: number } } | [kajian: number | { id:
 
             /**
 * @see \App\Http\Controllers\KajianController::edit
- * @see app/Http/Controllers/KajianController.php:41
+ * @see app/Http/Controllers/KajianController.php:45
  * @route '/kajians/{kajian}/edit'
  */
         editForm.get = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ edit.head = (args: { kajian: number | { id: number } } | [kajian: number | { id:
         })
             /**
 * @see \App\Http\Controllers\KajianController::edit
- * @see app/Http/Controllers/KajianController.php:41
+ * @see app/Http/Controllers/KajianController.php:45
  * @route '/kajians/{kajian}/edit'
  */
         editForm.head = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ edit.head = (args: { kajian: number | { id: number } } | [kajian: number | { id:
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\KajianController::update
- * @see app/Http/Controllers/KajianController.php:57
+ * @see app/Http/Controllers/KajianController.php:63
  * @route '/kajians/{kajian}'
  */
 export const update = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -329,7 +329,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\KajianController::update
- * @see app/Http/Controllers/KajianController.php:57
+ * @see app/Http/Controllers/KajianController.php:63
  * @route '/kajians/{kajian}'
  */
 update.url = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ update.url = (args: { kajian: number | { id: number } } | [kajian: number | { id
 
 /**
 * @see \App\Http\Controllers\KajianController::update
- * @see app/Http/Controllers/KajianController.php:57
+ * @see app/Http/Controllers/KajianController.php:63
  * @route '/kajians/{kajian}'
  */
 update.put = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -371,7 +371,7 @@ update.put = (args: { kajian: number | { id: number } } | [kajian: number | { id
 })
 /**
 * @see \App\Http\Controllers\KajianController::update
- * @see app/Http/Controllers/KajianController.php:57
+ * @see app/Http/Controllers/KajianController.php:63
  * @route '/kajians/{kajian}'
  */
 update.patch = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -381,7 +381,7 @@ update.patch = (args: { kajian: number | { id: number } } | [kajian: number | { 
 
     /**
 * @see \App\Http\Controllers\KajianController::update
- * @see app/Http/Controllers/KajianController.php:57
+ * @see app/Http/Controllers/KajianController.php:63
  * @route '/kajians/{kajian}'
  */
     const updateForm = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -396,7 +396,7 @@ update.patch = (args: { kajian: number | { id: number } } | [kajian: number | { 
 
             /**
 * @see \App\Http\Controllers\KajianController::update
- * @see app/Http/Controllers/KajianController.php:57
+ * @see app/Http/Controllers/KajianController.php:63
  * @route '/kajians/{kajian}'
  */
         updateForm.put = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -410,7 +410,7 @@ update.patch = (args: { kajian: number | { id: number } } | [kajian: number | { 
         })
             /**
 * @see \App\Http\Controllers\KajianController::update
- * @see app/Http/Controllers/KajianController.php:57
+ * @see app/Http/Controllers/KajianController.php:63
  * @route '/kajians/{kajian}'
  */
         updateForm.patch = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -426,7 +426,7 @@ update.patch = (args: { kajian: number | { id: number } } | [kajian: number | { 
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\KajianController::destroy
- * @see app/Http/Controllers/KajianController.php:68
+ * @see app/Http/Controllers/KajianController.php:76
  * @route '/kajians/{kajian}'
  */
 export const destroy = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -441,7 +441,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\KajianController::destroy
- * @see app/Http/Controllers/KajianController.php:68
+ * @see app/Http/Controllers/KajianController.php:76
  * @route '/kajians/{kajian}'
  */
 destroy.url = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -474,7 +474,7 @@ destroy.url = (args: { kajian: number | { id: number } } | [kajian: number | { i
 
 /**
 * @see \App\Http\Controllers\KajianController::destroy
- * @see app/Http/Controllers/KajianController.php:68
+ * @see app/Http/Controllers/KajianController.php:76
  * @route '/kajians/{kajian}'
  */
 destroy.delete = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -484,7 +484,7 @@ destroy.delete = (args: { kajian: number | { id: number } } | [kajian: number | 
 
     /**
 * @see \App\Http\Controllers\KajianController::destroy
- * @see app/Http/Controllers/KajianController.php:68
+ * @see app/Http/Controllers/KajianController.php:76
  * @route '/kajians/{kajian}'
  */
     const destroyForm = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -499,7 +499,7 @@ destroy.delete = (args: { kajian: number | { id: number } } | [kajian: number | 
 
             /**
 * @see \App\Http\Controllers\KajianController::destroy
- * @see app/Http/Controllers/KajianController.php:68
+ * @see app/Http/Controllers/KajianController.php:76
  * @route '/kajians/{kajian}'
  */
         destroyForm.delete = (args: { kajian: number | { id: number } } | [kajian: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

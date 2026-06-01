@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\PekurbanController::store
- * @see app/Http/Controllers/PekurbanController.php:77
+ * @see app/Http/Controllers/PekurbanController.php:79
  * @route '/pekurbans'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\PekurbanController::store
- * @see app/Http/Controllers/PekurbanController.php:77
+ * @see app/Http/Controllers/PekurbanController.php:79
  * @route '/pekurbans'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\PekurbanController::store
- * @see app/Http/Controllers/PekurbanController.php:77
+ * @see app/Http/Controllers/PekurbanController.php:79
  * @route '/pekurbans'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\PekurbanController::store
- * @see app/Http/Controllers/PekurbanController.php:77
+ * @see app/Http/Controllers/PekurbanController.php:79
  * @route '/pekurbans'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\PekurbanController::store
- * @see app/Http/Controllers/PekurbanController.php:77
+ * @see app/Http/Controllers/PekurbanController.php:79
  * @route '/pekurbans'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\PekurbanController::edit
- * @see app/Http/Controllers/PekurbanController.php:134
+ * @see app/Http/Controllers/PekurbanController.php:138
  * @route '/pekurbans/{pekurban}/edit'
  */
 export const edit = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\PekurbanController::edit
- * @see app/Http/Controllers/PekurbanController.php:134
+ * @see app/Http/Controllers/PekurbanController.php:138
  * @route '/pekurbans/{pekurban}/edit'
  */
 edit.url = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ edit.url = (args: { pekurban: number | { id: number } } | [pekurban: number | { 
 
 /**
 * @see \App\Http\Controllers\PekurbanController::edit
- * @see app/Http/Controllers/PekurbanController.php:134
+ * @see app/Http/Controllers/PekurbanController.php:138
  * @route '/pekurbans/{pekurban}/edit'
  */
 edit.get = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ edit.get = (args: { pekurban: number | { id: number } } | [pekurban: number | { 
 })
 /**
 * @see \App\Http\Controllers\PekurbanController::edit
- * @see app/Http/Controllers/PekurbanController.php:134
+ * @see app/Http/Controllers/PekurbanController.php:138
  * @route '/pekurbans/{pekurban}/edit'
  */
 edit.head = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ edit.head = (args: { pekurban: number | { id: number } } | [pekurban: number | {
 
     /**
 * @see \App\Http\Controllers\PekurbanController::edit
- * @see app/Http/Controllers/PekurbanController.php:134
+ * @see app/Http/Controllers/PekurbanController.php:138
  * @route '/pekurbans/{pekurban}/edit'
  */
     const editForm = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ edit.head = (args: { pekurban: number | { id: number } } | [pekurban: number | {
 
             /**
 * @see \App\Http\Controllers\PekurbanController::edit
- * @see app/Http/Controllers/PekurbanController.php:134
+ * @see app/Http/Controllers/PekurbanController.php:138
  * @route '/pekurbans/{pekurban}/edit'
  */
         editForm.get = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ edit.head = (args: { pekurban: number | { id: number } } | [pekurban: number | {
         })
             /**
 * @see \App\Http\Controllers\PekurbanController::edit
- * @see app/Http/Controllers/PekurbanController.php:134
+ * @see app/Http/Controllers/PekurbanController.php:138
  * @route '/pekurbans/{pekurban}/edit'
  */
         editForm.head = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ edit.head = (args: { pekurban: number | { id: number } } | [pekurban: number | {
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\PekurbanController::update
- * @see app/Http/Controllers/PekurbanController.php:151
+ * @see app/Http/Controllers/PekurbanController.php:157
  * @route '/pekurbans/{pekurban}'
  */
 export const update = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -329,7 +329,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\PekurbanController::update
- * @see app/Http/Controllers/PekurbanController.php:151
+ * @see app/Http/Controllers/PekurbanController.php:157
  * @route '/pekurbans/{pekurban}'
  */
 update.url = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ update.url = (args: { pekurban: number | { id: number } } | [pekurban: number | 
 
 /**
 * @see \App\Http\Controllers\PekurbanController::update
- * @see app/Http/Controllers/PekurbanController.php:151
+ * @see app/Http/Controllers/PekurbanController.php:157
  * @route '/pekurbans/{pekurban}'
  */
 update.put = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -371,7 +371,7 @@ update.put = (args: { pekurban: number | { id: number } } | [pekurban: number | 
 })
 /**
 * @see \App\Http\Controllers\PekurbanController::update
- * @see app/Http/Controllers/PekurbanController.php:151
+ * @see app/Http/Controllers/PekurbanController.php:157
  * @route '/pekurbans/{pekurban}'
  */
 update.patch = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -381,7 +381,7 @@ update.patch = (args: { pekurban: number | { id: number } } | [pekurban: number 
 
     /**
 * @see \App\Http\Controllers\PekurbanController::update
- * @see app/Http/Controllers/PekurbanController.php:151
+ * @see app/Http/Controllers/PekurbanController.php:157
  * @route '/pekurbans/{pekurban}'
  */
     const updateForm = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -396,7 +396,7 @@ update.patch = (args: { pekurban: number | { id: number } } | [pekurban: number 
 
             /**
 * @see \App\Http\Controllers\PekurbanController::update
- * @see app/Http/Controllers/PekurbanController.php:151
+ * @see app/Http/Controllers/PekurbanController.php:157
  * @route '/pekurbans/{pekurban}'
  */
         updateForm.put = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -410,7 +410,7 @@ update.patch = (args: { pekurban: number | { id: number } } | [pekurban: number 
         })
             /**
 * @see \App\Http\Controllers\PekurbanController::update
- * @see app/Http/Controllers/PekurbanController.php:151
+ * @see app/Http/Controllers/PekurbanController.php:157
  * @route '/pekurbans/{pekurban}'
  */
         updateForm.patch = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -426,7 +426,7 @@ update.patch = (args: { pekurban: number | { id: number } } | [pekurban: number 
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\PekurbanController::destroy
- * @see app/Http/Controllers/PekurbanController.php:212
+ * @see app/Http/Controllers/PekurbanController.php:220
  * @route '/pekurbans/{pekurban}'
  */
 export const destroy = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -441,7 +441,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\PekurbanController::destroy
- * @see app/Http/Controllers/PekurbanController.php:212
+ * @see app/Http/Controllers/PekurbanController.php:220
  * @route '/pekurbans/{pekurban}'
  */
 destroy.url = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -474,7 +474,7 @@ destroy.url = (args: { pekurban: number | { id: number } } | [pekurban: number |
 
 /**
 * @see \App\Http\Controllers\PekurbanController::destroy
- * @see app/Http/Controllers/PekurbanController.php:212
+ * @see app/Http/Controllers/PekurbanController.php:220
  * @route '/pekurbans/{pekurban}'
  */
 destroy.delete = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -484,7 +484,7 @@ destroy.delete = (args: { pekurban: number | { id: number } } | [pekurban: numbe
 
     /**
 * @see \App\Http\Controllers\PekurbanController::destroy
- * @see app/Http/Controllers/PekurbanController.php:212
+ * @see app/Http/Controllers/PekurbanController.php:220
  * @route '/pekurbans/{pekurban}'
  */
     const destroyForm = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -499,7 +499,7 @@ destroy.delete = (args: { pekurban: number | { id: number } } | [pekurban: numbe
 
             /**
 * @see \App\Http\Controllers\PekurbanController::destroy
- * @see app/Http/Controllers/PekurbanController.php:212
+ * @see app/Http/Controllers/PekurbanController.php:220
  * @route '/pekurbans/{pekurban}'
  */
         destroyForm.delete = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -515,7 +515,7 @@ destroy.delete = (args: { pekurban: number | { id: number } } | [pekurban: numbe
     destroy.form = destroyForm
 /**
 * @see \App\Http\Controllers\PekurbanController::duplicate
- * @see app/Http/Controllers/PekurbanController.php:224
+ * @see app/Http/Controllers/PekurbanController.php:234
  * @route '/pekurbans/{pekurban}/duplicate'
  */
 export const duplicate = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -530,7 +530,7 @@ duplicate.definition = {
 
 /**
 * @see \App\Http\Controllers\PekurbanController::duplicate
- * @see app/Http/Controllers/PekurbanController.php:224
+ * @see app/Http/Controllers/PekurbanController.php:234
  * @route '/pekurbans/{pekurban}/duplicate'
  */
 duplicate.url = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -563,7 +563,7 @@ duplicate.url = (args: { pekurban: number | { id: number } } | [pekurban: number
 
 /**
 * @see \App\Http\Controllers\PekurbanController::duplicate
- * @see app/Http/Controllers/PekurbanController.php:224
+ * @see app/Http/Controllers/PekurbanController.php:234
  * @route '/pekurbans/{pekurban}/duplicate'
  */
 duplicate.post = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -573,7 +573,7 @@ duplicate.post = (args: { pekurban: number | { id: number } } | [pekurban: numbe
 
     /**
 * @see \App\Http\Controllers\PekurbanController::duplicate
- * @see app/Http/Controllers/PekurbanController.php:224
+ * @see app/Http/Controllers/PekurbanController.php:234
  * @route '/pekurbans/{pekurban}/duplicate'
  */
     const duplicateForm = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -583,7 +583,7 @@ duplicate.post = (args: { pekurban: number | { id: number } } | [pekurban: numbe
 
             /**
 * @see \App\Http\Controllers\PekurbanController::duplicate
- * @see app/Http/Controllers/PekurbanController.php:224
+ * @see app/Http/Controllers/PekurbanController.php:234
  * @route '/pekurbans/{pekurban}/duplicate'
  */
         duplicateForm.post = (args: { pekurban: number | { id: number } } | [pekurban: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

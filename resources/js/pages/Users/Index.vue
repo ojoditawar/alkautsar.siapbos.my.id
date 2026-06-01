@@ -2,8 +2,11 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import { Edit, Plus, Trash2, Users } from 'lucide-vue-next';
 import { ref } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+
+const { can } = useCan();
 import {
     Card,
     CardContent,
@@ -93,7 +96,7 @@ function formatDate(dateString: string): string {
                             Kelola semua user yang terdaftar di sistem.
                         </CardDescription>
                     </div>
-                    <Button as-child class="gap-2">
+                    <Button v-if="can('create-users')" as-child class="gap-2">
                         <Link href="/users/create">
                             <Plus class="h-4 w-4" />
                             Tambah User
@@ -135,13 +138,13 @@ function formatDate(dateString: string): string {
                                 </td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center justify-end gap-2">
-                                        <Button variant="outline" size="sm" as-child class="gap-1">
+                                        <Button v-if="can('edit-users')" variant="outline" size="sm" as-child class="gap-1">
                                             <Link :href="`/users/${user.id}/edit`">
                                                 <Edit class="h-3.5 w-3.5" />
                                                 Edit
                                             </Link>
                                         </Button>
-                                        <Button variant="destructive" size="sm" class="gap-1"
+                                        <Button v-if="can('delete-users')" variant="destructive" size="sm" class="gap-1"
                                             @click="confirmDelete(user)">
                                             <Trash2 class="h-3.5 w-3.5" />
                                             Hapus
@@ -161,7 +164,7 @@ function formatDate(dateString: string): string {
         </Card>
 
         <!-- Delete Confirmation Dialog -->
-        <Dialog v-model:open="showDeleteDialog">
+        <Dialog v-if="can('delete-users')" v-model:open="showDeleteDialog">
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Hapus User</DialogTitle>

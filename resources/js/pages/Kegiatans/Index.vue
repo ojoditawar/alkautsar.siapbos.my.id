@@ -2,6 +2,7 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import { ArrowLeft, ClipboardList, Edit, Plus, Trash2 } from 'lucide-vue-next';
 import { ref } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -41,6 +42,8 @@ const props = defineProps<{
     program: ProgramItem;
     kegiatans: KegiatanItem[];
 }>();
+
+const { can } = useCan();
 
 defineOptions({
     layout: {
@@ -121,7 +124,7 @@ function formatDate(dateString: string): string {
                             </Link>
                         </Button>
 
-                        <Button as-child class="gap-2">
+                        <Button as-child class="gap-2" v-if="can('create-kegiatans')">
                             <Link
                                 :href="`/programs/${program.id}/kegiatans/create`"
                             >
@@ -179,6 +182,7 @@ function formatDate(dateString: string): string {
                                             size="icon"
                                             as-child
                                             class="h-9 w-9 bg-green-600 text-white hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600"
+                                            v-if="can('edit-kegiatans')"
                                         >
                                             <Link
                                                 :href="`/programs/${program.id}/kegiatans/${item.id}/edit`"
@@ -191,6 +195,7 @@ function formatDate(dateString: string): string {
                                             type="button"
                                             size="icon"
                                             class="h-9 w-9 bg-red-600 text-white hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
+                                            v-if="can('delete-kegiatans')"
                                             @click="confirmDelete(item)"
                                         >
                                             <Trash2 class="h-4 w-4" />

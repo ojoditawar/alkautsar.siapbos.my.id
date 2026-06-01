@@ -22,11 +22,15 @@ class PermissionController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-permissions'), 403);
+
         return Inertia::render('Permissions/Create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-permissions'), 403);
+
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:permissions,name'],
         ]);
@@ -40,6 +44,8 @@ class PermissionController extends Controller
 
     public function edit(Permission $permission): Response
     {
+        abort_unless(auth()->user()->can('edit-permissions'), 403);
+
         return Inertia::render('Permissions/Edit', [
             'permission' => $permission->only('id', 'name'),
         ]);
@@ -47,6 +53,8 @@ class PermissionController extends Controller
 
     public function update(Request $request, Permission $permission): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-permissions'), 403);
+
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:permissions,name,' . $permission->id],
         ]);
@@ -60,6 +68,8 @@ class PermissionController extends Controller
 
     public function destroy(Permission $permission): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-permissions'), 403);
+
         $permission->delete();
 
         Inertia::flash('toast', ['type' => 'success', 'message' => 'Permission berhasil dihapus.']);

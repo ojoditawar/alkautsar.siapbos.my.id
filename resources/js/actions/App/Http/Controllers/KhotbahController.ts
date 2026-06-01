@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\KhotbahController::store
- * @see app/Http/Controllers/KhotbahController.php:43
+ * @see app/Http/Controllers/KhotbahController.php:45
  * @route '/khotib-jumat'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\KhotbahController::store
- * @see app/Http/Controllers/KhotbahController.php:43
+ * @see app/Http/Controllers/KhotbahController.php:45
  * @route '/khotib-jumat'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\KhotbahController::store
- * @see app/Http/Controllers/KhotbahController.php:43
+ * @see app/Http/Controllers/KhotbahController.php:45
  * @route '/khotib-jumat'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\KhotbahController::store
- * @see app/Http/Controllers/KhotbahController.php:43
+ * @see app/Http/Controllers/KhotbahController.php:45
  * @route '/khotib-jumat'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\KhotbahController::store
- * @see app/Http/Controllers/KhotbahController.php:43
+ * @see app/Http/Controllers/KhotbahController.php:45
  * @route '/khotib-jumat'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\KhotbahController::edit
- * @see app/Http/Controllers/KhotbahController.php:70
+ * @see app/Http/Controllers/KhotbahController.php:74
  * @route '/khotib-jumat/{khotbah}/edit'
  */
 export const edit = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\KhotbahController::edit
- * @see app/Http/Controllers/KhotbahController.php:70
+ * @see app/Http/Controllers/KhotbahController.php:74
  * @route '/khotib-jumat/{khotbah}/edit'
  */
 edit.url = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ edit.url = (args: { khotbah: number | { id: number } } | [khotbah: number | { id
 
 /**
 * @see \App\Http\Controllers\KhotbahController::edit
- * @see app/Http/Controllers/KhotbahController.php:70
+ * @see app/Http/Controllers/KhotbahController.php:74
  * @route '/khotib-jumat/{khotbah}/edit'
  */
 edit.get = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ edit.get = (args: { khotbah: number | { id: number } } | [khotbah: number | { id
 })
 /**
 * @see \App\Http\Controllers\KhotbahController::edit
- * @see app/Http/Controllers/KhotbahController.php:70
+ * @see app/Http/Controllers/KhotbahController.php:74
  * @route '/khotib-jumat/{khotbah}/edit'
  */
 edit.head = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ edit.head = (args: { khotbah: number | { id: number } } | [khotbah: number | { i
 
     /**
 * @see \App\Http\Controllers\KhotbahController::edit
- * @see app/Http/Controllers/KhotbahController.php:70
+ * @see app/Http/Controllers/KhotbahController.php:74
  * @route '/khotib-jumat/{khotbah}/edit'
  */
     const editForm = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ edit.head = (args: { khotbah: number | { id: number } } | [khotbah: number | { i
 
             /**
 * @see \App\Http\Controllers\KhotbahController::edit
- * @see app/Http/Controllers/KhotbahController.php:70
+ * @see app/Http/Controllers/KhotbahController.php:74
  * @route '/khotib-jumat/{khotbah}/edit'
  */
         editForm.get = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ edit.head = (args: { khotbah: number | { id: number } } | [khotbah: number | { i
         })
             /**
 * @see \App\Http\Controllers\KhotbahController::edit
- * @see app/Http/Controllers/KhotbahController.php:70
+ * @see app/Http/Controllers/KhotbahController.php:74
  * @route '/khotib-jumat/{khotbah}/edit'
  */
         editForm.head = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ edit.head = (args: { khotbah: number | { id: number } } | [khotbah: number | { i
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\KhotbahController::update
- * @see app/Http/Controllers/KhotbahController.php:76
+ * @see app/Http/Controllers/KhotbahController.php:82
  * @route '/khotib-jumat/{khotbah}'
  */
 export const update = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -329,7 +329,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\KhotbahController::update
- * @see app/Http/Controllers/KhotbahController.php:76
+ * @see app/Http/Controllers/KhotbahController.php:82
  * @route '/khotib-jumat/{khotbah}'
  */
 update.url = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ update.url = (args: { khotbah: number | { id: number } } | [khotbah: number | { 
 
 /**
 * @see \App\Http\Controllers\KhotbahController::update
- * @see app/Http/Controllers/KhotbahController.php:76
+ * @see app/Http/Controllers/KhotbahController.php:82
  * @route '/khotib-jumat/{khotbah}'
  */
 update.put = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -371,7 +371,7 @@ update.put = (args: { khotbah: number | { id: number } } | [khotbah: number | { 
 })
 /**
 * @see \App\Http\Controllers\KhotbahController::update
- * @see app/Http/Controllers/KhotbahController.php:76
+ * @see app/Http/Controllers/KhotbahController.php:82
  * @route '/khotib-jumat/{khotbah}'
  */
 update.patch = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -381,7 +381,7 @@ update.patch = (args: { khotbah: number | { id: number } } | [khotbah: number | 
 
     /**
 * @see \App\Http\Controllers\KhotbahController::update
- * @see app/Http/Controllers/KhotbahController.php:76
+ * @see app/Http/Controllers/KhotbahController.php:82
  * @route '/khotib-jumat/{khotbah}'
  */
     const updateForm = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -396,7 +396,7 @@ update.patch = (args: { khotbah: number | { id: number } } | [khotbah: number | 
 
             /**
 * @see \App\Http\Controllers\KhotbahController::update
- * @see app/Http/Controllers/KhotbahController.php:76
+ * @see app/Http/Controllers/KhotbahController.php:82
  * @route '/khotib-jumat/{khotbah}'
  */
         updateForm.put = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -410,7 +410,7 @@ update.patch = (args: { khotbah: number | { id: number } } | [khotbah: number | 
         })
             /**
 * @see \App\Http\Controllers\KhotbahController::update
- * @see app/Http/Controllers/KhotbahController.php:76
+ * @see app/Http/Controllers/KhotbahController.php:82
  * @route '/khotib-jumat/{khotbah}'
  */
         updateForm.patch = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -426,7 +426,7 @@ update.patch = (args: { khotbah: number | { id: number } } | [khotbah: number | 
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\KhotbahController::destroy
- * @see app/Http/Controllers/KhotbahController.php:97
+ * @see app/Http/Controllers/KhotbahController.php:105
  * @route '/khotib-jumat/{khotbah}'
  */
 export const destroy = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -441,7 +441,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\KhotbahController::destroy
- * @see app/Http/Controllers/KhotbahController.php:97
+ * @see app/Http/Controllers/KhotbahController.php:105
  * @route '/khotib-jumat/{khotbah}'
  */
 destroy.url = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -474,7 +474,7 @@ destroy.url = (args: { khotbah: number | { id: number } } | [khotbah: number | {
 
 /**
 * @see \App\Http\Controllers\KhotbahController::destroy
- * @see app/Http/Controllers/KhotbahController.php:97
+ * @see app/Http/Controllers/KhotbahController.php:105
  * @route '/khotib-jumat/{khotbah}'
  */
 destroy.delete = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -484,7 +484,7 @@ destroy.delete = (args: { khotbah: number | { id: number } } | [khotbah: number 
 
     /**
 * @see \App\Http\Controllers\KhotbahController::destroy
- * @see app/Http/Controllers/KhotbahController.php:97
+ * @see app/Http/Controllers/KhotbahController.php:105
  * @route '/khotib-jumat/{khotbah}'
  */
     const destroyForm = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -499,7 +499,7 @@ destroy.delete = (args: { khotbah: number | { id: number } } | [khotbah: number 
 
             /**
 * @see \App\Http\Controllers\KhotbahController::destroy
- * @see app/Http/Controllers/KhotbahController.php:97
+ * @see app/Http/Controllers/KhotbahController.php:105
  * @route '/khotib-jumat/{khotbah}'
  */
         destroyForm.delete = (args: { khotbah: number | { id: number } } | [khotbah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

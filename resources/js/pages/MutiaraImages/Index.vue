@@ -10,7 +10,10 @@ import {
     ToggleRight,
 } from 'lucide-vue-next';
 import { ref } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
+
+const { can } = useCan();
 import {
     Card,
     CardContent,
@@ -111,7 +114,7 @@ function toggleActive(item: MutiaraImageItem) {
                         </CardDescription>
                     </div>
                     <div class="flex gap-2">
-                        <Button as-child class="gap-2">
+                        <Button v-if="can('create-mutiara-images')" as-child class="gap-2">
                             <Link href="/mutiara-images/create">
                                 <Plus class="h-4 w-4" />
                                 Tambah Gambar
@@ -162,12 +165,12 @@ function toggleActive(item: MutiaraImageItem) {
                                     @click="showPreview(item)">
                                     <Eye class="h-4 w-4" />
                                 </Button>
-                                <Button variant="ghost" size="icon" class="h-8 w-8" title="Edit" as-child>
+                                <Button v-if="can('edit-mutiara-images')" variant="ghost" size="icon" class="h-8 w-8" title="Edit" as-child>
                                     <Link :href="`/mutiara-images/${item.id}/edit`">
                                         <Edit class="h-4 w-4" />
                                     </Link>
                                 </Button>
-                                <Button variant="ghost" size="icon" class="h-8 w-8 text-destructive hover:text-destructive"
+                                <Button v-if="can('delete-mutiara-images')" variant="ghost" size="icon" class="h-8 w-8 text-destructive hover:text-destructive"
                                     title="Hapus" @click="confirmDelete(item)">
                                     <Trash2 class="h-4 w-4" />
                                 </Button>
@@ -202,7 +205,7 @@ function toggleActive(item: MutiaraImageItem) {
     </Dialog>
 
     <!-- Delete Dialog -->
-    <Dialog v-model:open="showDeleteDialog">
+    <Dialog v-if="can('delete-mutiara-images')" v-model:open="showDeleteDialog">
         <DialogContent>
             <DialogHeader>
                 <DialogTitle>Hapus Gambar</DialogTitle>

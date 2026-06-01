@@ -15,7 +15,10 @@ import {
     X,
 } from 'lucide-vue-next';
 import { computed, onBeforeUnmount, ref, watch } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
+
+const { can } = useCan();
 import { Badge } from '@/components/ui/badge';
 
 import {
@@ -402,7 +405,7 @@ function formatCurrency(value: number): string {
                     </div>
                     <div class="flex flex-wrap items-center gap-3">
 
-                        <Button as-child class="gap-2">
+                        <Button v-if="can('create-trensaksis')" as-child class="gap-2">
                             <Link href="/transaksis/create">
                                 <Plus class="h-4 w-4" />
                                 Tambah
@@ -641,7 +644,7 @@ function formatCurrency(value: number): string {
                                 <td class="px-4 py-3">
                                     <div class="flex items-center justify-center gap-1">
                                         <template v-if="!item.valid">
-                                            <Button variant="ghost" size="icon" as-child
+                                            <Button v-if="can('edit-trensaksis')" variant="ghost" size="icon" as-child
                                                 class="h-8 w-8 text-blue-500 hover:text-blue-600">
                                                 <Link :href="`/transaksis/${item.id}/edit`">
                                                     <Edit class="h-4 w-4" />
@@ -654,7 +657,7 @@ function formatCurrency(value: number): string {
                                             <Copy class="h-4 w-4" />
                                         </Button>
                                         <template v-if="!item.valid">
-                                            <Button variant="ghost" size="icon"
+                                            <Button v-if="can('delete-trensaksis')" variant="ghost" size="icon"
                                                 class="h-8 w-8 text-red-500 hover:text-red-600"
                                                 @click="confirmDelete(item)">
                                                 <Trash2 class="h-4 w-4" />
@@ -718,7 +721,7 @@ function formatCurrency(value: number): string {
         </Card>
 
         <!-- Delete Dialog -->
-        <Dialog v-model:open="showDeleteDialog">
+        <Dialog v-if="can('delete-trensaksis')" v-model:open="showDeleteDialog">
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Hapus Transaksi</DialogTitle>

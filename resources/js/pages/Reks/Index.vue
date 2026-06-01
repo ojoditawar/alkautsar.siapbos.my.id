@@ -2,6 +2,7 @@
 import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import { BookText, Edit, Plus, Printer, Trash2 } from 'lucide-vue-next';
 import { ref, computed } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -29,6 +30,8 @@ interface Rek {
 defineProps<{
     reks: Rek[];
 }>();
+
+const { can } = useCan();
 
 defineOptions({
     layout: {
@@ -99,7 +102,7 @@ function formatDate(dateString: string): string {
                                 Print PDF
                             </a>
                         </Button>
-                        <Button as-child class="gap-2">
+                        <Button as-child class="gap-2" v-if="can('create-reks')">
                             <Link href="/reks/create">
                                 <Plus class="h-4 w-4" />
                                 Tambah Rekening
@@ -132,13 +135,13 @@ function formatDate(dateString: string): string {
                                 <td class="text-muted-foreground px-4 py-3">{{ formatDate(rek.created_at) }}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center justify-end gap-2">
-                                        <Button variant="outline" size="sm" as-child class="gap-1">
+                                        <Button variant="outline" size="sm" as-child class="gap-1" v-if="can('edit-reks')">
                                             <Link :href="`/reks/${rek.kode}/edit`">
                                                 <Edit class="h-3.5 w-3.5" />
                                                 Edit
                                             </Link>
                                         </Button>
-                                        <Button variant="destructive" size="sm" class="gap-1"
+                                        <Button variant="destructive" size="sm" class="gap-1" v-if="can('delete-reks')"
                                             @click="confirmDelete(rek)">
                                             <Trash2 class="h-3.5 w-3.5" />
                                             Hapus

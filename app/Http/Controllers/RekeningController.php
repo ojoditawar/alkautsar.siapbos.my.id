@@ -27,6 +27,8 @@ class RekeningController extends Controller
 
     public function create(Rek $rek, SubRek $subRek): Response
     {
+        abort_unless(auth()->user()->can('create-rekenings'), 403);
+
         return Inertia::render('Rekenings/Create', [
             'rek' => $rek->only('kode', 'nama'),
             'subRek' => $subRek->only('id', 'kode', 'kelompok', 'nama'),
@@ -35,6 +37,8 @@ class RekeningController extends Controller
 
     public function store(Request $request, Rek $rek, SubRek $subRek): RedirectResponse
     {
+        abort_unless($request->user()->can('create-rekenings'), 403);
+
         $validated = $request->validate([
             'jenis' => ['required', 'string', 'max:4'],
             'nama' => ['required', 'string', 'max:255'],
@@ -53,6 +57,8 @@ class RekeningController extends Controller
 
     public function edit(Rek $rek, SubRek $subRek, Rekening $rekening): Response
     {
+        abort_unless(auth()->user()->can('edit-rekenings'), 403);
+
         return Inertia::render('Rekenings/Edit', [
             'rek' => $rek->only('kode', 'nama'),
             'subRek' => $subRek->only('id', 'kode', 'kelompok', 'nama'),
@@ -62,6 +68,8 @@ class RekeningController extends Controller
 
     public function update(Request $request, Rek $rek, SubRek $subRek, Rekening $rekening): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-rekenings'), 403);
+
         $validated = $request->validate([
             'nama' => ['required', 'string', 'max:255'],
         ]);
@@ -75,6 +83,8 @@ class RekeningController extends Controller
 
     public function destroy(Rek $rek, SubRek $subRek, Rekening $rekening): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-rekenings'), 403);
+
         $rekening->delete();
 
         Inertia::flash('toast', ['type' => 'success', 'message' => 'Rekening berhasil dihapus.']);

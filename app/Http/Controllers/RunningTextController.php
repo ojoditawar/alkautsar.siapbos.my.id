@@ -21,11 +21,15 @@ class RunningTextController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-running-texts'), 403);
+
         return Inertia::render('RunningTexts/Create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-running-texts'), 403);
+
         $data = $request->validate([
             'text' => ['required', 'string', 'max:1000'],
             'is_active' => ['boolean'],
@@ -45,6 +49,8 @@ class RunningTextController extends Controller
 
     public function edit(RunningText $runningText): Response
     {
+        abort_unless(auth()->user()->can('edit-running-texts'), 403);
+
         return Inertia::render('RunningTexts/Edit', [
             'runningText' => $runningText->only('id', 'text', 'is_active', 'urutan'),
         ]);
@@ -52,6 +58,8 @@ class RunningTextController extends Controller
 
     public function update(Request $request, RunningText $runningText): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-running-texts'), 403);
+
         $data = $request->validate([
             'text' => ['required', 'string', 'max:1000'],
             'is_active' => ['boolean'],
@@ -71,6 +79,8 @@ class RunningTextController extends Controller
 
     public function destroy(RunningText $runningText): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-running-texts'), 403);
+
         $runningText->delete();
 
         Inertia::flash('toast', ['type' => 'success', 'message' => 'Running text berhasil dihapus.']);

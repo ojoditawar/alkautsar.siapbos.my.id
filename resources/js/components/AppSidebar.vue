@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Link, usePage } from '@inertiajs/vue3';
+import { Link } from '@inertiajs/vue3';
 import {
     BookMarked,
     BookText,
@@ -22,7 +22,8 @@ import {
     Sun,
     Users,
 } from 'lucide-vue-next';
-import { computed, onMounted, ref } from 'vue'; // --- UBAH: Tambah onMounted & ref ---
+import { onMounted, ref } from 'vue';
+import { useCan } from '@/composables/useCan';
 import AppLogo from '@/components/AppLogo.vue';
 import NavMain from '@/components/NavMain.vue';
 import NavUser from '@/components/NavUser.vue';
@@ -36,16 +37,9 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
-import type { Auth, NavItem } from '@/types';
+import type { NavItem } from '@/types';
 
-const page = usePage();
-const auth = computed(() => page.props.auth as Auth);
-
-const isAdmin = computed(() => auth.value.roles.includes('Admin'));
-
-function can(permission: string): boolean {
-    return isAdmin.value || auth.value.permissions.includes(permission);
-}
+const { can } = useCan();
 
 // --- BAGIAN BARU: Logika Dark Mode ---
 const theme = ref('light');
@@ -99,6 +93,7 @@ const allNavItems: (NavItem & { permission?: string })[] = [
         title: 'Config Monitor',
         href: '/monitor-config',
         icon: Settings,
+        permission: 'manage-monitor-configs',
     },
     {
         title: 'Users',
@@ -188,28 +183,28 @@ const allNavItems: (NavItem & { permission?: string })[] = [
         title: 'Gambar Mutiara',
         href: '/mutiara-images',
         icon: Image,
-        permission: 'Admin',
+        permission: 'manage-mutiara-images',
     },
     {
         group: 'Konten',
         title: 'File Manager',
         href: '/file-explorer',
         icon: FileArchive,
-        permission: 'Admin',
+        permission: 'manage-file-explorer',
     },
     {
         group: 'Konten',
         title: 'Imam & Badal',
         href: '/imam-masjids',
         icon: Users,
-        permission: 'Admin',
+        permission: 'manage-imam-masjids',
     },
     {
         group: 'Konten',
         title: 'Data Jamaah',
         href: '/jamaahs',
         icon: Users,
-        permission: 'Admin',
+        permission: 'manage-jamaahs',
     },
     {
         group: 'Konten',

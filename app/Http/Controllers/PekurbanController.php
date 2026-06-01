@@ -60,6 +60,8 @@ class PekurbanController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-pekurbans'), 403);
+
         $trensaksis = Trensaksi::with('detailTrensaksi:id,trensaksi_id,uraian')
             ->orderBy('tanggal', 'desc')
             ->get()
@@ -76,6 +78,8 @@ class PekurbanController extends Controller
 
     public function store(Request $request)
     {
+        abort_unless($request->user()->can('create-pekurbans'), 403);
+
         $validated = $request->validate([
             'jenis' => 'nullable|integer|in:1,2,3',
             'tahun' => 'nullable|string|max:4',
@@ -133,6 +137,8 @@ class PekurbanController extends Controller
 
     public function edit(Pekurban $pekurban): Response
     {
+        abort_unless(auth()->user()->can('edit-pekurbans'), 403);
+
         $trensaksis = Trensaksi::with('detailTrensaksi:id,trensaksi_id,uraian')
             ->orderBy('tanggal', 'desc')
             ->get()
@@ -150,6 +156,8 @@ class PekurbanController extends Controller
 
     public function update(Request $request, Pekurban $pekurban)
     {
+        abort_unless($request->user()->can('edit-pekurbans'), 403);
+
         $validated = $request->validate([
             'jenis' => 'nullable|integer|in:1,2,3',
             'tahun' => 'nullable|string|max:4',
@@ -211,6 +219,8 @@ class PekurbanController extends Controller
 
     public function destroy(Pekurban $pekurban)
     {
+        abort_unless(auth()->user()->can('delete-pekurbans'), 403);
+
         // Delete image if exists
         if ($pekurban->image) {
             Storage::disk('public')->delete($pekurban->image);
@@ -223,6 +233,8 @@ class PekurbanController extends Controller
 
     public function duplicate(Pekurban $pekurban)
     {
+        abort_unless(auth()->user()->can('create-pekurbans'), 403);
+
         $newPekurban = DB::transaction(function () use ($pekurban) {
             $pekurban->load('detail_pekurbans');
 

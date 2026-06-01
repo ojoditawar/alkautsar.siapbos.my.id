@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\JamaahController::store
- * @see app/Http/Controllers/JamaahController.php:104
+ * @see app/Http/Controllers/JamaahController.php:106
  * @route '/jamaahs'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\JamaahController::store
- * @see app/Http/Controllers/JamaahController.php:104
+ * @see app/Http/Controllers/JamaahController.php:106
  * @route '/jamaahs'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\JamaahController::store
- * @see app/Http/Controllers/JamaahController.php:104
+ * @see app/Http/Controllers/JamaahController.php:106
  * @route '/jamaahs'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\JamaahController::store
- * @see app/Http/Controllers/JamaahController.php:104
+ * @see app/Http/Controllers/JamaahController.php:106
  * @route '/jamaahs'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\JamaahController::store
- * @see app/Http/Controllers/JamaahController.php:104
+ * @see app/Http/Controllers/JamaahController.php:106
  * @route '/jamaahs'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\JamaahController::edit
- * @see app/Http/Controllers/JamaahController.php:143
+ * @see app/Http/Controllers/JamaahController.php:147
  * @route '/jamaahs/{jamaah}/edit'
  */
 export const edit = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\JamaahController::edit
- * @see app/Http/Controllers/JamaahController.php:143
+ * @see app/Http/Controllers/JamaahController.php:147
  * @route '/jamaahs/{jamaah}/edit'
  */
 edit.url = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ edit.url = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: 
 
 /**
 * @see \App\Http\Controllers\JamaahController::edit
- * @see app/Http/Controllers/JamaahController.php:143
+ * @see app/Http/Controllers/JamaahController.php:147
  * @route '/jamaahs/{jamaah}/edit'
  */
 edit.get = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ edit.get = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: 
 })
 /**
 * @see \App\Http\Controllers\JamaahController::edit
- * @see app/Http/Controllers/JamaahController.php:143
+ * @see app/Http/Controllers/JamaahController.php:147
  * @route '/jamaahs/{jamaah}/edit'
  */
 edit.head = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ edit.head = (args: { jamaah: number | { id: number } } | [jamaah: number | { id:
 
     /**
 * @see \App\Http\Controllers\JamaahController::edit
- * @see app/Http/Controllers/JamaahController.php:143
+ * @see app/Http/Controllers/JamaahController.php:147
  * @route '/jamaahs/{jamaah}/edit'
  */
     const editForm = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ edit.head = (args: { jamaah: number | { id: number } } | [jamaah: number | { id:
 
             /**
 * @see \App\Http\Controllers\JamaahController::edit
- * @see app/Http/Controllers/JamaahController.php:143
+ * @see app/Http/Controllers/JamaahController.php:147
  * @route '/jamaahs/{jamaah}/edit'
  */
         editForm.get = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ edit.head = (args: { jamaah: number | { id: number } } | [jamaah: number | { id:
         })
             /**
 * @see \App\Http\Controllers\JamaahController::edit
- * @see app/Http/Controllers/JamaahController.php:143
+ * @see app/Http/Controllers/JamaahController.php:147
  * @route '/jamaahs/{jamaah}/edit'
  */
         editForm.head = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ edit.head = (args: { jamaah: number | { id: number } } | [jamaah: number | { id:
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\JamaahController::update
- * @see app/Http/Controllers/JamaahController.php:169
+ * @see app/Http/Controllers/JamaahController.php:175
  * @route '/jamaahs/{jamaah}'
  */
 export const update = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -329,7 +329,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\JamaahController::update
- * @see app/Http/Controllers/JamaahController.php:169
+ * @see app/Http/Controllers/JamaahController.php:175
  * @route '/jamaahs/{jamaah}'
  */
 update.url = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ update.url = (args: { jamaah: number | { id: number } } | [jamaah: number | { id
 
 /**
 * @see \App\Http\Controllers\JamaahController::update
- * @see app/Http/Controllers/JamaahController.php:169
+ * @see app/Http/Controllers/JamaahController.php:175
  * @route '/jamaahs/{jamaah}'
  */
 update.put = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -371,7 +371,7 @@ update.put = (args: { jamaah: number | { id: number } } | [jamaah: number | { id
 })
 /**
 * @see \App\Http\Controllers\JamaahController::update
- * @see app/Http/Controllers/JamaahController.php:169
+ * @see app/Http/Controllers/JamaahController.php:175
  * @route '/jamaahs/{jamaah}'
  */
 update.patch = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -381,7 +381,7 @@ update.patch = (args: { jamaah: number | { id: number } } | [jamaah: number | { 
 
     /**
 * @see \App\Http\Controllers\JamaahController::update
- * @see app/Http/Controllers/JamaahController.php:169
+ * @see app/Http/Controllers/JamaahController.php:175
  * @route '/jamaahs/{jamaah}'
  */
     const updateForm = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -396,7 +396,7 @@ update.patch = (args: { jamaah: number | { id: number } } | [jamaah: number | { 
 
             /**
 * @see \App\Http\Controllers\JamaahController::update
- * @see app/Http/Controllers/JamaahController.php:169
+ * @see app/Http/Controllers/JamaahController.php:175
  * @route '/jamaahs/{jamaah}'
  */
         updateForm.put = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -410,7 +410,7 @@ update.patch = (args: { jamaah: number | { id: number } } | [jamaah: number | { 
         })
             /**
 * @see \App\Http\Controllers\JamaahController::update
- * @see app/Http/Controllers/JamaahController.php:169
+ * @see app/Http/Controllers/JamaahController.php:175
  * @route '/jamaahs/{jamaah}'
  */
         updateForm.patch = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -426,7 +426,7 @@ update.patch = (args: { jamaah: number | { id: number } } | [jamaah: number | { 
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\JamaahController::destroy
- * @see app/Http/Controllers/JamaahController.php:218
+ * @see app/Http/Controllers/JamaahController.php:226
  * @route '/jamaahs/{jamaah}'
  */
 export const destroy = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -441,7 +441,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\JamaahController::destroy
- * @see app/Http/Controllers/JamaahController.php:218
+ * @see app/Http/Controllers/JamaahController.php:226
  * @route '/jamaahs/{jamaah}'
  */
 destroy.url = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -474,7 +474,7 @@ destroy.url = (args: { jamaah: number | { id: number } } | [jamaah: number | { i
 
 /**
 * @see \App\Http\Controllers\JamaahController::destroy
- * @see app/Http/Controllers/JamaahController.php:218
+ * @see app/Http/Controllers/JamaahController.php:226
  * @route '/jamaahs/{jamaah}'
  */
 destroy.delete = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -484,7 +484,7 @@ destroy.delete = (args: { jamaah: number | { id: number } } | [jamaah: number | 
 
     /**
 * @see \App\Http\Controllers\JamaahController::destroy
- * @see app/Http/Controllers/JamaahController.php:218
+ * @see app/Http/Controllers/JamaahController.php:226
  * @route '/jamaahs/{jamaah}'
  */
     const destroyForm = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -499,7 +499,7 @@ destroy.delete = (args: { jamaah: number | { id: number } } | [jamaah: number | 
 
             /**
 * @see \App\Http\Controllers\JamaahController::destroy
- * @see app/Http/Controllers/JamaahController.php:218
+ * @see app/Http/Controllers/JamaahController.php:226
  * @route '/jamaahs/{jamaah}'
  */
         destroyForm.delete = (args: { jamaah: number | { id: number } } | [jamaah: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

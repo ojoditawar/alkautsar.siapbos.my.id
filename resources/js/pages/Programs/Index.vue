@@ -9,6 +9,7 @@ import {
     Trash2,
 } from 'lucide-vue-next';
 import { ref } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -48,6 +49,8 @@ interface KegiatanItem {
 defineProps<{
     programs: ProgramItem[];
 }>();
+
+const { can } = useCan();
 
 defineOptions({
     layout: {
@@ -122,7 +125,7 @@ function isExpanded(programId: number): boolean {
                             Kelola semua data program kegiatan masjid.
                         </CardDescription>
                     </div>
-                    <Button as-child class="gap-2">
+                    <Button as-child class="gap-2" v-if="can('create-programs')">
                         <Link href="/programs/create">
                             <Plus class="h-4 w-4" />
                             Tambah Program
@@ -208,6 +211,7 @@ function isExpanded(programId: number): boolean {
                                                 size="icon"
                                                 as-child
                                                 class="h-9 w-9 bg-green-600 text-white hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600"
+                                                v-if="can('edit-programs')"
                                             >
                                                 <Link
                                                     :href="`/programs/${item.id}/edit`"
@@ -220,6 +224,7 @@ function isExpanded(programId: number): boolean {
                                                 type="button"
                                                 size="icon"
                                                 class="h-9 w-9 bg-red-600 text-white hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"
+                                                v-if="can('delete-programs')"
                                                 @click="confirmDelete(item)"
                                             >
                                                 <Trash2 class="h-4 w-4" />
@@ -279,6 +284,7 @@ function isExpanded(programId: number): boolean {
                                                                     size="sm"
                                                                     as-child
                                                                     class="gap-2"
+                                                                    v-if="can('create-kegiatans')"
                                                                 >
                                                                     <Link
                                                                         :href="`/programs/${item.id}/kegiatans/create`"

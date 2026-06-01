@@ -2,6 +2,7 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import { Edit, Landmark, Plus, Trash2 } from 'lucide-vue-next';
 import { ref } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -31,6 +32,8 @@ interface Masjid {
 defineProps<{
     masjids: Masjid[];
 }>();
+
+const { can } = useCan();
 
 defineOptions({
     layout: {
@@ -90,7 +93,7 @@ function formatDate(dateString: string): string {
                             Kelola semua data masjid yang terdaftar di sistem.
                         </CardDescription>
                     </div>
-                    <Button as-child class="gap-2">
+                    <Button as-child class="gap-2" v-if="can('create-masjids')">
                         <Link href="/masjids/create">
                             <Plus class="h-4 w-4" />
                             Tambah Masjid
@@ -125,13 +128,13 @@ function formatDate(dateString: string): string {
                                 <td class="text-muted-foreground px-4 py-3">{{ formatDate(masjid.created_at) }}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center justify-end gap-2">
-                                        <Button variant="outline" size="sm" as-child class="gap-1">
+                                        <Button variant="outline" size="sm" as-child class="gap-1" v-if="can('edit-masjids')">
                                             <Link :href="`/masjids/${masjid.id}/edit`">
                                                 <Edit class="h-3.5 w-3.5" />
                                                 Edit
                                             </Link>
                                         </Button>
-                                        <Button variant="destructive" size="sm" class="gap-1"
+                                        <Button variant="destructive" size="sm" class="gap-1" v-if="can('delete-masjids')"
                                             @click="confirmDelete(masjid)">
                                             <Trash2 class="h-3.5 w-3.5" />
                                             Hapus

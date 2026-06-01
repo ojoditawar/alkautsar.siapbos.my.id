@@ -2,6 +2,7 @@
 import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import { BookText, Edit, Plus, Trash2 } from 'lucide-vue-next';
 import { ref, computed } from 'vue';
+import { useCan } from '@/composables/useCan';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -19,6 +20,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog';
+
+const { can } = useCan();
 
 interface RekData {
     kode: string;
@@ -111,7 +114,7 @@ function formatDate(dateString: string): string {
                                 Kembali
                             </Link>
                         </Button>
-                        <Button as-child class="gap-2">
+                        <Button as-child class="gap-2" v-if="can('create-sub-reks')">
                             <Link :href="`/reks/${rek.kode}/sub-reks/create`">
                                 <Plus class="h-4 w-4" />
                                 Tambah Sub Rekening
@@ -144,13 +147,15 @@ function formatDate(dateString: string): string {
                                 <td class="text-muted-foreground px-4 py-3">{{ formatDate(item.created_at) }}</td>
                                 <td class="px-4 py-3">
                                     <div class="flex items-center justify-end gap-2">
-                                        <Button variant="outline" size="sm" as-child class="gap-1">
+                                        <Button variant="outline" size="sm" as-child class="gap-1"
+                                            v-if="can('edit-sub-reks')">
                                             <Link :href="`/reks/${rek.kode}/sub-reks/${item.id}/edit`">
                                                 <Edit class="h-3.5 w-3.5" />
                                                 Edit
                                             </Link>
                                         </Button>
                                         <Button variant="destructive" size="sm" class="gap-1"
+                                            v-if="can('delete-sub-reks')"
                                             @click="confirmDelete(item)">
                                             <Trash2 class="h-3.5 w-3.5" />
                                             Hapus

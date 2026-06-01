@@ -35,11 +35,15 @@ class MutiaraImageController extends Controller
 
     public function create(): Response
     {
+        abort_unless(auth()->user()->can('create-mutiara-images'), 403);
+
         return Inertia::render('MutiaraImages/Create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        abort_unless($request->user()->can('create-mutiara-images'), 403);
+
         $validated = $request->validate([
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
             'caption' => ['nullable', 'string', 'max:255'],
@@ -64,6 +68,8 @@ class MutiaraImageController extends Controller
 
     public function edit(MutiaraImage $mutiaraImage): Response
     {
+        abort_unless(auth()->user()->can('edit-mutiara-images'), 403);
+
         $masjidId = auth()->user()->masjid_id;
 
         if ($mutiaraImage->masjid_id !== $masjidId) {
@@ -84,6 +90,8 @@ class MutiaraImageController extends Controller
 
     public function update(Request $request, MutiaraImage $mutiaraImage): RedirectResponse
     {
+        abort_unless($request->user()->can('edit-mutiara-images'), 403);
+
         $masjidId = auth()->user()->masjid_id;
 
         if ($mutiaraImage->masjid_id !== $masjidId) {
@@ -121,6 +129,8 @@ class MutiaraImageController extends Controller
 
     public function destroy(MutiaraImage $mutiaraImage): RedirectResponse
     {
+        abort_unless(auth()->user()->can('delete-mutiara-images'), 403);
+
         $masjidId = auth()->user()->masjid_id;
 
         if ($mutiaraImage->masjid_id !== $masjidId) {
