@@ -84,6 +84,11 @@ $SSH_CMD "$VPS_USER@$VPS_IP" bash -s << 'DEPLOY'
     php artisan route:clear 2>&1 | tail -1
     php artisan config:clear 2>&1 | tail -1
     php artisan view:clear 2>&1 | tail -1
+
+    echo "  → Migration database..."
+    php artisan migrate --force 2>&1 | tail -2
+
+    echo "  → Optimize..."
     php artisan optimize 2>&1 | tail -1
 
     echo "  → Permission..."
