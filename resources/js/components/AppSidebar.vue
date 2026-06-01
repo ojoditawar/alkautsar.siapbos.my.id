@@ -22,7 +22,7 @@ import {
     Sun,
     Users,
 } from 'lucide-vue-next';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useCan } from '@/composables/useCan';
 import AppLogo from '@/components/AppLogo.vue';
 import NavMain from '@/components/NavMain.vue';
