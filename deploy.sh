@@ -9,6 +9,7 @@ set -e
 VPS_USER="cempaka"
 VPS_IP="103.55.38.184"
 VPS_PATH="/var/www/alkautsar.masjid.world"
+
 # Cari SSH key
 if [ -f "$HOME/.ssh/id_ed25519" ]; then
     SSH_KEY="$HOME/.ssh/id_ed25519"
@@ -46,11 +47,11 @@ fi
 
 SSH_CMD="ssh -i $SSH_KEY -o StrictHostKeyChecking=no"
 
-# 2. SYNC FILE KE VPS (exclude vendor, node_modules, .git, build)
+# 2. TAR & SYNC FILE KE VPS (exclude vendor, node_modules, .git, build)
 echo ""
-echo "📤 Sync file ke VPS..."
-rsync -avz --no-t --no-perms \
-    -e "$SSH_CMD" \
+echo "📦 Packing file..."
+ARCHIVE="/tmp/deploy_$$.tar.gz"
+tar czf "$ARCHIVE" \
     --exclude='vendor' \
     --exclude='node_modules' \
     --exclude='.git' \
@@ -60,11 +61,19 @@ rsync -avz --no-t --no-perms \
     --exclude='public/storage' \
     --exclude='public/hot' \
     --exclude='deploy.sh' \
-    "$LOCAL_PATH/" "$VPS_USER@$VPS_IP:$VPS_PATH/" || true
+    -C "$LOCAL_PATH" .
+
+echo "📤 Upload ke VPS..."
+scp -i "$SSH_KEY" "$ARCHIVE" "$VPS_USER@$VPS_IP:/tmp/"
+rm -f "$ARCHIVE"
+
+# 3. EKSTRAK DI VPS
+ARCHIVE_NAME="deploy_$$.tar.gz"
+$SSH_CMD "$VPS_USER@$VPS_IP" "sudo tar xzf /tmp/$ARCHIVE_NAME -C $VPS_PATH && sudo chown -R www-data:www-data $VPS_PATH && rm -f /tmp/$ARCHIVE_NAME"
 
 echo "✅ Sync selesai!"
 
-# 3. INSTALL DEPENDENCIES & BUILD DI VPS
+# 4. INSTALL DEPENDENCIES & BUILD DI VPS
 echo ""
 echo "🔧 Install dependencies & build di VPS..."
 $SSH_CMD "$VPS_USER@$VPS_IP" bash -s << 'DEPLOY'
@@ -92,7 +101,7 @@ $SSH_CMD "$VPS_USER@$VPS_IP" bash -s << 'DEPLOY'
     php artisan optimize 2>&1 | tail -1
 
     echo "  → Permission..."
-    sudo chown -R www-data:www-data storage bootstrap/cache
+    sudo chown -R www-data:www-data storage bootstrap/cache public/build
     sudo chmod -R 775 storage bootstrap/cache
 
     echo "  → Fix storage link..."
