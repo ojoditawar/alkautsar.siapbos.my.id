@@ -87,7 +87,9 @@ $SSH_CMD "$VPS_USER@$VPS_IP" bash -s << 'DEPLOY'
     npm install --silent 2>&1 | tail -1
 
     echo "  → Build frontend..."
+    sudo chown -R cempaka:cempaka public/build 2>/dev/null || true
     npm run build 2>&1 | tail -3
+    sudo chown -R www-data:www-data public/build 2>/dev/null || true
 
     echo "  → Cache Laravel..."
     php artisan route:clear 2>&1 | tail -1
@@ -97,16 +99,19 @@ $SSH_CMD "$VPS_USER@$VPS_IP" bash -s << 'DEPLOY'
     echo "  → Migration database..."
     php artisan migrate --force 2>&1 | tail -2
 
-    echo "  → Optimize..."
-    php artisan optimize 2>&1 | tail -1
-
     echo "  → Permission..."
-    sudo chown -R www-data:www-data storage bootstrap/cache public/build
-    sudo chmod -R 775 storage bootstrap/cache
+    # bootstrap/cache: writable by cempaka (CLI) + www-data (web)
+    sudo chown -R cempaka:www-data bootstrap/cache
+    sudo chmod -R 775 bootstrap/cache
+    # storage: writable by www-data (web logs, sessions)
+    sudo chown -R www-data:www-data storage
+    sudo chmod -R 775 storage
+    # build: readable by www-data (web server)
+    sudo chown -R www-data:www-data public/build
 
     echo "  → Fix storage link..."
     sudo rm -f public/storage
-    php artisan storage:link 2>&1 | tail -1
+    sudo php artisan storage:link 2>&1 | tail -1
 
     echo "DEPLOY_OK"
 DEPLOY

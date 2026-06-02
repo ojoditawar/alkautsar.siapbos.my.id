@@ -223,7 +223,7 @@ function submit() {
                             </Badge>
                         </div>
 
-                        <div v-if="permissionGroups.length > 0" class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        <div v-if="permissionGroups.length > 0" class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                             <Card v-for="group in permissionGroups" :key="group.entity"
                                 class="overflow-hidden border transition-shadow hover:shadow-sm">
                                 <!-- Card Header: Entity Name + Select All -->
