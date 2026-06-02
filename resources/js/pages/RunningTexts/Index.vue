@@ -38,7 +38,7 @@ defineProps<{
 
 defineOptions({
     layout: {
-        breadcrumbs: [{ title: 'Running Text', href: '/running-texts' }],
+        breadcrumbs: [{ title: 'Running Text Local', href: '/running-texts' }],
     },
 });
 

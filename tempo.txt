@@ -60,3 +60,17 @@ export function convertToTerbilang(angka) {
 
   return result.trim().charAt(0).toUpperCase() + result.trim().slice(1);
 }
+
+
+ Itu karena breadcrumbs ada di file .vue bro. Vue component harus di-build dulu biar jadi JS yang dibaca browser.
+
+    Coba aja jalanin di VPS:
+
+    bash
+    cd /var/www/alkautsar.masjid.world
+    sudo chown -R cempaka:cempaka node_modules public/build 2>/dev/null
+    npm run build
+    sudo chown -R www-data:www-data public/build
+
+
+    Abis itu refresh — baru berubah.
