@@ -80,6 +80,14 @@ $SSH_CMD "$VPS_USER@$VPS_IP" bash -s << 'DEPLOY'
     set -e
     cd /var/www/alkautsar.masjid.world
 
+    echo "  → Permission bootstrap/cache..."
+    # Fix dulu biar cempaka bisa nulis pas composer install & package:discover
+    sudo chown -R cempaka:www-data bootstrap/cache
+    sudo chmod -R 775 bootstrap/cache
+    # Hapus cache stale dari lokal (packages.php & services.php mungkin masih
+    # refer ke dev dependencies kayak Pail yang gak diinstall --no-dev)
+    sudo rm -f bootstrap/cache/packages.php bootstrap/cache/services.php
+
     echo "  → Composer install..."
     composer install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -2
 
@@ -100,15 +108,11 @@ $SSH_CMD "$VPS_USER@$VPS_IP" bash -s << 'DEPLOY'
     php artisan migrate --force 2>&1 | tail -2
 
     echo "  → Permission..."
-    # bootstrap/cache: writable by cempaka (CLI) + www-data (web)
-    sudo chown -R cempaka:www-data bootstrap/cache
-    sudo chmod -R 775 bootstrap/cache
     # storage: writable by www-data (web logs, sessions)
     sudo chown -R www-data:www-data storage
     sudo chmod -R 775 storage
     # build: readable by www-data (web server)
     sudo chown -R www-data:www-data public/build
-
     echo "  → Fix storage link..."
     sudo rm -f public/storage
     sudo php artisan storage:link 2>&1 | tail -1
