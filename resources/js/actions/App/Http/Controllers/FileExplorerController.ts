@@ -463,6 +463,139 @@ createFolder.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
         })
     
     createFolder.form = createFolderForm
-const FileExplorerController = { index, list, upload, download, rename, deleteMethod, createFolder, delete: deleteMethod }
+/**
+* @see \App\Http\Controllers\FileExplorerController::read
+ * @see app/Http/Controllers/FileExplorerController.php:233
+ * @route '/file-explorer/read'
+ */
+export const read = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: read.url(options),
+    method: 'get',
+})
+
+read.definition = {
+    methods: ["get","head"],
+    url: '/file-explorer/read',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\FileExplorerController::read
+ * @see app/Http/Controllers/FileExplorerController.php:233
+ * @route '/file-explorer/read'
+ */
+read.url = (options?: RouteQueryOptions) => {
+    return read.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\FileExplorerController::read
+ * @see app/Http/Controllers/FileExplorerController.php:233
+ * @route '/file-explorer/read'
+ */
+read.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: read.url(options),
+    method: 'get',
+})
+/**
+* @see \App\Http\Controllers\FileExplorerController::read
+ * @see app/Http/Controllers/FileExplorerController.php:233
+ * @route '/file-explorer/read'
+ */
+read.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: read.url(options),
+    method: 'head',
+})
+
+    /**
+* @see \App\Http\Controllers\FileExplorerController::read
+ * @see app/Http/Controllers/FileExplorerController.php:233
+ * @route '/file-explorer/read'
+ */
+    const readForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: read.url(options),
+        method: 'get',
+    })
+
+            /**
+* @see \App\Http\Controllers\FileExplorerController::read
+ * @see app/Http/Controllers/FileExplorerController.php:233
+ * @route '/file-explorer/read'
+ */
+        readForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: read.url(options),
+            method: 'get',
+        })
+            /**
+* @see \App\Http\Controllers\FileExplorerController::read
+ * @see app/Http/Controllers/FileExplorerController.php:233
+ * @route '/file-explorer/read'
+ */
+        readForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: read.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    read.form = readForm
+/**
+* @see \App\Http\Controllers\FileExplorerController::save
+ * @see app/Http/Controllers/FileExplorerController.php:297
+ * @route '/file-explorer/save'
+ */
+export const save = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: save.url(options),
+    method: 'post',
+})
+
+save.definition = {
+    methods: ["post"],
+    url: '/file-explorer/save',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\FileExplorerController::save
+ * @see app/Http/Controllers/FileExplorerController.php:297
+ * @route '/file-explorer/save'
+ */
+save.url = (options?: RouteQueryOptions) => {
+    return save.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\FileExplorerController::save
+ * @see app/Http/Controllers/FileExplorerController.php:297
+ * @route '/file-explorer/save'
+ */
+save.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: save.url(options),
+    method: 'post',
+})
+
+    /**
+* @see \App\Http\Controllers\FileExplorerController::save
+ * @see app/Http/Controllers/FileExplorerController.php:297
+ * @route '/file-explorer/save'
+ */
+    const saveForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: save.url(options),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\FileExplorerController::save
+ * @see app/Http/Controllers/FileExplorerController.php:297
+ * @route '/file-explorer/save'
+ */
+        saveForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: save.url(options),
+            method: 'post',
+        })
+    
+    save.form = saveForm
+const FileExplorerController = { index, list, upload, download, rename, deleteMethod, createFolder, read, save, delete: deleteMethod }
 
 export default FileExplorerController

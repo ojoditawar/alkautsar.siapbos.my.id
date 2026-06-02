@@ -166,6 +166,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('file-explorer/rename', [FileExplorerController::class, 'rename'])->name('file-explorer.rename');
         Route::delete('file-explorer/delete', [FileExplorerController::class, 'delete'])->name('file-explorer.delete');
         Route::post('file-explorer/create-folder', [FileExplorerController::class, 'createFolder'])->name('file-explorer.create-folder');
+        Route::get('file-explorer/read', [FileExplorerController::class, 'read'])->name('file-explorer.read');
+        Route::post('file-explorer/save', [FileExplorerController::class, 'save'])->name('file-explorer.save');
     });
 
     // Validasi / Closing buku besar: hanya Admin yang bisa memproses/membatalkan.

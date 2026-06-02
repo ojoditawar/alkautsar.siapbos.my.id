@@ -16,6 +16,9 @@ import {
     Upload,
     ChevronRight,
     Plus,
+    Code,
+    Save,
+    X,
 } from 'lucide-vue-next';
 import { ref, onMounted, computed } from 'vue';
 import { Button } from '@/components/ui/button';
@@ -86,6 +89,91 @@ const newFolderName = ref('');
 const fileInput = ref<HTMLInputElement | null>(null);
 const uploading = ref(false);
 const dropActive = ref(false);
+
+// Editor
+const showEditorDialog = ref(false);
+const editingFile = ref<FileItem | null>(null);
+const editorContent = ref('');
+const editorLoading = ref(false);
+const editorSaving = ref(false);
+
+const editableExtensions = [
+    'txt', 'md', 'php', 'blade.php', 'js', 'ts', 'vue', 'jsx', 'tsx',
+    'css', 'scss', 'less', 'sass', 'html', 'htm',
+    'json', 'xml', 'yml', 'yaml', 'env', 'gitignore', 'log', 'sql',
+    'sh', 'bash', 'py', 'rb', 'go', 'java', 'c', 'cpp', 'h', 'rs',
+    'toml', 'ini', 'cfg', 'conf', 'twig', 'ps1', 'bat', 'lock',
+];
+
+function isEditable(item: FileItem): boolean {
+    if (item.type !== 'file') return false;
+    const name = item.name.toLowerCase();
+    if (name.endsWith('.blade.php')) return true;
+    if (name.endsWith('.gitignore')) return true;
+    const ext = item.extension?.toLowerCase() || '';
+    return editableExtensions.includes(ext);
+}
+
+function getEditorIcon(item: FileItem) {
+    if (!isEditable(item)) return File;
+    const ext = item.extension?.toLowerCase() || '';
+    const codeExts = ['php', 'js', 'ts', 'vue', 'jsx', 'tsx', 'py', 'rb', 'go', 'java', 'c', 'cpp', 'rs', 'sh', 'bash', 'sql'];
+    const markupExts = ['html', 'htm', 'css', 'scss', 'less', 'sass'];
+    if (codeExts.includes(ext) || item.name.endsWith('.blade.php')) return Code;
+    if (markupExts.includes(ext)) return Code;
+    return FileText;
+}
+
+async function openEditor(item: FileItem) {
+    editingFile.value = item;
+    editorContent.value = '';
+    showEditorDialog.value = true;
+    editorLoading.value = true;
+    try {
+        const res = await fetch(`/file-explorer/read?path=${encodeURIComponent(item.path)}`);
+        const data = await res.json();
+        if (data.success) {
+            editorContent.value = data.content;
+        } else {
+            showToast('Error: ' + (data.error || 'Failed to read file'));
+            showEditorDialog.value = false;
+        }
+    } catch {
+        showToast('Failed to read file');
+        showEditorDialog.value = false;
+    } finally {
+        editorLoading.value = false;
+    }
+}
+
+function closeEditor() {
+    showEditorDialog.value = false;
+    editingFile.value = null;
+    editorContent.value = '';
+}
+
+async function saveEditor() {
+    if (!editingFile.value) return;
+    editorSaving.value = true;
+    try {
+        const res = await fetch('/file-explorer/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': (window as any).csrfToken },
+            body: JSON.stringify({ path: editingFile.value.path, content: editorContent.value }),
+        });
+        const data = await res.json();
+        if (data.success) {
+            showToast('File saved');
+            closeEditor();
+        } else {
+            showToast('Error: ' + (data.error || 'Save failed'));
+        }
+    } catch {
+        showToast('Save failed');
+    } finally {
+        editorSaving.value = false;
+    }
+}
 
 // Toast
 const toastMessage = ref('');
@@ -465,6 +553,14 @@ onMounted(() => {
                         <!-- Actions -->
                         <div class="col-span-1 flex items-center justify-end gap-0.5">
                             <button
+                                v-if="item.type === 'file' && isEditable(item)"
+                                class="rounded p-1 text-blue-500/70 transition-colors hover:bg-blue-500/10 hover:text-blue-600"
+                                title="Open"
+                                @click.stop="openEditor(item)"
+                            >
+                                <component :is="getEditorIcon(item)" class="h-3.5 w-3.5" />
+                            </button>
+                            <button
                                 v-if="item.type === 'file'"
                                 class="rounded p-1 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                                 title="Download"
@@ -550,6 +646,54 @@ onMounted(() => {
                 <Button @click="createFolder" :disabled="!newFolderName.trim()">
                     <Plus class="mr-1 h-4 w-4" />
                     Buat
+                </Button>
+            </DialogFooter>
+        </DialogContent>
+    </Dialog>
+
+    <!-- Editor Dialog -->
+    <Dialog v-model:open="showEditorDialog" :dismissable="false">
+        <DialogContent class="max-w-[95vw] sm:max-w-[90vw] lg:max-w-[85vw]">
+            <DialogHeader>
+                <DialogTitle class="flex items-center gap-2">
+                    <component
+                        :is="editingFile ? getEditorIcon(editingFile) : File"
+                        class="h-4 w-4"
+                    />
+                    <span class="truncate font-mono text-sm">{{ editingFile?.name }}</span>
+                    <span class="truncate text-xs text-muted-foreground font-mono" v-if="editingFile">
+                        {{ editingFile.path }}
+                    </span>
+                </DialogTitle>
+                <DialogDescription>
+                    Edit file — perubahan langsung tersimpan ke server
+                </DialogDescription>
+            </DialogHeader>
+
+            <!-- Loading -->
+            <div v-if="editorLoading" class="flex items-center justify-center py-16">
+                <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div class="h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent"></div>
+                    Loading file content...
+                </div>
+            </div>
+
+            <!-- Editor -->
+            <textarea
+                v-else
+                v-model="editorContent"
+                class="flex min-h-[400px] w-full resize-y rounded-lg border bg-background p-3 font-mono text-sm leading-relaxed outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                spellcheck="false"
+            ></textarea>
+
+            <DialogFooter>
+                <Button variant="outline" @click="closeEditor" :disabled="editorSaving">
+                    <X class="mr-1 h-4 w-4" />
+                    Cancel
+                </Button>
+                <Button @click="saveEditor" :disabled="editorLoading || editorSaving">
+                    <Save class="mr-1 h-4 w-4" />
+                    {{ editorSaving ? 'Saving...' : 'Save' }}
                 </Button>
             </DialogFooter>
         </DialogContent>

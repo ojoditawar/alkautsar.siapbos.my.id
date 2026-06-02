@@ -228,6 +228,108 @@ class FileExplorerController extends Controller
     }
 
     /**
+     * Read the content of a text file.
+     */
+    public function read(Request $request)
+    {
+        $request->validate([
+            'path' => 'required|string',
+        ]);
+
+        $fullPath = $this->resolvePath($request->input('path'));
+        if (!$fullPath || !File::isFile($fullPath)) {
+            return response()->json(['error' => 'File not found'], 404);
+        }
+
+        // Cegah file binary / terlalu besar
+        $maxSize = 512 * 1024; // 512KB
+        if (File::size($fullPath) > $maxSize) {
+            return response()->json(['error' => 'File too large to edit (max 512KB)'], 413);
+        }
+
+        // Cek apakah binary file berdasarkan ekstensi
+        $textExtensions = [
+            'txt', 'md', 'php', 'blade.php', 'js', 'ts', 'vue', 'jsx', 'tsx',
+            'css', 'scss', 'less', 'sass', 'styl', 'html', 'htm', 'xhtml',
+            'json', 'xml', 'yml', 'yaml', 'env', 'gitignore', 'log', 'sql',
+            'sh', 'bash', 'zsh', 'py', 'rb', 'go', 'java', 'c', 'cpp', 'h',
+            'hpp', 'rs', 'swift', 'kt', 'scala', 'pl', 'lua', 'r', 'm',
+            'toml', 'ini', 'cfg', 'conf', 'Makefile', 'dockerfile',
+            'nginx', 'htaccess', 'lock', 'twig', 'sass', 'ps1', 'bat',
+        ];
+
+        $name = basename($fullPath);
+        $ext = '';
+        // Handle dual extensions like .blade.php
+        if (str_ends_with($name, '.blade.php')) {
+            $ext = 'blade.php';
+        } elseif (str_ends_with($name, '.gitignore')) {
+            $ext = 'gitignore';
+        } else {
+            $ext = pathinfo($name, PATHINFO_EXTENSION);
+        }
+
+        if (!in_array(strtolower($ext), $textExtensions)) {
+            return response()->json(['error' => 'Cannot edit binary files'], 422);
+        }
+
+        try {
+            $content = File::get($fullPath);
+            // Check if content is valid UTF-8
+            if (!mb_check_encoding($content, 'UTF-8')) {
+                return response()->json(['error' => 'File is not valid UTF-8 text'], 422);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to read file: ' . $e->getMessage()], 500);
+        }
+
+        return response()->json([
+            'success' => true,
+            'content' => $content,
+            'path' => $this->getRelativePath($fullPath),
+            'name' => basename($fullPath),
+        ]);
+    }
+
+    /**
+     * Save content to a text file.
+     */
+    public function save(Request $request)
+    {
+        $request->validate([
+            'path' => 'required|string',
+            'content' => 'required|string',
+        ]);
+
+        $fullPath = $this->resolvePath($request->input('path'));
+        if (!$fullPath || !File::isFile($fullPath)) {
+            return response()->json(['error' => 'File not found'], 404);
+        }
+
+        // Cegah file terlalu besar untuk ditulis
+        $content = $request->input('content');
+        if (strlen($content) > 512 * 1024) {
+            return response()->json(['error' => 'Content too large to save (max 512KB)'], 413);
+        }
+
+        // Cek apakah masih writable
+        if (!File::isWritable($fullPath)) {
+            return response()->json(['error' => 'File is not writable'], 403);
+        }
+
+        try {
+            File::put($fullPath, $content);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to save file: ' . $e->getMessage()], 500);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'File saved successfully',
+        ]);
+    }
+
+    /**
      * Resolve a relative path to an absolute path, ensuring it's within the project root.
      */
     protected function resolvePath(?string $relativePath): ?string
