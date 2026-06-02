@@ -95,6 +95,7 @@ $SSH_CMD "$VPS_USER@$VPS_IP" bash -s << 'DEPLOY'
     npm install --silent 2>&1 | tail -1
 
     echo "  → Build frontend..."
+    sudo chown -R cempaka:cempaka node_modules 2>/dev/null || true
     sudo chown -R cempaka:cempaka public/build 2>/dev/null || true
     npm run build 2>&1 | tail -3
     sudo chown -R www-data:www-data public/build 2>/dev/null || true
